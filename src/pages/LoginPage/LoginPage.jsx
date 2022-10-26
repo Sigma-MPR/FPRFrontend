@@ -25,14 +25,12 @@ const LoginPage = () => {
             password,
         }
         const loginResult = await Login(data);
-        if(loginResult.status === 200){
-            localStorage.setItem("Token",loginResult.token);
-            // To be changed to a alert library later
-            alert("Login Success");
-        }
+        if(!loginResult){
+            alert("Invalid Credentials");}
         else{
-            alert("Login Failed");
-        }
+            // setlocal storage
+            localStorage.setItem("token",loginResult.token);
+            alert("Login Successful");}
     }
     return (
         <div class="flex items-center justify-center min-h-screen bg-gray-100 CollegeBackground">
