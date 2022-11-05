@@ -2,8 +2,13 @@ import React from 'react';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import './App.css';
 import { LoginPage } from './pages';
+import Navbar from '../src/pages/Shared Components/Navbar.js'
 function App() {
   return (
+    <div>
+
+    
+    <Navbar />
     <BrowserRouter>
       <Routes>
         <Route path="/">
@@ -13,6 +18,7 @@ function App() {
         </Route>
       </Routes>
     </BrowserRouter>
+    </div>
   );
 }
 
