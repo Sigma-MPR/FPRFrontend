@@ -11,10 +11,6 @@ const LoginPage = () => {
         e.preventDefault();
         setUser(user === "Faculty"?"Admin":"Faculty");
     }
-    // set Useffect for user
-    // useEffect(() => {
-    // }, [user]);
-
     
     const login = async(e) => {
         e.preventDefault();
