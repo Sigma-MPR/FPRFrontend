@@ -14,7 +14,6 @@ const LoginPage = () => {
     // set Useffect for user
     // useEffect(() => {
     // }, [user]);
-
     
     const login = async(e) => {
         e.preventDefault();
