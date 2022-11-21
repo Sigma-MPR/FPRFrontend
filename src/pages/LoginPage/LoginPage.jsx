@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useEffect } from 'react';
+// import { useEffect } from 'react';
 // import use
 import './LoginPage.css';
 
@@ -36,7 +36,7 @@ const LoginPage = () => {
     return (
         <div class="flex items-center justify-center min-h-screen bg-gray-100 CollegeBackground">
             <div class="px-9 py-10 mt-4 text-left bg-white shadow-lg rounded-lg FadedWhiteBackground">
-                <h3 class="text-2xl font-bold text-center">{user=='Admin'?'Faculty':'Admin'} Login</h3>
+                <h3 class="text-2xl font-bold text-center">{user==='Admin'?'Faculty':'Admin'} Login</h3>
                 <form action="">
                     <div class="mt-4">
                         <div>
@@ -53,7 +53,7 @@ const LoginPage = () => {
                             <a href="google.com" class="mx-auto flex items-center justify-center text-sm text-blue-600 hover:underline">Forgot password?</a>
                     </div>
                 </form>
-                <a href = "#" class="flex items-center justify-center mt-3 text-sm text-blue-600 hover:underline text-base mb-1" onClick={changeUser}>Login As {user}</a>
+                <a href = "/" class="flex items-center justify-center mt-3 text-sm text-blue-600 hover:underline text-base mb-1" onClick={changeUser}>Login As {user}</a>
             </div>
         </div>
     )
