@@ -46,13 +46,27 @@ const dateField = (fieldName) => {
             </div>`
     )
 }
+const AchievementDropDown = [
+    ["Books Published", "BP"],
+    ["Conference Proceeding" ,"CP"]
+];
+
 const AddAchievement = () => {
+    const prop = "Books Published"; //This has to be taken as a prop from the dashboard
+    let isThere = false;
+
+    AchievementDropDown.map((item) => {
+        if(item[0] === prop){
+            isThere = true;
+        }
+    })
+
     const [achievement, setAchievement] = useState("BP");
     let v = BP;
     let str = '';
     const changeOption = (e) => {
             setAchievement(achievement==='BP'?'CP':'BP');
-            alert(achievement);
+            // alert(achievement);
             v = eval(achievement);
             document.querySelector("#fields").innerHTML = '';
             Object.keys(v).forEach(function(key, index) {
@@ -75,9 +89,14 @@ const AddAchievement = () => {
             <div className="add-achievement">            
                 <label for="achievement" className="inline mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Choose Achievement Type</label>
                 <select id="achievement" className="bg-gray-50 border text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500" onChange = {changeOption}>
-                <option selected value="BP">Choose an Achievement</option>
-                <option value="BP">Books Published</option>
-                <option value="CP">Conference Proceeding</option>
+                {isThere||<option>Choose Type Of Achievement</option>}
+                {
+                    AchievementDropDown.map((item, index) => {
+                        return (
+                            <option value={item[1]}>{item[0]}</option>
+                        )
+                    })
+                }
                 </select>
             </div>
             <div id="fields" className="add-achievement"></div>   
