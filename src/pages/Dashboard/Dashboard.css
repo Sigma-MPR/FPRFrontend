@@ -1,0 +1,8 @@
+#DashboardContainer{
+    justify-content: space-around;
+    align-items: center;
+    display: flex;
+    /* padding: 10px; */
+    margin-top: 2%;
+    flex-wrap: wrap;
+}
