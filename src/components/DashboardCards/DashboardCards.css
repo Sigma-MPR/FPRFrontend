@@ -14,7 +14,7 @@
 }
 
 /* css to blur out the component on class soon */
-#DashboardCard.soon{
+#DashboardCard.soon, #DashboardCard.soon div button{
     filter: blur(5px);
     cursor: not-allowed;
 }
