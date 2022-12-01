@@ -1,5 +1,5 @@
 import React from "react";
-import ProfilePhoto from "../Images/ProfilePhoto.png"
+import ProfilePhoto from "../Images/ProfilePhoto.png";
 
 /**
  * @param {{title:String,description:String}} props 
@@ -20,14 +20,14 @@ function DetailBox(props) {
  */
 function Btn(props){
     return (
-        <button className="btn btn-outline btn-sm m-2 rounded-full">{props.text}</button>
+        <button className="btn btn-outline btn-sm m-2 rounded-full max-[640px]:w-48 ">{props.text}</button>
     )
 }
 
 // "/profile"
 export default function UserProfile() {
     return (
-        <div className="grid md:grid-cols-2 sm:grid-cols-1 py-16 m-5 rounded-2xl shadow-xl bg-slate-100">
+        <div className="grid md:grid-cols-2 sm:grid-cols-1 py-16 m-5 rounded-2xl shadow-xl bg-blue-200">
             <div className="py-5">
                 <div className=" flex justify-center">
                     <img src={ProfilePhoto} className="rounded-full w-48" alt="Profile Pic"/>
@@ -48,7 +48,7 @@ export default function UserProfile() {
                     <DetailBox title="Qualification" description="PhD"/>
                     </div>
                 </div>
-                <div className="grid sm:grid-cols-3 grid-cols-1 my-5">
+                <div className="grid sm:grid-cols-3 grid-cols-1 my-5 max-[640px]:justify-items-center">
                     <Btn text="Analytics"/>
                     <Btn text="Edit Profile"/>
                     <Btn text="Change Password"/>
