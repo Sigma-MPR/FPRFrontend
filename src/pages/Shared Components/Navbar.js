@@ -8,7 +8,7 @@ export default function Navbar(){
     if( document.location.href.split("/")[document.location.href.split("/").length-1]!=='login')
         return(
             <div className="h-auto flex justify-between p-3">
-                <img src={SurajmalLogo} className="w-12"/>
+                <img src={SurajmalLogo} className="w-12" alt="SurajmalLogo"/>
                 
                 <div className="py-4 flex">
                 <AiFillHome/> 
