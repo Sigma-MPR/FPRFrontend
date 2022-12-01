@@ -1,9 +1,7 @@
 import React from 'react';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import './App.css';
-import { LoginPage } from './pages';
-import UserProfile from './pages/UserProfile/UserProfile.js'
-import { LoginPage, AddAchievement  } from './pages';
+import { LoginPage, AddAchievement, UserProfile } from './pages';
 
 import Navbar from './pages/Shared Components/Navbar.js'
 function App() {
