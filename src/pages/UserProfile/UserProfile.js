@@ -39,9 +39,9 @@ export default function UserProfile() {
                     </div>
                 </div>
                 <div className="grid sm:grid-cols-3 grid-cols-1 my-5">
-                    <button class="btn btn-outline btn-sm m-2 p-0">Analytics</button>
-                    <button class="btn btn-outline btn-sm m-2 p-0">Edit Profile</button>
-                    <button class="btn btn-outline btn-sm m-2 p-0">Change Password</button>
+                    <button class="btn btn-outline btn-sm m-2 rounded-full">Analytics</button>
+                    <button class="btn btn-outline btn-sm m-2 rounded-full">Edit Profile</button>
+                    <button class="btn btn-outline btn-sm m-2 rounded-full">Change Password</button>
                 </div>
 
 
