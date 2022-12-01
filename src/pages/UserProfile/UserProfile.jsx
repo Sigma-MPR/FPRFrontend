@@ -1,6 +1,6 @@
 import React from "react";
 import ProfilePhoto from "../Images/ProfilePhoto.png";
-
+import '../Index.css';
 /**
  * @param {{title:String,description:String}} props 
  * @returns {JSX.Element}
@@ -20,14 +20,14 @@ function DetailBox(props) {
  */
 function Btn(props){
     return (
-        <button className="btn btn-outline btn-sm m-2 rounded-full max-[640px]:w-48 ">{props.text}</button>
+        <button className="btn btn-outline btn-sm m-2 rounded-xl max-[640px]:w-48 bg-blue text-light">{props.text}</button>
     )
 }
 
 // "/profile"
 export default function UserProfile() {
     return (
-        <div className="grid md:grid-cols-2 sm:grid-cols-1 py-16 m-5 rounded-2xl shadow-xl bg-blue-200">
+        <div className="grid md:grid-cols-2 sm:grid-cols-1 py-16 m-5 rounded-2xl shadow-2xl bg-light text-blue">
             <div className="py-5">
                 <div className=" flex justify-center">
                     <img src={ProfilePhoto} className="rounded-full w-48" alt="Profile Pic"/>
