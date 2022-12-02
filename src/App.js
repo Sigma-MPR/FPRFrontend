@@ -23,7 +23,7 @@ function App() {
               <Route index element = {<h1>profile Route</h1>}/>
           </Route>
 
-          <Route path = "achievements" element = {<AddAchievement />} />
+          <Route path = "addachievement" element = {<AddAchievement />} />
           <Route index element = {<h1>Index Route</h1>} />
         </Route>
       </Routes>

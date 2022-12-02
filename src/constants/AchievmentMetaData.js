@@ -1,6 +1,23 @@
-import React from "react";
-import DashboardCards from "../../components/DashboardCards/DashboardCards";
-import "./Dashboard.css";
+const AchievementSchemaData = {
+    "BP": {
+        "Title_Of_Book" : "TEXT",
+        "Publishing_Year" : "NUMBER",
+        "Publisher" : "TEXT",
+        "ISBN" : "TEXT",
+        "Authors" : "TEXT",
+        "Co_Authors" : "TEXT",
+        "Number_Of_Pages" : "NUMBER"
+    },
+    "CP":{
+        "Title Of Paper" : "TEXT",
+        "Conference Name" : "TEXT",
+        "Conference Date" : "DATE",
+        "Conference Location" : "TEXT",
+        "Authors" : "TEXT",
+        "Co-Authors" : "TEXT",
+        "Attendees" : "NUMBER"
+    }
+};
 const AchievementArray = [
     {
         "name": "Books Published",
@@ -43,16 +60,4 @@ const AchievementArray = [
         "available": true
     }
 ]
-export default function Dashboard() {
-    return (
-        <div id="DashboardContainer">
-        {
-            AchievementArray.map((item, index) => {
-                return (
-                        <DashboardCards name={item.name} link={item.link} available={item.available}/>
-                )
-            })
-        }
-        </div>
-    );
-}
+export { AchievementSchemaData, AchievementArray };

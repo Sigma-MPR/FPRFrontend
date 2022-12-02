@@ -1,26 +1,8 @@
 import React from "react";
 import { useState } from "react";
-import { useEffect } from "react";
 import "./AddAchievement.css";
-import { addAchievement } from "../../apis";
-const BP = {
-    "Title_Of_Book" : "TEXT",
-    "Publishing_Year" : "NUMBER",
-    "Publisher" : "TEXT",
-    "ISBN" : "TEXT",
-    "Authors" : "TEXT",
-    "Co_Authors" : "TEXT",
-    "Number_Of_Pages" : "NUMBER"
-}
-const CP = {
-    "Title Of Paper" : "TEXT",
-    "Conference Name" : "TEXT",
-    "Conference Date" : "DATE",
-    "Conference Location" : "TEXT",
-    "Authors" : "TEXT",
-    "Co-Authors" : "TEXT",
-    "Attendees" : "NUMBER"
-}
+import { useLocation } from "react-router-dom";
+import { AchievementSchemaData } from "../../constants";
 const textField = (fieldName) => {
     return (
         `<div>
@@ -29,7 +11,6 @@ const textField = (fieldName) => {
         </div>`
     )
 }
-
 const numberField = (fieldName) => {
     return (
             `<div>
@@ -46,28 +27,20 @@ const dateField = (fieldName) => {
             </div>`
     )
 }
-const AchievementDropDown = [
-    ["Books Published", "BP"],
-    ["Conference Proceeding" ,"CP"]
-];
+
+const AchievementDropDown = {
+    "Books Published":"BP",
+    "Conference Proceedings":"CP"
+};
 
 const AddAchievement = () => {
-    const prop = "Books Published"; //This has to be taken as a prop from the dashboard
-    let isThere = false;
+    const location = useLocation();
+    const prop = location.state.name;
 
-    AchievementDropDown.map((item) => {
-        if(item[0] === prop){
-            isThere = true;
-        }
-    })
-
-    const [achievement, setAchievement] = useState("BP");
-    let v = BP;
-    let str = '';
+    const [achievement, setAchievement] = useState(AchievementDropDown[prop]||"BP");
+    let v = AchievementSchemaData[achievement];
     const changeOption = (e) => {
             setAchievement(achievement==='BP'?'CP':'BP');
-            // alert(achievement);
-            v = eval(achievement);
             document.querySelector("#fields").innerHTML = '';
             Object.keys(v).forEach(function(key, index) {
                 if(v[key] === "TEXT") {
@@ -89,13 +62,16 @@ const AddAchievement = () => {
             <div className="add-achievement">            
                 <label for="achievement" className="inline mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Choose Achievement Type</label>
                 <select id="achievement" className="bg-gray-50 border text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500" onChange = {changeOption}>
-                {isThere||<option>Choose Type Of Achievement</option>}
+                {AchievementDropDown[prop]||<option>Choose Type Of Achievement</option>}
                 {
-                    AchievementDropDown.map((item, index) => {
-                        return (
-                            <option value={item[1]}>{item[0]}</option>
-                        )
+                    Object.keys(AchievementDropDown).map((item) => {
+                        if(item !== prop){
+                          return <option value={AchievementDropDown[item]}>{item}</option>
+                        }
+                        else 
+                                return <option selected value={AchievementDropDown[item]}>{item}</option>
                     })
+
                 }
                 </select>
             </div>

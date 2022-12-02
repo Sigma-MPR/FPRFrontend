@@ -12,7 +12,7 @@ export default function DashboardCards(props) {
                     <div class="flex items-baseline text-gray-900 dark:text-white">
                         <span class="text-2xl font-semibold">{props.name}</span>
                     </div>
-                    <Link to={"/addachievement"} className="DashboardCardLink">
+                    <Link to={"/addachievement"} state={{ name: props.name }} >
                         <Button available={props.available} text="Add New" />
                     </Link>
                 </div>
