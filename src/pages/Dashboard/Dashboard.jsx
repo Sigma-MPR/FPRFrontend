@@ -49,7 +49,7 @@ export default function Dashboard() {
         {
             AchievementArray.map((item, index) => {
                 return (
-                    <DashboardCards name={item.name} link={item.link} available={item.available}/>
+                        <DashboardCards name={item.name} link={item.link} available={item.available}/>
                 )
             })
         }
