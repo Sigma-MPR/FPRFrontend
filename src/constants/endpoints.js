@@ -1,2 +1,3 @@
 const USER_API = process.env.REACT_APP_USER_API;
-export default USER_API
+const ACHIEVEMENT_API = process.env.REACT_APP_ACHIEVEMENT_API;
+export  {USER_API, ACHIEVEMENT_API};

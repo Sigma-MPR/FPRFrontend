@@ -1,3 +1,6 @@
+body{
+    background-color: thistle; /*for testing purpose;*/
+}
 input{
     display: flex;
     align-self: flex-end;

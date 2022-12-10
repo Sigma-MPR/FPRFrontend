@@ -32,6 +32,10 @@ const AchievementDropDown = {
     "Books Published": "BP",
     "Conference Proceedings": "CP"
 };
+const EndpointList = {
+    "BP": "/bookspublished",
+    "CP": "/conferenceproceeding"
+}
 const makefields = (v) => {
     Object.keys(v).forEach(function (key, index) {
         if (v[key] === "TEXT") {
@@ -45,16 +49,49 @@ const makefields = (v) => {
         }
     })
 }
+const addAchievementApiFunction = (e) => {
+    e.preventDefault();
+    const achievement = e.target.value;
+    const data = {};
+    const fields = document.querySelectorAll("#fields input");
+    fields.forEach((item) => {
+        data[item.id] = item.value;
+    })
+    data["cid"] = "507f1f77bcf86cd799439011";
+    data["uid"] = "";
+    const endpoint = EndpointList[achievement];
+    if(!endpoint) return alert("Please Select Achievement Type");
+try{
+    fetch(`${endpoint}`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
+    })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+            alert("Achievement Added");
+        })
+    }
+    catch(err){
+        console.log(err);
+        alert("Error Occured");
+    }
+}
 const AddAchievement = () => {
     const location = useLocation();
     const prop = location.state.name;
     const [achievement, setAchievement] = useState(AchievementDropDown[prop]);
     useEffect(() => {
-        if (achievement)
+        if (achievement){
+            document.querySelector("#fields").innerHTML = '';
             makefields(AchievementSchemaData[AchievementDropDown[prop]]);
-    },
-        // eslint-disable-next-line
-        []);
+        }
+    }, 
+    // eslint-disable-next-line
+    []);
     const changeOption = (e) => {
         setAchievement(e.target.value);
         document.querySelector("#fields").innerHTML = '';
@@ -83,7 +120,7 @@ const AddAchievement = () => {
                     </div>
                     <div id="fields" className="add-achievement"></div>
                 </div>
-                <button type="submit" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
+                <button type="submit" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" value = {achievement} onClick={addAchievementApiFunction}>Submit</button>
             </form>
         </div>
 

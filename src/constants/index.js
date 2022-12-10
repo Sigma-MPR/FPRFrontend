@@ -1,4 +1,10 @@
+// Style
+export {default as Colors} from './colors';
+
+// Meta Data
 export {AchievementSchemaData} from './AchievmentMetaData';   
 export {AchievementArray} from './AchievmentMetaData';   
-export {default as Colors} from './colors';
-export {default as USER_API} from './endpoints';
+
+// Endpoints
+export {USER_API} from './endpoints';
+export {ACHIEVEMENT_API} from './endpoints';
