@@ -2,29 +2,37 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import "./AddAchievement.css";
-import { AchievementSchemaData, AchievementDropDown } from "../../constants";
-import {makefields, addAchievementApiFunction} from './functions';
+import { AchievementDropDown } from "../../constants";
+import {makefields, addAchievementApiFunction, getFieldsByAPI} from './functions';
+const tempMap = {
+    "BP": "BooksPublished",
+    "CP": "ConferenceProceedings",
+}
 const AddAchievement = () => {
     const location = useLocation();
     const prop = location.state.name;
     const [achievement, setAchievement] = useState(AchievementDropDown[prop]);
+    const [AchievementSchemaData, setAchievementSchemaData] = useState({});
     useEffect(() => {
         if (achievement){
+            setAchievementSchemaData(getFieldsByAPI("BooksPublished"));
+            console.log(AchievementSchemaData);
             document.querySelector("#fields").innerHTML = '';
-            makefields(AchievementSchemaData[AchievementDropDown[prop]]["modelFields"]);
+            makefields(AchievementSchemaData);
         }
     }, 
     // eslint-disable-next-line
     []);
-
     const changeOption = (e) => {
         setAchievement(e.target.value);
+        // alert();
+        setAchievementSchemaData(getFieldsByAPI(tempMap[e.target.value]));
         document.querySelector("#fields").innerHTML = '';
-        makefields(AchievementSchemaData[e.target.value].modelFields);
+        makefields(AchievementSchemaData);
     };
     return (
-        <div class="w-1/2 ml-auto mr-auto">
-            <form class="w-1/2">
+        <div classname="w-1/2 ml-auto mr-auto">
+            <form classname="w-1/2">
                 <div className="grid gap-3 mb-3 md:grid-cols-1" id="addAchievement">
                     <div className="add-achievement">
                         <label for="achievement" className="inline mb-2 text-sm font-medium text-gray-900 dark:text-gray-400 ">Choose Achievement Type</label>

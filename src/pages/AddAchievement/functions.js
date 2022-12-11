@@ -26,24 +26,48 @@ const dateField = (fieldName, required) => {
 }
 const makefields = (fields) => {
     // eslint-disable-next-line
-    fields.map((field)=>{
-        if (field.type === "String"){
-            document.querySelector("#fields").innerHTML += textField(field.name, field.required);
-        }
-        else if (field.type === "Number"){
-            document.querySelector("#fields").innerHTML += numberField(field.name);
-        }
-        else if (field.type === "Date"){
-            document.querySelector("#fields").innerHTML += dateField(field.name)
-        }
-    })
+    if(fields.length>0)
+        fields.map((field)=>{
+            if (field.type === "String"){
+                document.querySelector("#fields").innerHTML += textField(field.name, field.required);
+            }
+            else if (field.type === "Number"){
+                document.querySelector("#fields").innerHTML += numberField(field.name);
+            }
+            else if (field.type === "Date"){
+                document.querySelector("#fields").innerHTML += dateField(field.name)
+            }
+        })
 }
 
+const getFieldsByAPI = async(achievement) => {
+
+    try{
+        const apiAchievement = achievement.split(" ").join("");
+        const resp = await fetch(`${endpoint}/fields?model=${apiAchievement}`, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json"
+            }
+        })
+        if(resp){
+            const res = await resp.json();
+            // console.log(res);
+            return res.modelFields; 
+        }
+    }
+    catch{
+        console.log("Error Occured");
+        return;
+    }
+
+    
+}
 
 const addAchievementApiFunction = (e) => {
     e.preventDefault();
     var ele = document.getElementsByTagName("form")[0];
-    var chk_status = ele.checkValidity();
+    ele.checkValidity();
     ele.reportValidity();
     const achievement = e.target.value;
     const data = {};
@@ -54,6 +78,7 @@ const addAchievementApiFunction = (e) => {
     data["cid"] = "507f1f77bcf86cd799439011";
     data["uid"] = "";
     const endpoint = EndpointList[achievement];
+    console.log(data);
     if(!endpoint) return alert("Please Select Achievement Type");
 try{
     fetch(`${endpoint}`, {
@@ -75,4 +100,4 @@ try{
     }
 };
 
-export {textField, numberField, dateField, makefields, addAchievementApiFunction};
+export {textField, numberField, dateField, makefields, addAchievementApiFunction, getFieldsByAPI};
