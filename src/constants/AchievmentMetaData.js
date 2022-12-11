@@ -1,23 +1,184 @@
 const AchievementSchemaData = {
     "BP": {
-        "Title_Of_Book" : "TEXT",
-        "Publishing_Year" : "NUMBER",
-        "Publisher" : "TEXT",
-        "ISBN" : "TEXT",
-        "Authors" : "TEXT",
-        "Co_Authors" : "TEXT",
-        "Number_Of_Pages" : "NUMBER"
+        "modelFields": [
+            {
+              "name": "cid",
+              "required": false,
+              "type": "ObjectId"
+            },
+            {
+              "name": "uid",
+              "required": false,
+              "type": "ObjectId"
+            },
+            {
+              "name": "title",
+              "required": false,
+              "type": "String"
+            },
+            {
+              "name": "publisher",
+              "required": false,
+              "type": "String"
+            },
+            {
+              "name": "place",
+              "required": false,
+              "type": "String"
+            },
+            {
+              "name": "isbn",
+              "required": false,
+              "type": "String"
+            },
+            {
+              "name": "pubMonth",
+              "required": false,
+              "type": "String"
+            },
+            {
+              "name": "pubYear",
+              "required": false,
+              "type": "String"
+            },
+            {
+              "name": "pubCategory",
+              "required": false,
+              "type": "String"
+            },
+            {
+              "name": "isHardCopy",
+              "required": false,
+              "type": "Boolean"
+            },
+            {
+              "name": "remarks",
+              "required": false,
+              "type": "String"
+            }
+          ]
     },
     "CP":{
-        "Title Of Paper" : "TEXT",
-        "Conference Name" : "TEXT",
-        "Conference Date" : "DATE",
-        "Conference Location" : "TEXT",
-        "Authors" : "TEXT",
-        "Co-Authors" : "TEXT",
-        "Attendees" : "NUMBER"
+       "modelFields": [
+    {
+      "name": "cid",
+      "required": false,
+      "type": "ObjectId"
+    },
+    {
+      "name": "uid",
+      "required": false,
+      "type": "ObjectId"
+    },
+    {
+      "name": "paperTitle",
+      "required": false,
+      "type": "String"
+    },
+    {
+      "name": "organizer",
+      "required": false,
+      "type": "String"
+    },
+    {
+      "name": "place",
+      "required": false,
+      "type": "String"
+    },
+    {
+      "name": "isbn",
+      "required": false,
+      "type": "String"
+    },
+    {
+      "name": "sPageNo",
+      "required": false,
+      "type": "Number"
+    },
+    {
+      "name": "ePageNo",
+      "required": false,
+      "type": "Number"
+    },
+    {
+      "name": "sDate",
+      "required": false,
+      "type": "Number"
+    },
+    {
+      "name": "sMonth",
+      "required": false,
+      "type": "Number"
+    },
+    {
+      "name": "sYear",
+      "required": false,
+      "type": "Number"
+    },
+    {
+      "name": "eDate",
+      "required": false,
+      "type": "Number"
+    },
+    {
+      "name": "eMonth",
+      "required": false,
+      "type": "Number"
+    },
+    {
+      "name": "eYear",
+      "required": false,
+      "type": "Number"
+    },
+    {
+      "name": "pubMonth",
+      "required": false,
+      "type": "String"
+    },
+    {
+      "name": "pubYear",
+      "required": false,
+      "type": "String"
+    },
+    {
+      "name": "publisher",
+      "required": false,
+      "type": "String"
+    },
+    {
+      "name": "isHardCopy",
+      "required": false,
+      "type": "Boolean"
+    },
+    {
+      "name": "isPublished",
+      "required": false,
+      "type": "Boolean"
+    },
+    {
+      "name": "finType",
+      "required": false,
+      "type": "String"
+    },
+    {
+      "name": "regionType",
+      "required": false,
+      "type": "String"
+    },
+    {
+      "name": "authors",
+      "required": false,
+      "type": "String"
+    },
+    {
+      "name": "remarks",
+      "required": false,
+      "type": "String"
+    }
+  ]
     }
 };
+
 const AchievementArray = [
     {
         "name": "Books Published",
@@ -59,5 +220,16 @@ const AchievementArray = [
         "link": "/achievements/All",
         "available": true
     }
-]
-export { AchievementSchemaData, AchievementArray };
+];
+
+const EndpointList = {
+    "BP": "/bookspublished",
+    "CP": "/conferenceproceeding"
+}
+
+const AchievementDropDown = {
+    "Books Published": "BP",
+    "Conference Proceedings": "CP"
+};
+
+export { AchievementSchemaData, AchievementArray, EndpointList, AchievementDropDown };

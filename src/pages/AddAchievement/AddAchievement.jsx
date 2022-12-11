@@ -1,85 +1,9 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import "./AddAchievement.css";
 import { useLocation } from "react-router-dom";
-import { AchievementSchemaData } from "../../constants";
-const textField = (fieldName) => {
-    return (
-        `<div>
-                <label for=${fieldName} className="block mb-2 text-sm text-gray-900 dark:text-gray-400 ">${fieldName}</label>
-                <input type="text" id=${fieldName} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 rounded-md" placeholder="John" required="" />
-        </div>`
-    )
-}
-const numberField = (fieldName) => {
-    return (
-        `<div>
-                <label for=${fieldName} className="block mb-2 text-sm text-gray-900 dark:text-gray-400">${fieldName}</label>
-                <input type="number" id=${fieldName} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 rounded-md" placeholder="" required="" />
-            </div>`
-    )
-}
-const dateField = (fieldName) => {
-    return (
-        `<div>
-                <label for=${fieldName} className="block mb-2 text-sm font-black text-gray-900 dark:text-gray-400 ">${fieldName}</label>
-                <input type="date" id=${fieldName} className="bg-gray-50 border border-gray-450 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 rounded-md"  placeholder="" required="" />
-            </div>`
-    )
-}
-
-const AchievementDropDown = {
-    "Books Published": "BP",
-    "Conference Proceedings": "CP"
-};
-const EndpointList = {
-    "BP": "/bookspublished",
-    "CP": "/conferenceproceeding"
-}
-const makefields = (v) => {
-    Object.keys(v).forEach(function (key, index) {
-        if (v[key] === "TEXT") {
-            document.querySelector("#fields").innerHTML += textField(key);
-        }
-        else if (v[key] === "NUMBER") {
-            document.querySelector("#fields").innerHTML += numberField(key);
-        }
-        else if (v[key] === "DATE") {
-            document.querySelector("#fields").innerHTML += dateField(key)
-        }
-    })
-}
-const addAchievementApiFunction = (e) => {
-    e.preventDefault();
-    const achievement = e.target.value;
-    const data = {};
-    const fields = document.querySelectorAll("#fields input");
-    fields.forEach((item) => {
-        data[item.id] = item.value;
-    })
-    data["cid"] = "507f1f77bcf86cd799439011";
-    data["uid"] = "";
-    const endpoint = EndpointList[achievement];
-    if(!endpoint) return alert("Please Select Achievement Type");
-try{
-    fetch(`${endpoint}`, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(data)
-    })
-        .then(res => res.json())
-        .then(data => {
-            console.log(data);
-            alert("Achievement Added");
-        })
-    }
-    catch(err){
-        console.log(err);
-        alert("Error Occured");
-    }
-}
+import "./AddAchievement.css";
+import { AchievementSchemaData, AchievementDropDown } from "../../constants";
+import {makefields, addAchievementApiFunction} from './functions';
 const AddAchievement = () => {
     const location = useLocation();
     const prop = location.state.name;
@@ -87,17 +11,17 @@ const AddAchievement = () => {
     useEffect(() => {
         if (achievement){
             document.querySelector("#fields").innerHTML = '';
-            makefields(AchievementSchemaData[AchievementDropDown[prop]]);
+            makefields(AchievementSchemaData[AchievementDropDown[prop]]["modelFields"]);
         }
     }, 
     // eslint-disable-next-line
     []);
+
     const changeOption = (e) => {
         setAchievement(e.target.value);
         document.querySelector("#fields").innerHTML = '';
-        makefields(AchievementSchemaData[e.target.value]);
+        makefields(AchievementSchemaData[e.target.value].modelFields);
     };
-
     return (
         <div class="w-1/2 ml-auto mr-auto">
             <form class="w-1/2">
