@@ -34,12 +34,12 @@ const AchievementSchemaData = {
             {
               "name": "pubMonth",
               "required": false,
-              "type": "String"
+              "type": "Number"
             },
             {
               "name": "pubYear",
               "required": false,
-              "type": "String"
+              "type": "Number"
             },
             {
               "name": "pubCategory",

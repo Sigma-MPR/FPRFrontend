@@ -1,18 +1,18 @@
 import { EndpointList } from "../../constants";
 
-const textField = (fieldName) => {
+const textField = (fieldName, required) => {
     return (
         `<div>
                 <label for=${fieldName} className="block mb-2 text-sm text-gray-900 dark:text-gray-400 ">${fieldName}</label>
-                <input type="text" id=${fieldName} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 rounded-md" placeholder="John" />
+                <input type="text" id=${fieldName} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 rounded-md" placeholder="John" ${required&&'required'} />
         </div>`
     )
 }
-const numberField = (fieldName) => {
+const numberField = (fieldName, required) => {
     return (
         `<div>
                 <label for=${fieldName} className="block mb-2 text-sm text-gray-900 dark:text-gray-400">${fieldName}</label>
-                <input type="number" id=${fieldName} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 rounded-md" placeholder=""  />
+                <input type="number" id=${fieldName} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 rounded-md" placeholder="" required  />
             </div>`
     )
 }
@@ -28,7 +28,7 @@ const makefields = (fields) => {
     // eslint-disable-next-line
     fields.map((field)=>{
         if (field.type === "String"){
-            document.querySelector("#fields").innerHTML += textField(field.name);
+            document.querySelector("#fields").innerHTML += textField(field.name, field.required);
         }
         else if (field.type === "Number"){
             document.querySelector("#fields").innerHTML += numberField(field.name);
@@ -42,6 +42,9 @@ const makefields = (fields) => {
 
 const addAchievementApiFunction = (e) => {
     e.preventDefault();
+    var ele = document.getElementsByTagName("form")[0];
+    var chk_status = ele.checkValidity();
+    ele.reportValidity();
     const achievement = e.target.value;
     const data = {};
     const fields = document.querySelectorAll("#fields input");
