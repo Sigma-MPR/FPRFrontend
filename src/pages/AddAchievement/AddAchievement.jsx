@@ -14,12 +14,10 @@ const AddAchievement = () => {
     const [achievement, setAchievement] = useState(AchievementDropDown[prop]);
     const [AchievementSchemaData, setAchievementSchemaData] = useState({});
     useEffect(() => {
-        if (achievement){
-            setAchievementSchemaData(getFieldsByAPI("BooksPublished"));
-            console.log(AchievementSchemaData);
-            document.querySelector("#fields").innerHTML = '';
-            makefields(AchievementSchemaData);
-        }
+        setAchievementSchemaData(getFieldsByAPI("BooksPublished"));
+        console.log(AchievementSchemaData);
+        document.querySelector("#fields").innerHTML = '';
+        makefields(AchievementSchemaData);
     }, 
     // eslint-disable-next-line
     []);
@@ -31,20 +29,20 @@ const AddAchievement = () => {
         makefields(AchievementSchemaData);
     };
     return (
-        <div classname="w-1/2 ml-auto mr-auto">
-            <form classname="w-1/2">
+        <div className="w-1/2 ml-auto mr-auto">
+            <form className="w-1/2">
                 <div className="grid gap-3 mb-3 md:grid-cols-1" id="addAchievement">
                     <div className="add-achievement">
-                        <label for="achievement" className="inline mb-2 text-sm font-medium text-gray-900 dark:text-gray-400 ">Choose Achievement Type</label>
+                        <label htmlFor="achievement" className="inline mb-2 text-sm font-medium text-gray-900 dark:text-gray-400 ">Choose Achievement Type</label>
                         <select id="achievement" className="bg-gray-50 border text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500 " onChange={changeOption}>
                             {!AchievementDropDown[prop] && <option>Choose Type Of Achievement</option>}
                             {
-                                Object.keys(AchievementDropDown).map((item) => {
+                                Object.keys(AchievementDropDown).map((item, index) => {
                                     if (item !== prop) {
-                                        return <option value={AchievementDropDown[item]}>{item}</option>
+                                        return <option value={AchievementDropDown[item]} key={index}>{item}</option>
                                     }
                                     else
-                                        return <option selected value={AchievementDropDown[item]}>{item}</option>
+                                        return <option selected value={AchievementDropDown[item]} key = {index}>{item}</option>
                                 })
 
                             }

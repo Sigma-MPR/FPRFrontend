@@ -41,23 +41,22 @@ const makefields = (fields) => {
 }
 
 const getFieldsByAPI = async(achievement) => {
-
     try{
         const apiAchievement = achievement.split(" ").join("");
-        const resp = await fetch(`${endpoint}/fields?model=${apiAchievement}`, {
+        fetch(`${endpoint}/fields?model=${apiAchievement}`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json"
             }
         })
-        if(resp){
-            const res = await resp.json();
-            // console.log(res);
-            return res.modelFields; 
-        }
+        .then((res) => {
+            console.log(res);
+            return res;
+        })
     }
-    catch{
+    catch(err){
         console.log("Error Occured");
+        console.log(err);
         return;
     }
 
