@@ -25,8 +25,8 @@ const dateField = (fieldName, required) => {
     )
 }
 const makefields = (fields) => {
-    // eslint-disable-next-line
     if(fields.length>0)
+    // eslint-disable-next-line
         fields.map((field)=>{
             if (field.type === "String"){
                 document.querySelector("#fields").innerHTML += textField(field.name, field.required);
@@ -41,6 +41,7 @@ const makefields = (fields) => {
 }
 
 const getFieldsByAPI = async(achievement) => {
+    const endpoint = "ttps://zofwwojhu4yvgvcz7le55vwq5i0mkujt.lambda-url.us-east-1.on.aws"
     try{
         const apiAchievement = achievement.split(" ").join("");
         fetch(`${endpoint}/fields?model=${apiAchievement}`, {
