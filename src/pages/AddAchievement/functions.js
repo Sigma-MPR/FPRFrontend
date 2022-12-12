@@ -41,18 +41,19 @@ const makefields = (fields) => {
 }
 
 const getFieldsByAPI = async(achievement) => {
-    const endpoint = "ttps://zofwwojhu4yvgvcz7le55vwq5i0mkujt.lambda-url.us-east-1.on.aws"
+    const endpoint = "https://zofwwojhu4yvgvcz7le55vwq5i0mkujt.lambda-url.us-east-1.on.aws"
     try{
         const apiAchievement = achievement.split(" ").join("");
-        fetch(`${endpoint}/fields?model=${apiAchievement}`, {
+        fetch(`${endpoint}/achievements/fields?model=${apiAchievement}`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json"
             }
         })
-        .then((res) => {
-            console.log(res);
-            return res;
+        .then((response) => response.json())
+        .then((data) => {
+            console.log('Success:', data);
+            return data.allFields;
         })
     }
     catch(err){

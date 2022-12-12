@@ -13,14 +13,19 @@ const AddAchievement = () => {
     const prop = location.state.name;
     const [achievement, setAchievement] = useState(AchievementDropDown[prop]);
     const [AchievementSchemaData, setAchievementSchemaData] = useState({});
+    
     useEffect(() => {
         setAchievementSchemaData(getFieldsByAPI("BooksPublished"));
-        console.log(AchievementSchemaData);
-        document.querySelector("#fields").innerHTML = '';
-        makefields(AchievementSchemaData);
     }, 
     // eslint-disable-next-line
     []);
+    
+    useEffect(() => {
+        console.log(AchievementSchemaData);
+        document.querySelector("#fields").innerHTML = '';
+        makefields(AchievementSchemaData);
+    }, [AchievementSchemaData]);
+    
     const changeOption = (e) => {
         setAchievement(e.target.value);
         // alert();
@@ -28,6 +33,7 @@ const AddAchievement = () => {
         document.querySelector("#fields").innerHTML = '';
         makefields(AchievementSchemaData);
     };
+    
     return (
         <div className="w-1/2 ml-auto mr-auto">
             <form className="w-1/2">
