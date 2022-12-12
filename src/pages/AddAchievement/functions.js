@@ -41,7 +41,6 @@ const makefields = (fields) => {
 }
 
 const getFieldsByAPI = async(achievement) => {
-    const endpoint = "https://zofwwojhu4yvgvcz7le55vwq5i0mkujt.lambda-url.us-east-1.on.aws"
     try{
         const apiAchievement = achievement.split(" ").join("");
         fetch(`${endpoint}/achievements/fields?model=${apiAchievement}`, {
