@@ -40,7 +40,7 @@ const makefields = (fields) => {
         })
 }
 
-const getFieldsByAPI = async(achievement) => {
+const getFieldsByAPI = async(achievement, setAchievementSchemaData) => {
     try{
         const apiAchievement = achievement.split(" ").join("");
         fetch(`${endpoint}/achievements/fields?model=${apiAchievement}`, {
@@ -52,7 +52,8 @@ const getFieldsByAPI = async(achievement) => {
         .then((response) => response.json())
         .then((data) => {
             console.log('Success:', data);
-            return data.allFields;
+            setAchievementSchemaData(data.modelFields);
+            // return data.allFields;
         })
     }
     catch(err){

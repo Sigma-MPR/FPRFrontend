@@ -11,25 +11,25 @@ const tempMap = {
 const AddAchievement = () => {
     const location = useLocation();
     const prop = location.state.name;
+    console.log(tempMap[AchievementDropDown[prop]]);
     const [achievement, setAchievement] = useState(AchievementDropDown[prop]);
     const [AchievementSchemaData, setAchievementSchemaData] = useState({});
-    
+
     useEffect(() => {
-        setAchievementSchemaData(getFieldsByAPI("BooksPublished"));
-    }, 
-    // eslint-disable-next-line
-    []);
-    
+        // alert(tempMapprop]);
+        getFieldsByAPI(tempMap[AchievementDropDown[prop]], setAchievementSchemaData)
+    },[]);
     useEffect(() => {
-        console.log(AchievementSchemaData);
         document.querySelector("#fields").innerHTML = '';
         makefields(AchievementSchemaData);
     }, [AchievementSchemaData]);
     
     const changeOption = (e) => {
         setAchievement(e.target.value);
+        console.log(e.target.value);
         // alert();
-        setAchievementSchemaData(getFieldsByAPI(tempMap[e.target.value]));
+        getFieldsByAPI(tempMap[e.target.value], setAchievementSchemaData)
+        // setAchievementSchemaData(getFieldsByAPI(tempMap[e.target.value]));
         document.querySelector("#fields").innerHTML = '';
         makefields(AchievementSchemaData);
     };
