@@ -16,9 +16,10 @@ const AddAchievement = () => {
     const [AchievementSchemaData, setAchievementSchemaData] = useState({});
 
     useEffect(() => {
-        // alert(tempMapprop]);
         getFieldsByAPI(tempMap[AchievementDropDown[prop]], setAchievementSchemaData)
-    },[]);
+    },
+    // eslint-disable-next-line
+    []);
     useEffect(() => {
         document.querySelector("#fields").innerHTML = '';
         makefields(AchievementSchemaData);
@@ -27,9 +28,7 @@ const AddAchievement = () => {
     const changeOption = (e) => {
         setAchievement(e.target.value);
         console.log(e.target.value);
-        // alert();
         getFieldsByAPI(tempMap[e.target.value], setAchievementSchemaData)
-        // setAchievementSchemaData(getFieldsByAPI(tempMap[e.target.value]));
         document.querySelector("#fields").innerHTML = '';
         makefields(AchievementSchemaData);
     };

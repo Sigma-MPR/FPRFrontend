@@ -1,4 +1,5 @@
 import { EndpointList } from "../../constants";
+import { ACHIEVEMENT_API } from "../../constants";
 
 const textField = (fieldName, required) => {
     return (
@@ -41,6 +42,7 @@ const makefields = (fields) => {
 }
 
 const getFieldsByAPI = async(achievement, setAchievementSchemaData) => {
+    const endpoint = ACHIEVEMENT_API;
     try{
         const apiAchievement = achievement.split(" ").join("");
         fetch(`${endpoint}/achievements/fields?model=${apiAchievement}`, {
@@ -51,9 +53,7 @@ const getFieldsByAPI = async(achievement, setAchievementSchemaData) => {
         })
         .then((response) => response.json())
         .then((data) => {
-            console.log('Success:', data);
             setAchievementSchemaData(data.modelFields);
-            // return data.allFields;
         })
     }
     catch(err){
