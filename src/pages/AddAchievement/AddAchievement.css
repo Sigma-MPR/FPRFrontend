@@ -1,7 +1,11 @@
+body{
+    background-color: thistle; /*for testing purpose;*/
+}
 input{
     display: flex;
     align-self: flex-end;
 }
 label{
-    font-weight: 600;
+    font-weight: 700;
+   
 }
