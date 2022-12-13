@@ -29,8 +29,11 @@ const LoginPage = () => {
             alert("Invalid Credentials");}
         else{
             // setlocal storage
+            console.log(loginResult);
             localStorage.setItem("token",loginResult.token);
-            alert("Login Successful");}
+            alert("Login Successful");
+            window.location.href = "/dashboard";
+        }
     }
     return (
         <div class="flex items-center justify-center min-h-screen bg-gray-100 CollegeBackground">
