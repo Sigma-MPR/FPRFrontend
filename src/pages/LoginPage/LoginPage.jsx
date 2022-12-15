@@ -55,7 +55,7 @@ const LoginPage = () => {
                             <a href="google.com" class="mx-auto flex items-center justify-center text-sm text-blue-600 hover:underline">Forgot password?</a>
                     </div>
                 </form>
-                <a href = "/" class="flex items-center justify-center mt-3 text-sm text-blue-600 hover:underline text-base mb-1" onClick={changeUser}>Login As {user}</a>
+                <a href = "/" class="flex items-center justify-center mt-3 text-blue-600 hover:underline text-base mb-1" onClick={changeUser}>Login As {user}</a>
             </div>
         </div>
     )
