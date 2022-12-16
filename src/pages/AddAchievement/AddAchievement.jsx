@@ -11,7 +11,7 @@ const tempMap = {
 const AddAchievement = () => {
     const location = useLocation();
     const prop = location.state.name;
-    console.log(tempMap[AchievementDropDown[prop]]);
+    // console.log(tempMap[AchievementDropDown[prop]]);
     const [achievement, setAchievement] = useState(AchievementDropDown[prop]);
     const [AchievementSchemaData, setAchievementSchemaData] = useState({});
 

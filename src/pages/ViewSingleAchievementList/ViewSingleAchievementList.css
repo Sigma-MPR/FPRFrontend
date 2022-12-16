@@ -5,3 +5,9 @@
     align-items: center;
     padding: 10px;
 }
+
+/* Need better logic for button center */
+#longAddButton{
+    padding: 1%;
+    margin-left: 6%;
+}

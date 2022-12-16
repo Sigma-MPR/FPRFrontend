@@ -1,7 +1,7 @@
 import React from 'react';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import './App.css';
-import { LoginPage, AddAchievement, Dashboard  } from './pages';
+import { LoginPage, AddAchievement, Dashboard, ViewSingleAchievementList  } from './pages';
 import Navbar from '../src/pages/Shared Components/Navbar.js'
 function App() {
   return (
@@ -14,7 +14,7 @@ function App() {
           <Route path = "login">
             <Route index element={<LoginPage />} />
             <Route path = "*" element = {<LoginPage/>} />
-          </Route>
+          </Route>  
 
           <Route path = "dashboard" element = {<Dashboard/>} />
           
@@ -22,8 +22,13 @@ function App() {
               <Route path = "edit" element = {<h1>profile edit Route</h1>} />
               <Route index element = {<h1>profile Route</h1>}/>
           </Route>
+          <Route path = "achievements">
+              <Route path = "add" element = {<h1>achievements add Route</h1>} />
+              <Route path = "*" element = {<ViewSingleAchievementList />} />
+          </Route>
 
           <Route path = "addachievement" element = {<AddAchievement />} />
+          <Route path = "viewachievement" element = {<ViewSingleAchievementList />} />
           <Route index element = {<h1>Index Route</h1>} />
         </Route>
       </Routes>

@@ -76,13 +76,16 @@ const addAchievementApiFunction = (e) => {
     fields.forEach((item) => {
         data[item.id] = item.value;
     })
-    data["cid"] = "507f1f77bcf86cd799439011";
-    data["uid"] = "";
-    const endpoint = EndpointList[achievement];
     console.log(data);
+    // data["cid"] = "507f1f77bcf86cd799439011";
+    // data["uid"] = "";
+    const endpoint = EndpointList[achievement];
+    console.log("Endpoint: " + endpoint);
+    const apiToCall = `${ACHIEVEMENT_API}/achievements/bookspublished`;
+    console.log(apiToCall);
     if(!endpoint) return alert("Please Select Achievement Type");
 try{
-    fetch(`${endpoint}`, {
+    fetch(`${apiToCall}`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
