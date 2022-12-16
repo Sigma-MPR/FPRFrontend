@@ -21,7 +21,9 @@ const ViewSingleAchievementList = () => {
     const [AchievementList, setAchievementList] = useState({});
     // const [AchievementList, setAchievementList] = useState(getAchievementsWithApiCall());
     useEffect(() => {
-        getAchievementsWithApiCall(Achievement, setAchievementList);
+        getAchievementsWithApiCall(Achievement, setAchievementList).then(()=>{
+            console.log(AchievementList);
+        });
     },
     // eslint-disable-next-line
     [])
@@ -37,6 +39,18 @@ const ViewSingleAchievementList = () => {
             </div>
             <div id='longAddButton'>
                 <AddAchievementButton />
+            </div>
+            <div>
+                {
+                    AchievementList&&AchievementList.data&&AchievementList.data.length>0&&AchievementList.data.map((achievement) => {
+                        return (
+                            <div>
+                                <h1>{achievement.title}</h1>
+                                <p>{achievement.publisher}</p>
+                            </div>
+                        )
+                    })
+                }
             </div>
             <h1>View Single Achievement List</h1>
             <p>View Single Achievement List</p>
