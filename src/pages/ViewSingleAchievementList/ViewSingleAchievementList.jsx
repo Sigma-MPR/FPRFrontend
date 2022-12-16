@@ -8,17 +8,18 @@ import './ViewSingleAchievementList.css';
 const getAchievementsWithApiCall = async (achievement, setAchievementList) => {
     let str = achievement.split(' ').join('').toLowerCase();
     const apiToCall = `${ACHIEVEMENT_API}/achievements/${str}/all`;
-    console.log(apiToCall);
+    // console.log(apiToCall);
     const response = await fetch(apiToCall, {
         method: 'POST',
     });
     const data = await response.json();
-    console.log(data);
+    // console.log(data);
     setAchievementList(data);
     return data;
 }
 const ViewSingleAchievementList = () => {
     const Achievement = useLocation().state.name;
+    alert(Achievement);
     const [AchievementList, setAchievementList] = useState({});
     // const [AchievementList, setAchievementList] = useState(getAchievementsWithApiCall());
     useEffect(() => {

@@ -81,7 +81,8 @@ const addAchievementApiFunction = (e) => {
     // data["uid"] = "";
     const endpoint = EndpointList[achievement];
     console.log("Endpoint: " + endpoint);
-    const apiToCall = `${ACHIEVEMENT_API}/achievements/bookspublished`;
+    // bring the logic of the acheivement in here
+    const apiToCall = `${ACHIEVEMENT_API}/achievements/conferenceproceedings`;
     console.log(apiToCall);
     if(!endpoint) return alert("Please Select Achievement Type");
 try{
