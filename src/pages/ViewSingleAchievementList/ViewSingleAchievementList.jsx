@@ -2,6 +2,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import AddAchievementButton from '../../components/AddAchievementButton/AddAchievementButton';
+import ViewAllAchievementsAchievement from '../../components/ViewAllAchivementsAchivement/ViewAllAchievementsAchievement';
 import { ACHIEVEMENT_API } from "../../constants";
 import './ViewSingleAchievementList.css';
 const getAchievementsWithApiCall = async (achievement, setAchievementList) => {
@@ -40,20 +41,15 @@ const ViewSingleAchievementList = () => {
             <div id='longAddButton'>
                 <AddAchievementButton />
             </div>
-            <div>
+            <div id='cardsContainer'>
                 {
                     AchievementList&&AchievementList.data&&AchievementList.data.length>0&&AchievementList.data.map((achievement) => {
                         return (
-                            <div>
-                                <h1>{achievement.title}</h1>
-                                <p>{achievement.publisher}</p>
-                            </div>
+                            <ViewAllAchievementsAchievement achievement = {achievement}/>
                         )
                     })
                 }
             </div>
-            <h1>View Single Achievement List</h1>
-            <p>View Single Achievement List</p>
         </div>
     );
 }
