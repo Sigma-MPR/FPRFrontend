@@ -8,7 +8,7 @@ const AchievementArray = [
         "available": true
     },
     {
-        "name": "Conference Proceedings",
+        "name": "Conference Proceeding",
         "link": "/achievements/conferenceproceedings",
         "available": true
     },

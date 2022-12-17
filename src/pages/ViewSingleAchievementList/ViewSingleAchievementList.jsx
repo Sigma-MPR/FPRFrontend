@@ -8,7 +8,7 @@ import './ViewSingleAchievementList.css';
 const getAchievementsWithApiCall = async (achievement, setAchievementList) => {
     let str = achievement.split(' ').join('').toLowerCase();
     const apiToCall = `${ACHIEVEMENT_API}/achievements/${str}/all`;
-    // console.log(apiToCall);
+    console.log(apiToCall);
     const response = await fetch(apiToCall, {
         method: 'POST',
     });
