@@ -5,7 +5,7 @@ const textField = (fieldName, required) => {
     return (
         `<div>
                 <label for=${fieldName} className="block mb-2 text-sm text-gray-900 dark:text-gray-400 ">${fieldName}</label>
-                <input type="text" id=${fieldName} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 rounded-md" placeholder="John" ${required&&'required'} />
+                <input type="text" id=${fieldName} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm  focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 rounded-md" placeholder="John" ${required&&'required'} />
         </div>`
     )
 }
@@ -13,7 +13,7 @@ const numberField = (fieldName, required) => {
     return (
         `<div>
                 <label for=${fieldName} className="block mb-2 text-sm text-gray-900 dark:text-gray-400">${fieldName}</label>
-                <input type="number" id=${fieldName} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 rounded-md" placeholder="" required  />
+                <input type="number" id=${fieldName} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 rounded-md" placeholder="" required  />
             </div>`
     )
 }
@@ -21,7 +21,7 @@ const dateField = (fieldName, required) => {
     return (
         `<div>
                 <label for=${fieldName} className="block mb-2 text-sm font-black text-gray-900 dark:text-gray-400 ">${fieldName}</label>
-                <input type="date" id=${fieldName} className="bg-gray-50 border border-gray-450 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 rounded-md"  ${required&&'required'} />
+                <input type="date" id=${fieldName} className="bg-gray-50 border border-gray-450 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 rounded-md"  ${required&&'required'} />
             </div>`
     )
 }
@@ -65,7 +65,9 @@ const getFieldsByAPI = async(achievement, setAchievementSchemaData) => {
     
 }
 
-const addAchievementApiFunction = (e) => {
+const addAchievementApiFunction = (e, ach) => {
+    alert(ach);
+    const str = ach.split(" ").join("").toLowerCase();
     e.preventDefault();
     var ele = document.getElementsByTagName("form")[0];
     ele.checkValidity();
@@ -76,13 +78,17 @@ const addAchievementApiFunction = (e) => {
     fields.forEach((item) => {
         data[item.id] = item.value;
     })
-    data["cid"] = "507f1f77bcf86cd799439011";
-    data["uid"] = "";
-    const endpoint = EndpointList[achievement];
     console.log(data);
+    // data["cid"] = "507f1f77bcf86cd799439011";
+    // data["uid"] = "";
+    const endpoint = EndpointList[achievement];
+    console.log("Endpoint: " + endpoint);
+    // bring the logic of the acheivement in here
+    const apiToCall = `${ACHIEVEMENT_API}/achievements/${str}`;
+    console.log(apiToCall);
     if(!endpoint) return alert("Please Select Achievement Type");
 try{
-    fetch(`${endpoint}`, {
+    fetch(`${apiToCall}`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"

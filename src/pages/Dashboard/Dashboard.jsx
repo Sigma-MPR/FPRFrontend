@@ -4,37 +4,37 @@ import "./Dashboard.css";
 const AchievementArray = [
     {
         "name": "Books Published",
-        "link": "/achievements/books",
+        "link": "/achievements/bookspublished",
         "available": true
     },
     {
-        "name": "Conference Proceedings",
-        "link": "/achievements/conference",
+        "name": "Conference Proceeding",
+        "link": "/achievements/conferenceproceedings",
         "available": true
     },
     {
         "name": "Attended Events",
-        "link": "/achievements/books",
+        "link": "/achievements/attendedevents",
         "available": false
     },
     {
         "name": "Organized Seminars",
-        "link": "/achievements/conference",
+        "link": "/achievements/oraganizedseminars",
         "available": false
     },
     {
         "name": "Journals",
-        "link": "/achievements/books",
+        "link": "/achievements/journals",
         "available": false
     },
     {
         "name": "Student Activities",
-        "link": "/achievements/conference",
+        "link": "/achievements/studentactivities",
         "available": false
     },
     {
         "name": "Projects",
-        "link": "/achievements/books",
+        "link": "/achievements/projects",
         "available": false
     },
     {

@@ -1,0 +1,26 @@
+#TopCollection{
+    display: flex;
+    flex: auto;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+}
+
+/* Need better logic for button center */
+#longAddButton{
+    padding: 1%;
+    margin-left: 6%;
+}
+
+#cardsContainer{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+}
+#cardsContainer > div{
+    margin: 10px;
+    width: 90%;
+}

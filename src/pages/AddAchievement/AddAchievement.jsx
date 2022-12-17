@@ -6,12 +6,12 @@ import { AchievementDropDown } from "../../constants";
 import {makefields, addAchievementApiFunction, getFieldsByAPI} from './functions';
 const tempMap = {
     "BP": "BooksPublished",
-    "CP": "ConferenceProceedings",
+    "CP": "ConferenceProceeding",
 }
 const AddAchievement = () => {
     const location = useLocation();
     const prop = location.state.name;
-    console.log(tempMap[AchievementDropDown[prop]]);
+    // console.log(tempMap[AchievementDropDown[prop]]);
     const [achievement, setAchievement] = useState(AchievementDropDown[prop]);
     const [AchievementSchemaData, setAchievementSchemaData] = useState({});
 
@@ -55,7 +55,7 @@ const AddAchievement = () => {
                     </div>
                     <div id="fields" className="add-achievement"></div>
                 </div>
-                <button type="submit" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" value = {achievement} onClick={addAchievementApiFunction}>Submit</button>
+                <button type="submit" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" value = {achievement} onClick={(e)=>addAchievementApiFunction(e, tempMap[achievement])}>Submit</button>
             </form>
         </div>
 
