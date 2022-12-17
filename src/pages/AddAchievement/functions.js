@@ -65,7 +65,9 @@ const getFieldsByAPI = async(achievement, setAchievementSchemaData) => {
     
 }
 
-const addAchievementApiFunction = (e) => {
+const addAchievementApiFunction = (e, ach) => {
+    alert(ach);
+    const str = ach.split(" ").join("").toLowerCase();
     e.preventDefault();
     var ele = document.getElementsByTagName("form")[0];
     ele.checkValidity();
@@ -82,7 +84,7 @@ const addAchievementApiFunction = (e) => {
     const endpoint = EndpointList[achievement];
     console.log("Endpoint: " + endpoint);
     // bring the logic of the acheivement in here
-    const apiToCall = `${ACHIEVEMENT_API}/achievements/conferenceproceeding`;
+    const apiToCall = `${ACHIEVEMENT_API}/achievements/${str}`;
     console.log(apiToCall);
     if(!endpoint) return alert("Please Select Achievement Type");
 try{
