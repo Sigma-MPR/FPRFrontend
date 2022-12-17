@@ -1,7 +1,16 @@
 import React from 'react'
 import './ViewAllAchievementsAchievement.css'
+import { ACHIEVEMENT_API } from '../../constants'
 const string = "lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod."
 
+const deleteAchievement = async(id) => {
+    const apiToCall = `${ACHIEVEMENT_API}/achievements/conferenceproceedings?id=${id}`;
+    const resp = await fetch(apiToCall, {
+        method: 'DELETE'
+    })
+    alert(resp);
+    window.location.reload();
+}
 const ViewAllAchievementsAchievement = (props) => {
     console.log(props)
     return (
@@ -12,7 +21,7 @@ const ViewAllAchievementsAchievement = (props) => {
                     <p>{props.achievement.remarks||string.slice(0,256)||"props.remarks"}...</p>
                     <div className="card-actions justify-end">
                         <button className="btn btn-primary mx-3	">Modify</button>
-                        <button className="btn btn-secondary mx-3">Delete</button>
+                        <button className="btn btn-secondary mx-3" onClick={()=>deleteAchievement(props.achievement.id)}>Delete</button>
                     </div>
                 </div>
                 <div id="createdAt">

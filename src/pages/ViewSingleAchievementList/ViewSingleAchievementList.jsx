@@ -36,11 +36,14 @@ const ViewSingleAchievementList = () => {
         <div>
             <div id='TopCollection'>
                 <input type="text" placeholder="Click Here To Search Achievement" className="input input-ghost w-9/12 max-w-full" />
-                <button className="btn glass bg-secondary disabled ">Glass button</button>
-                <button className="btn glass bg-primary">Glass button</button>
+                <button className="btn glass bg-secondary disabled px-12 ">Filter</button>
+                <button className="btn glass bg-primary px-12">Sort</button>
             </div>
             <div id='longAddButton'>
                 <AddAchievementButton />
+            </div>
+            <div>
+                <h1 className="text-4xl font-bold text-center text-white underline">{Achievement}</h1>
             </div>
             <div id='cardsContainer'>
                 {
