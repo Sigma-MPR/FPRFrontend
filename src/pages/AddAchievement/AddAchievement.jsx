@@ -5,7 +5,7 @@ import "./AddAchievement.css";
 import { AchievementDropDown } from "../../constants";
 import {makefields, addAchievementApiFunction, getFieldsByAPI} from './functions';
 import Loader from "../../components/Loader/Loader";
-
+import {CustomToastContainer, ToastError, ToastSuccess} from "../../components/Toast/Toast";
 const tempMap = {
     "BP": "BooksPublished",
     "CP": "ConferenceProceedings",
@@ -20,15 +20,18 @@ const AddAchievement = () => {
 
     useEffect(() => {
         getFieldsByAPI(tempMap[AchievementDropDown[prop]], setAchievementSchemaData)
+        ToastSuccess("Fields Fetched");
     },
     // eslint-disable-next-line
     []);
     useEffect(() => {
         document.querySelector("#fields").innerHTML = '';
         makefields(AchievementSchemaData, setLoading)
+        ToastSuccess("Input Modal Made");
     }, [AchievementSchemaData]);
     
     const changeOption = (e) => {
+        ToastSuccess("Model Changed");
         document.querySelector("#fields").innerHTML = '';
         setLoading(true);
         setAchievement(e.target.value);
@@ -65,6 +68,7 @@ const AddAchievement = () => {
                 </div>
                 <button type="submit" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" value = {achievement} onClick={(e)=>addAchievementApiFunction(e, tempMap[achievement])}>Submit</button>
             </form>
+            <CustomToastContainer/>
         </div>
 
 

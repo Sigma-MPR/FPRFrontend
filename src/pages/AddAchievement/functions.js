@@ -1,6 +1,7 @@
 import { EndpointList } from "../../constants";
 import { ACHIEVEMENT_API } from "../../constants";
-
+// toast
+import {CustomToastContainer, ToastError, ToastSuccess} from "../../components/Toast/Toast";
 const textField = (fieldName, required) => {
     return (
         `<div>
@@ -26,7 +27,7 @@ const dateField = (fieldName, required) => {
     )
 }
 const makefields = (fields, setLoading) => {
-    if(fields.length>0)
+    if(fields.length>0){
     // eslint-disable-next-line
         fields.map((field)=>{
             if (field.type === "String"){
@@ -40,6 +41,12 @@ const makefields = (fields, setLoading) => {
             }
         })
     setLoading(false);
+    }
+    else{
+        document.querySelector("#fields").innerHTML = `<h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100">No Fields Found</h1>`
+        setLoading(false);
+        ToastError("No Fields Found");
+    }
             
 }
 
@@ -59,7 +66,8 @@ const getFieldsByAPI = async(achievement, setAchievementSchemaData) => {
         })
     }
     catch(err){
-        console.log("Error Occured");
+        // console.log("Error Occured");
+        ToastError("Error Occured Getting Fields");
         console.log(err);
         return;
     }
@@ -100,12 +108,14 @@ try{
         .then(res => res.json())
         .then(data => {
             console.log(data);
-            alert("Achievement Added");
+            // alert("Achievement Added");
+            ToastSuccess("Achievement Added");
         })
     }
     catch(err){
         console.log(err);
-        alert("Error Occured");
+        // alert("Error Occured");
+        ToastError("Error Occured");
     }
 };
 
