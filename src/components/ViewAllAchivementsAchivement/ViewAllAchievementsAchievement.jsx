@@ -14,7 +14,7 @@ const ViewAllAchievementsAchievement = (props) => {
                     <p>{props.achievement.remarks||string.slice(0,256)||"props.remarks"}...</p>
                     <div className="card-actions justify-end">
                         <button className="btn btn-primary mx-3	">Modify</button>
-                        <button className="btn btn-secondary mx-3" onClick={()=>deleteAchievement(props.achievement.id, props.category)}>Delete</button>
+                        <button className="btn btn-secondary mx-3" onClick={()=>deleteAchievement(props.achievement.id, props.category, props.setAchievementList)}>Delete</button>
                     </div>
                 </div>
                 <div id="createdAt">

@@ -6,7 +6,7 @@ import { AchievementDropDown } from "../../constants";
 import {makefields, addAchievementApiFunction, getFieldsByAPI} from './functions';
 const tempMap = {
     "BP": "BooksPublished",
-    "CP": "ConferenceProceeding",
+    "CP": "ConferenceProceedings",
 }
 const AddAchievement = () => {
     const location = useLocation();
@@ -28,6 +28,7 @@ const AddAchievement = () => {
     const changeOption = (e) => {
         setAchievement(e.target.value);
         console.log(e.target.value);
+        alert(tempMap[e.target.value]);
         getFieldsByAPI(tempMap[e.target.value], setAchievementSchemaData)
         document.querySelector("#fields").innerHTML = '';
         makefields(AchievementSchemaData);
