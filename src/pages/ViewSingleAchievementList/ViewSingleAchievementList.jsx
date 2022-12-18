@@ -3,23 +3,12 @@ import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import AddAchievementButton from '../../components/AddAchievementButton/AddAchievementButton';
 import ViewAllAchievementsAchievement from '../../components/ViewAllAchivementsAchivement/ViewAllAchievementsAchievement';
-import { ACHIEVEMENT_API } from "../../constants";
+import { getAchievementsWithApiCall } from '../../components/functions';
 import './ViewSingleAchievementList.css';
-const getAchievementsWithApiCall = async (achievement, setAchievementList) => {
-    let str = achievement.split(' ').join('').toLowerCase();
-    const apiToCall = `${ACHIEVEMENT_API}/achievements/${str}/all`;
-    console.log(apiToCall);
-    const response = await fetch(apiToCall, {
-        method: 'POST',
-    });
-    const data = await response.json();
-    // console.log(data);
-    setAchievementList(data);
-    return data;
-}
+
 const ViewSingleAchievementList = () => {
     const Achievement = useLocation().state.name;
-    alert(Achievement);
+    // alert(Achievement);
     const [AchievementList, setAchievementList] = useState({});
     // const [AchievementList, setAchievementList] = useState(getAchievementsWithApiCall());
     useEffect(() => {
@@ -49,7 +38,7 @@ const ViewSingleAchievementList = () => {
                 {
                     AchievementList&&AchievementList.data&&AchievementList.data.length>0&&AchievementList.data.map((achievement) => {
                         return (
-                            <ViewAllAchievementsAchievement achievement = {achievement}/>
+                            <ViewAllAchievementsAchievement achievement = {achievement} category = {Achievement} setAchievementList = {setAchievementList}/>
                         )
                     })
                 }
