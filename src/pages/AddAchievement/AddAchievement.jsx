@@ -4,6 +4,8 @@ import { useLocation } from "react-router-dom";
 import "./AddAchievement.css";
 import { AchievementDropDown } from "../../constants";
 import {makefields, addAchievementApiFunction, getFieldsByAPI} from './functions';
+import Loader from "../../components/Loader/Loader";
+
 const tempMap = {
     "BP": "BooksPublished",
     "CP": "ConferenceProceedings",
@@ -14,6 +16,7 @@ const AddAchievement = () => {
     // console.log(tempMap[AchievementDropDown[prop]]);
     const [achievement, setAchievement] = useState(AchievementDropDown[prop]);
     const [AchievementSchemaData, setAchievementSchemaData] = useState({});
+    const [Loading, setLoading] = useState(true);
 
     useEffect(() => {
         getFieldsByAPI(tempMap[AchievementDropDown[prop]], setAchievementSchemaData)
@@ -22,15 +25,16 @@ const AddAchievement = () => {
     []);
     useEffect(() => {
         document.querySelector("#fields").innerHTML = '';
-        makefields(AchievementSchemaData);
+        makefields(AchievementSchemaData, setLoading)
     }, [AchievementSchemaData]);
     
     const changeOption = (e) => {
-        setAchievement(e.target.value);
-        console.log(e.target.value);
-        alert(tempMap[e.target.value]);
-        getFieldsByAPI(tempMap[e.target.value], setAchievementSchemaData)
         document.querySelector("#fields").innerHTML = '';
+        setLoading(true);
+        setAchievement(e.target.value);
+        // console.log(e.target.value);
+        // alert(tempMap[e.target.value]);
+        getFieldsByAPI(tempMap[e.target.value], setAchievementSchemaData)
         makefields(AchievementSchemaData);
     };
     
@@ -40,6 +44,7 @@ const AddAchievement = () => {
                 <div className="grid gap-3 mb-3 md:grid-cols-1" id="addAchievement">
                     <div className="add-achievement">
                         <label htmlFor="achievement" className="inline mb-2 text-sm font-medium text-gray-900 dark:text-gray-400 ">Choose Achievement Type</label>
+
                         <select id="achievement" className="bg-gray-50 border text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500 " onChange={changeOption}>
                             {!AchievementDropDown[prop] && <option>Choose Type Of Achievement</option>}
                             {
@@ -54,7 +59,9 @@ const AddAchievement = () => {
                             }
                         </select>
                     </div>
-                    <div id="fields" className="add-achievement"></div>
+                    {Loading&&<Loader />}
+                    <div id="fields" className="add-achievement">
+                    </div>
                 </div>
                 <button type="submit" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" value = {achievement} onClick={(e)=>addAchievementApiFunction(e, tempMap[achievement])}>Submit</button>
             </form>

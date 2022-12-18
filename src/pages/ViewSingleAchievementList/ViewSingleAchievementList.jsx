@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import AddAchievementButton from '../../components/AddAchievementButton/AddAchievementButton';
 import ViewAllAchievementsAchievement from '../../components/ViewAllAchivementsAchivement/ViewAllAchievementsAchievement';
+import Loader from '../../components/Loader/Loader';
 import { getAchievementsWithApiCall } from '../../components/functions';
 import './ViewSingleAchievementList.css';
 
@@ -10,10 +11,12 @@ const ViewSingleAchievementList = () => {
     const Achievement = useLocation().state.name;
     // alert(Achievement);
     const [AchievementList, setAchievementList] = useState({});
+    const [isLoading, setLoading] = useState(true);
     // const [AchievementList, setAchievementList] = useState(getAchievementsWithApiCall());
     useEffect(() => {
         getAchievementsWithApiCall(Achievement, setAchievementList).then(()=>{
             console.log(AchievementList);
+            setLoading(false);
         });
     },
     // eslint-disable-next-line
@@ -35,7 +38,10 @@ const ViewSingleAchievementList = () => {
                 <h1 className="text-4xl font-bold text-center text-white underline">{Achievement}</h1>
             </div>
             <div id='cardsContainer'>
-                {
+                {   isLoading
+                    ?
+                    <Loader />
+                    :
                     AchievementList&&AchievementList.data&&AchievementList.data.length>0&&AchievementList.data.map((achievement) => {
                         return (
                             <ViewAllAchievementsAchievement achievement = {achievement} category = {Achievement} setAchievementList = {setAchievementList}/>

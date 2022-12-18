@@ -25,7 +25,7 @@ const dateField = (fieldName, required) => {
             </div>`
     )
 }
-const makefields = (fields) => {
+const makefields = (fields, setLoading) => {
     if(fields.length>0)
     // eslint-disable-next-line
         fields.map((field)=>{
@@ -39,6 +39,8 @@ const makefields = (fields) => {
                 document.querySelector("#fields").innerHTML += dateField(field.name)
             }
         })
+    setLoading(false);
+            
 }
 
 const getFieldsByAPI = async(achievement, setAchievementSchemaData) => {
@@ -66,7 +68,7 @@ const getFieldsByAPI = async(achievement, setAchievementSchemaData) => {
 }
 
 const addAchievementApiFunction = (e, ach) => {
-    alert(ach);
+    // alert(ach);
     const str = ach.split(" ").join("").toLowerCase();
     e.preventDefault();
     var ele = document.getElementsByTagName("form")[0];
