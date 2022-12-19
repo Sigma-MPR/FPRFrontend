@@ -43,7 +43,7 @@ const ToastError = (text) => {
         theme: "dark",
         });
 }
-const ToastPromise = (text) => {
+const ToastPromise = (code,text) => {
     toast.promise(
         Promise.resolve(text),
         {
