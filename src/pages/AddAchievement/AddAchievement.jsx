@@ -26,19 +26,20 @@ const AddAchievement = () => {
     []);
     useEffect(() => {
         document.querySelector("#fields").innerHTML = '';
+        setLoading(true);
         makefields(AchievementSchemaData, setLoading)
         ToastSuccess("Input Modal Made");
     }, [AchievementSchemaData]);
     
     const changeOption = (e) => {
-        ToastSuccess("Model Changed");
         document.querySelector("#fields").innerHTML = '';
         setLoading(true);
+        ToastSuccess("Model Changed");
         setAchievement(e.target.value);
         // console.log(e.target.value);
         // alert(tempMap[e.target.value]);
         getFieldsByAPI(tempMap[e.target.value], setAchievementSchemaData)
-        makefields(AchievementSchemaData);
+        // makefields(AchievementSchemaData, setLoading);
     };
     
     return (
