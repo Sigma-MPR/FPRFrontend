@@ -6,6 +6,8 @@ import ViewAllAchievementsAchievement from '../../components/ViewAllAchivementsA
 import Loader from '../../components/Loader/Loader';
 import { getAchievementsWithApiCall } from '../../components/functions';
 import './ViewSingleAchievementList.css';
+// import { ToastContainer } from 'react-toastify';
+import { CustomToastContainer } from '../../components/Toast/Toast';
 
 const ViewSingleAchievementList = () => {
     const Achievement = useLocation().state.name;
@@ -14,13 +16,13 @@ const ViewSingleAchievementList = () => {
     const [isLoading, setLoading] = useState(true);
     // const [AchievementList, setAchievementList] = useState(getAchievementsWithApiCall());
     useEffect(() => {
-        getAchievementsWithApiCall(Achievement, setAchievementList).then(()=>{
+        getAchievementsWithApiCall(Achievement, setAchievementList).then(() => {
             console.log(AchievementList);
             setLoading(false);
         });
     },
-    // eslint-disable-next-line
-    [])
+        // eslint-disable-next-line
+        [])
     useEffect(() => {
         console.log(AchievementList);
     }, [AchievementList])
@@ -38,16 +40,17 @@ const ViewSingleAchievementList = () => {
                 <h1 className="text-4xl font-bold text-center text-white underline">{Achievement}</h1>
             </div>
             <div id='cardsContainer'>
-                {   isLoading
+                {isLoading
                     ?
                     <Loader />
                     :
-                    AchievementList&&AchievementList.data&&AchievementList.data.length>0&&AchievementList.data.map((achievement) => {
+                    AchievementList && AchievementList.data && AchievementList.data.length > 0 && AchievementList.data.map((achievement) => {
                         return (
-                            <ViewAllAchievementsAchievement achievement = {achievement} category = {Achievement} setAchievementList = {setAchievementList}/>
+                            <ViewAllAchievementsAchievement achievement={achievement} category={Achievement} setAchievementList={setAchievementList} />
                         )
                     })
                 }
+                <CustomToastContainer />
             </div>
         </div>
     );

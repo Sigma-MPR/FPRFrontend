@@ -3,32 +3,32 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const CustomToastContainer = () => {
     return (
-            <ToastContainer
-                position="bottom-right"
-                autoClose={3000}
-                hideProgressBar={false}
-                newestOnTop
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-                theme="dark"
-            />
+        <ToastContainer
+            position="bottom-right"
+            autoClose={3000}
+            hideProgressBar={false}
+            newestOnTop
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="dark"
+        />
     );
-}   
+}
 
 const ToastSuccess = (text) => {
-        toast.success(text, {
-            position: "bottom-right",
-            autoClose: 3000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "dark",
-            });
+    toast.success(text, {
+        position: "bottom-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+    });
 }
 
 const ToastError = (text) => {
@@ -41,11 +41,11 @@ const ToastError = (text) => {
         draggable: true,
         progress: undefined,
         theme: "dark",
-        });
+    });
 }
-const ToastPromise = (code,text) => {
-    toast.promise(
-        Promise.resolve(text),
+const ToastPromise = async (code) => {
+    await toast.promise(
+        code,
         {
             pending: "Loading...",
             success: "Success",
@@ -73,4 +73,4 @@ const ToastPromise = (code,text) => {
 //     }
 // );
 // console.log(response)
-export {ToastSuccess, CustomToastContainer, ToastError};
+export { ToastSuccess, CustomToastContainer, ToastError, ToastPromise };
