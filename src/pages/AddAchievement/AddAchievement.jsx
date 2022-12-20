@@ -13,7 +13,7 @@ const tempMap = {
 const AddAchievement = () => {
     const location = useLocation();
     const prop = location.state.name;
-
+    // alert(prop);
     const [achievement, setAchievement] = useState(AchievementDropDown[prop]);
     const [AchievementSchemaData, setAchievementSchemaData] = useState({});
     const [Loading, setLoading] = useState(true);
