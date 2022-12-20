@@ -13,22 +13,22 @@ const tempMap = {
 const AddAchievement = () => {
     const location = useLocation();
     const prop = location.state.name;
-    // console.log(tempMap[AchievementDropDown[prop]]);
+
     const [achievement, setAchievement] = useState(AchievementDropDown[prop]);
     const [AchievementSchemaData, setAchievementSchemaData] = useState({});
     const [Loading, setLoading] = useState(true);
 
     useEffect(() => {
         getFieldsByAPI(tempMap[AchievementDropDown[prop]], setAchievementSchemaData)
-        ToastSuccess("Fields Fetched");
     },
     // eslint-disable-next-line
     []);
+
     useEffect(() => {
         document.querySelector("#fields").innerHTML = '';
         setLoading(true);
         makefields(AchievementSchemaData, setLoading)
-        ToastSuccess("Input Modal Made");
+        // ToastSuccess("Input Modal Made");
     }, [AchievementSchemaData]);
     
     const changeOption = (e) => {

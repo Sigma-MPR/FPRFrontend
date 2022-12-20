@@ -13,7 +13,7 @@ export default function DashboardCards(props) {
                         <span className="text-2xl font-semibold">{props.name}</span>
                     </div>
                 </Link>
-                <AddAchievementButton props/>
+                <AddAchievementButton achievement = {{prop: props}}/>
             </div>
         </span>
     );
