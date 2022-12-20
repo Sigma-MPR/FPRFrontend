@@ -10,7 +10,10 @@ import './ViewSingleAchievementList.css';
 import { CustomToastContainer } from '../../components/Toast/Toast';
 
 const ViewSingleAchievementList = () => {
-    const Achievement = useLocation().state.name;
+    const Location = useLocation()
+    const Achievement = Location.state.prop.name;
+    const props = Location.state.prop;
+    // console.log(Achievement.state.prop.name);
     // alert(Achievement);
     const [AchievementList, setAchievementList] = useState({});
     const [isLoading, setLoading] = useState(true);
@@ -34,7 +37,7 @@ const ViewSingleAchievementList = () => {
                 <button className="btn glass bg-primary px-12">Sort</button>
             </div>
             <div id='longAddButton'>
-                <AddAchievementButton />
+                <AddAchievementButton achievement = {{prop: props}} />
             </div>
             <div>
                 <h1 className="text-4xl font-bold text-center text-white underline">{Achievement}</h1>

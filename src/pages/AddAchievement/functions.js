@@ -52,7 +52,7 @@ const makefields = (fields, setLoading) => {
 
 const getFieldsByAPI = async (achievement, setAchievementSchemaData) => {
     const endpoint = ACHIEVEMENT_API;
-    try {
+    try {  
         const apiAchievement = achievement.split(" ").join("");
         fetch(`${endpoint}/achievements/fields?model=${apiAchievement}`, {
             method: "GET",
