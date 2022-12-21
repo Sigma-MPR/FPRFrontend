@@ -11,8 +11,16 @@ import { CustomToastContainer } from '../../components/Toast/Toast';
 
 const ViewSingleAchievementList = () => {
     const Location = useLocation()
-    const Achievement = Location.state.prop.name;
-    const props = Location.state.prop;
+    // console.log(Location.pathname.split('/')[2]);
+    // console.log(Location.state.prop.name);
+    // set this to locastorage to come back both two
+    
+    // Continute Here
+    const Achievement = Location.state.prop.name||localStorage.getItem('Achievement');
+    const props = Location.state.prop||localStorage.getItem('props');
+
+    localStorage.setItem('Achievement', Achievement);
+    localStorage.setItem('props', props);
     // console.log(Achievement.state.prop.name);
     // alert(Achievement);
     const [AchievementList, setAchievementList] = useState({});

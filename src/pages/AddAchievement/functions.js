@@ -2,6 +2,7 @@ import { EndpointList } from "../../constants";
 import { ACHIEVEMENT_API, fieldsMapping } from "../../constants";
 // toast
 import { CustomToastContainer, ToastError, ToastSuccess } from "../../components/Toast/Toast";
+import { useLocation } from "react-router";
 const textField = (fieldName, required) => {
     return (
         `<div>
@@ -105,6 +106,16 @@ const addAchievementApiFunction = async(e, ach) => {
             body: JSON.stringify(data)
         })
         await resp.json();
+        /* 
+            go to achievements/str
+            problem:
+                unable to maintaint he state of the achievements
+                so the achievements are not getting updated
+        */
+        window.location.href = `/achievements/${str}`;
+        
+
+        
     }
     catch (err) {
         console.log(err);
