@@ -55,16 +55,14 @@ const getFieldsByAPI = async (achievement, setAchievementSchemaData) => {
     try {  
         const apiAchievement = achievement.split(" ").join("");
         // apiAchievement =  apiAchievement == "Conference Proceeding"? "ConferenceProceedings" : apiAchievement;
-        fetch(`${endpoint}/achievements/fields?model=${apiAchievement}`, {
+        const resp = await fetch(`${endpoint}/achievements/fields?model=${apiAchievement}`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json"
             }
         })
-            .then((response) => response.json())
-            .then((data) => {
-                setAchievementSchemaData(data.modelFields);
-            })
+        const data = await resp.json();
+        setAchievementSchemaData(data.modelFields);
     }
     catch (err) {
         // console.log("Error Occured");
@@ -76,7 +74,7 @@ const getFieldsByAPI = async (achievement, setAchievementSchemaData) => {
 
 }
 
-const addAchievementApiFunction = (e, ach) => {
+const addAchievementApiFunction = async(e, ach) => {
     // alert(ach);
     const str = ach.split(" ").join("").toLowerCase();
     e.preventDefault();
@@ -96,22 +94,17 @@ const addAchievementApiFunction = (e, ach) => {
     console.log("Endpoint: " + endpoint);
     // bring the logic of the acheivement in here
     const apiToCall = `${ACHIEVEMENT_API}/achievements/${str}`;
-    console.log(apiToCall);
+    // console.log(apiToCall);
     if (!endpoint) return alert("Please Select Achievement Type");
     try {
-        fetch(`${apiToCall}`, {
+        const resp = await fetch(`${apiToCall}`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify(data)
         })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data);
-                // alert("Achievement Added");
-                ToastSuccess("Achievement Added");
-            })
+        await resp.json();
     }
     catch (err) {
         console.log(err);
