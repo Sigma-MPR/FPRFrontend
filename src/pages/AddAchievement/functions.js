@@ -44,8 +44,8 @@ const makefields = (fields, setLoading) => {
     }
     else {
         document.querySelector("#fields").innerHTML = `<h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100">No Fields Found</h1>`
-        setLoading(false);
-        ToastError("No Fields Found");
+        setLoading(true);
+        // ToastError("No Fields Found");
     }
 
 }
