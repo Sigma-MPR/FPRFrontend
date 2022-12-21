@@ -45,7 +45,6 @@ const AddAchievement = () => {
     
     return (
         <div className="w-1/2 ml-auto mr-auto">
-            <input type="month" id="month" name="month" />
             <form className="w-1/2">
                 <div className="grid gap-3 mb-3 md:grid-cols-1" id="addAchievement">
                     <div className="add-achievement">

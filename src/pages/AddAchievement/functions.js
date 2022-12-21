@@ -91,7 +91,7 @@ const addAchievementApiFunction = async(e, ach) => {
     // data["cid"] = "507f1f77bcf86cd799439011";
     // data["uid"] = "";
     const endpoint = EndpointList[achievement];
-    console.log("Endpoint: " + endpoint);
+    // console.log("Endpoint: " + endpoint);
     // bring the logic of the acheivement in here
     const apiToCall = `${ACHIEVEMENT_API}/achievements/${str}`;
     // console.log(apiToCall);
