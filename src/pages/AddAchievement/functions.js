@@ -1,28 +1,28 @@
 import { EndpointList } from "../../constants";
-import { ACHIEVEMENT_API } from "../../constants";
+import { ACHIEVEMENT_API, fieldsMapping } from "../../constants";
 // toast
 import { CustomToastContainer, ToastError, ToastSuccess } from "../../components/Toast/Toast";
 const textField = (fieldName, required) => {
     return (
         `<div>
-                <label for=${fieldName} className="block mb-2 text-sm text-gray-900 dark:text-gray-400 ">${fieldName}</label>
-                <input type="text" id=${fieldName} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm  focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 rounded-md" placeholder="John" ${required && 'required'} />
+                <label for=${fieldsMapping[fieldName]} className="block mb-2 text-sm text-gray-900 dark:text-gray-400 ">${fieldsMapping[fieldName]}</label>
+                <input type="text" id=${fieldsMapping[fieldName]} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm  focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 rounded-md" placeholder='Enter ${fieldsMapping[fieldName]}' ${required && 'required'} />
         </div>`
     )
 }
 const numberField = (fieldName, required) => {
     return (
         `<div>
-                <label for=${fieldName} className="block mb-2 text-sm text-gray-900 dark:text-gray-400">${fieldName}</label>
-                <input type="number" id=${fieldName} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 rounded-md" placeholder="" required  />
+                <label for=${fieldsMapping[fieldName]} className="block mb-2 text-sm text-gray-900 dark:text-gray-400">${fieldsMapping[fieldName]}</label>
+                <input type="number" id=${fieldsMapping[fieldName]} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 rounded-md" placeholder='Enter ${fieldsMapping[fieldName]}' required  />
             </div>`
     )
 }
 const dateField = (fieldName, required) => {
     return (
         `<div>
-                <label for=${fieldName} className="block mb-2 text-sm font-black text-gray-900 dark:text-gray-400 ">${fieldName}</label>
-                <input type="date" id=${fieldName} className="bg-gray-50 border border-gray-450 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 rounded-md"  ${required && 'required'} />
+                <label for=${fieldsMapping[fieldName]} className="block mb-2 text-sm font-black text-gray-900 dark:text-gray-400 ">${fieldsMapping[fieldName]}</label>
+                <input type="date" id=${fieldsMapping[fieldName]} className="bg-gray-50 border border-gray-450 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 rounded-md"  ${required && 'required'} />
             </div>`
     )
 }
