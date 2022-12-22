@@ -61,8 +61,6 @@ const getFieldsByAPI = async(achievement, setAchievementSchemaData) => {
         console.log(err);
         return;
     }
-
-    
 }
 
 const addAchievementApiFunction = (e, ach) => {
