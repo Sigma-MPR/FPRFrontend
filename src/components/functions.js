@@ -1,5 +1,6 @@
 import { ACHIEVEMENT_API } from '../constants';
 const getAchievementsWithApiCall = async (achievement, setAchievementList) => {
+    
     let str = achievement.split(' ').join('').toLowerCase();
     const apiToCall = `${ACHIEVEMENT_API}/achievements/${str}/all`;
     // console.log(apiToCall);
@@ -19,9 +20,10 @@ const deleteAchievement = async(id, cat, setAchievementList) => {
     const resp = await fetch(apiToCall, {
         method: 'DELETE'
     })
+    const data = await resp.json();
     await getAchievementsWithApiCall(cat, setAchievementList);
 
-    alert(resp);
+    // alert(data);
     
 }
 export { getAchievementsWithApiCall, deleteAchievement };
