@@ -15,9 +15,15 @@ function App() {
               <Route index element={<LoginPage />} />
               <Route path="*" element={<LoginPage />} />
             </Route>
+    <Navbar />
+    <BrowserRouter>
+      <Routes>
+        <Route path="/">
 
-            <Route path="dashboard" element={<Dashboard />} />
-
+          <Route path = "login">
+            <Route index element={<LoginPage />} />
+            <Route path = "*" element = {<LoginPage/>} />
+          </Route>  
             <Route path="profile" element={<h1>profile Route</h1>}>
               <Route path="edit" element={<h1>profile edit Route</h1>} />
               <Route index element={<h1>profile Route</h1>} />
@@ -33,6 +39,12 @@ function App() {
           </Route>
         </Routes>
       </BrowserRouter>
+          <Route path = "addachievement" element = {<AddAchievement />} />
+          <Route path = "viewachievement" element = {<ViewSingleAchievementList />} />
+          <Route index element = {<h1>Index Route</h1>} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
     </div>
   );
 }
