@@ -4,6 +4,7 @@ import './App.css';
 import { LoginPage, AddAchievement, Dashboard, ViewSingleAchievementList  } from './pages';
 import Loader from './components/Loader/Loader'
 import Navbar from '../src/pages/Shared Components/Navbar.js'
+
 function App() {
   return (
     <div>
