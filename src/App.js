@@ -7,7 +7,7 @@ import Loader from './components/Loader/Loader';
 function App() {
   return (
     <div>
-    <Navbar />
+    {/* <Navbar /> */}
     <BrowserRouter>
       <Routes>
         <Route path="/">
