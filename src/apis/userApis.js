@@ -27,7 +27,7 @@ const ChangePassword = async(data) => {
     const changePasswordAPI = `${USER_API}/user/changepassword`;
     try{
         console.log(data);
-        const resp = await axios.post(changePasswordAPI, data, {
+        await axios.post(changePasswordAPI, data, {
             headers:{
                 "Authorization": data.token
             }
