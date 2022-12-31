@@ -1,8 +1,7 @@
 import React from 'react';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import './App.css';
-import { LoginPage, AddAchievement, Dashboard, ViewSingleAchievementList, ForgotPasswordPage, ChangePasswordPage} from './pages';
-import Loader from './components/Loader/Loader'
+import { LoginPage, AddAchievement, Dashboard, ViewSingleAchievementList, ForgotPasswordPage, ChangePasswordPage, ProfilePage  } from './pages';
 import Navbar from '../src/pages/Shared Components/Navbar.js'
 
 function App() {
@@ -19,9 +18,9 @@ function App() {
 
           <Route path = "dashboard" element = {<Dashboard/>} />
           
-          <Route path = "profile" element = {<h1>profile Route</h1>}>
+          <Route path = "profile" element = {<ProfilePage />}>
               <Route path = "edit" element = {<h1>profile edit Route</h1>} />
-              <Route index element = {<h1>profile Route</h1>}/>
+              <Route index element = {<h1>profile Route index</h1>}/>
           </Route>
           <Route path = "achievements">
               <Route path = "add" element = {<h1>achievements add Route</h1>} />
