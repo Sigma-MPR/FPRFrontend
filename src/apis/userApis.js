@@ -12,4 +12,16 @@ const Login = async(data) => {
     }
 
 }
-export default Login
+const ForgotPassword = async(data) => {
+    const forgotPasswordAPI = `${USER_API}/user/forgotpassword`;
+    //console.log
+    try{
+        const resp = await axios.post(forgotPasswordAPI, data);
+        return resp;
+    }
+    catch(err){
+        console.log(err);
+    }
+
+}
+export {Login, ForgotPassword};

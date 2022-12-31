@@ -5,7 +5,7 @@ import "./AddAchievement.css";
 import { AchievementDropDown } from "../../constants";
 import {makefields, addAchievementApiFunction, getFieldsByAPI} from './functions';
 import Loader from "../../components/Loader/Loader";
-import {CustomToastContainer, ToastError, ToastSuccess, ToastPromise} from "../../components/Toast/Toast";
+import {CustomToastContainer,ToastSuccess, ToastPromise} from "../../components/Toast/Toast";
 const tempMap = {
     "BP": "BooksPublished",
     "CP": "ConferenceProceedings",
@@ -44,7 +44,7 @@ const AddAchievement = () => {
     };
     
     const addAndToast = async(e, type) => {
-        const resp = await ToastPromise(addAchievementApiFunction(e, tempMap[achievement]))
+        await ToastPromise(addAchievementApiFunction(e, tempMap[achievement]))
             navigate(`/achievements/bookspublished`);
     }
     return (

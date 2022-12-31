@@ -1,11 +1,7 @@
 import { EndpointList } from "../../constants";
-import { ACHIEVEMENT_API, fieldsMapping, fieldsReverseMapping } from "../../constants";
+import { ACHIEVEMENT_API, fieldsMapping } from "../../constants";
 // toast
-import { CustomToastContainer, ToastError, ToastSuccess } from "../../components/Toast/Toast";
-import { useLocation } from "react-router";
-// import { useNavigate } from "react-router-dom";
-// const navigate = useNavigate();
-// import { useNavigate } from "react-router-dom";
+import { ToastError} from "../../components/Toast/Toast";
 const textField = (fieldName, required) => {
     return (
         `<div>

@@ -20,7 +20,7 @@ const deleteAchievement = async(id, cat, setAchievementList) => {
     const resp = await fetch(apiToCall, {
         method: 'DELETE'
     })
-    const data = await resp.json();
+    await resp.json();
     await getAchievementsWithApiCall(cat, setAchievementList);
 
     // alert(data);

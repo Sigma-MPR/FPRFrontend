@@ -1,7 +1,7 @@
 import React from 'react';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import './App.css';
-import { LoginPage, AddAchievement, Dashboard, ViewSingleAchievementList  } from './pages';
+import { LoginPage, AddAchievement, Dashboard, ViewSingleAchievementList, ForgotPasswordPage} from './pages';
 import Loader from './components/Loader/Loader'
 import Navbar from '../src/pages/Shared Components/Navbar.js'
 
@@ -31,6 +31,7 @@ function App() {
           <Route path = "addachievement" element = {<AddAchievement />} />
           <Route path = "viewachievement" element = {<ViewSingleAchievementList />} />
           <Route index element = {<Loader />} />
+          <Route path = "forgotpassword" element = {<ForgotPasswordPage />} />
         </Route>
       </Routes>
     </BrowserRouter>
