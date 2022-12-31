@@ -20,13 +20,18 @@ const ForgotPassword = async(data) => {
         return resp;
     }
     catch(err){
-        console.log(err);
+        // console.log(err);
     }
 }
 const ChangePassword = async(data) => {
     const changePasswordAPI = `${USER_API}/user/changepassword`;
     try{
-        const resp = await axios.post(changePasswordAPI, data);
+        console.log(data);
+        const resp = await axios.post(changePasswordAPI, data, {
+            headers:{
+                "Authorization": data.token
+            }
+        });
         return true
     }
     catch(err){

@@ -62,7 +62,7 @@ const ProfilePage = () => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
         , []);
     useEffect(() => {
-        console.log(user);
+        // console.log(user);
     }, [user, isDisabled]);
     if (!token) {
         toast.error('No Session Found', {

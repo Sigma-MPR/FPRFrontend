@@ -3,19 +3,21 @@ import {useNavigate} from 'react-router-dom';
 import { ChangePassword, GetContext } from '../../apis';
 const ChangePasswordPage = () => {
     const navigate = useNavigate();
+    const [token, setToken] = useState('')
     useEffect(() => {
         // take last word from url
         const url = window.location.href;
         const urlArray = url.split('/');
         const lastWord = urlArray[urlArray.length - 1];
+        setToken(lastWord);
         // get context
         GetContext(lastWord).then((res) => {
-            console.log(res.data);
+            // console.log(res.data);
             if(res.data === 'true'||res.data === true||res===true) {
-                console.log('true');
+                // console.log('true');
             }
             else {
-                console.log('false');
+                // console.log('false');
                 navigate('/login');
 
             }
@@ -35,8 +37,10 @@ const ChangePasswordPage = () => {
         const res = await ChangePassword({
             email,
             oldPassword,
-            newPassword
+            newPassword,
+            token
         });
+        console.log(res);
         if(res) {
             alert('Password Changed Successfully');
         }
