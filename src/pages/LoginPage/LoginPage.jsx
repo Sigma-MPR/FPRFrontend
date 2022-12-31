@@ -29,10 +29,10 @@ const LoginPage = () => {
             alert("Invalid Credentials");}
         else{
             // setlocal storage
-            //console.log(loginResult);
-            localStorage.setItem("token",loginResult.token);
+            console.log(loginResult);
+            localStorage.setItem("token",loginResult.data.token);
             alert("Login Successful");
-            window.location.href = "/dashboard";
+            // window.location.href = "/dashboard";
         }
     }
     return (
