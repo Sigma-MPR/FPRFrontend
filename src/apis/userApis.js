@@ -25,22 +25,25 @@ const ForgotPassword = async(data) => {
 }
 const ChangePassword = async(data) => {
     const changePasswordAPI = `${USER_API}/user/changepassword`;
-    //console.log
     try{
         const resp = await axios.post(changePasswordAPI, data);
-        return resp;
+        return true
     }
     catch(err){
         console.log(err);
+        return false
     }
 }
 
-const GetContext = async() => {
-    const getContextAPI = `${USER_API}/user/getcontext`;
-    //console.log
+const GetContext = async(token) => {
+    const getContextAPI = `${USER_API}/user/loggedIn`;
     try{
-        const resp = await axios.get(getContextAPI);
-        if(resp.status === 200)
+        const resp = await axios.get(getContextAPI, {
+            headers:{
+                "Authorization": token
+            }
+        });
+        if(resp.data)
             return true;
         else
             return false;

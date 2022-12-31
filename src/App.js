@@ -3,7 +3,7 @@ import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import './App.css';
 import { LoginPage, AddAchievement, Dashboard, ViewSingleAchievementList, ForgotPasswordPage, ChangePasswordPage, ProfilePage  } from './pages';
 import Navbar from '../src/pages/Shared Components/Navbar.js'
-
+import Loader from './components/Loader/Loader';
 function App() {
   return (
     <div>

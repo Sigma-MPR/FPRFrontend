@@ -10,6 +10,7 @@ const ChangePasswordPage = () => {
         const lastWord = urlArray[urlArray.length - 1];
         // get context
         GetContext(lastWord).then((res) => {
+            console.log(res.data);
             if(res.data === 'true'||res.data === true||res===true) {
                 console.log('true');
             }
@@ -25,13 +26,23 @@ const ChangePasswordPage = () => {
     const [email, setEmail] = useState('');
     const [oldPassword, setOldPassword] = useState('');
     const [newPassword, setNewPassword] = useState('');
-    const changePassword = async() => {
-        console.log(email);
-        await ChangePassword({
+    const changePassword = async(e) => {
+        e.preventDefault();
+        if(newPassword == oldPassword){
+            alert('Old and New Passwords are same');
+            return;
+        }
+        const res = await ChangePassword({
             email,
             oldPassword,
             newPassword
         });
+        if(res) {
+            alert('Password Changed Successfully');
+        }
+        else {
+            alert('Enter Valid Credentials');
+        }
     }
     return (
         <>
@@ -78,7 +89,7 @@ const ChangePasswordPage = () => {
                     <label for="newsletter" class="font-light text-gray-500 dark:text-gray-300">I accept the <a class="font-medium text-primary-600 hover:underline dark:text-primary-500" href="#">Terms and Conditions</a></label>
                   </div>
               </div>
-              <button class="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800" onClick={changePassword}>Reset passwod</button>
+              <button class="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800" onClick={(e)=>changePassword(e)}>Reset passwod</button>
           </form>
       </div>
   </div>

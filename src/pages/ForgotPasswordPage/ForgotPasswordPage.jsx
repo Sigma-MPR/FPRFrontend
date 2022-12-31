@@ -3,7 +3,8 @@ import axios from 'axios';
 import { ForgotPassword } from '../../apis';
 const ForgotPasswordPage = () => {
     const [email, setEmail] = useState('');
-    const forgotPassword = async() => {
+    const forgotPassword = async(e) => {
+        e.preventDefault();
         console.log(email);
         await ForgotPassword({
             email: email
@@ -44,7 +45,7 @@ const ForgotPasswordPage = () => {
                     <label for="newsletter" class="font-light text-gray-500 dark:text-gray-300">I accept the <a class="font-medium text-primary-600 hover:underline dark:text-primary-500" href="#">Terms and Conditions</a></label>
                   </div>
               </div> */}
-              <button class="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800" onClick={forgotPassword}>Reset passwod</button>
+              <button class="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800" onClick={(e)=>forgotPassword(e)}>Reset passwod</button>
           </form>
       </div>
   </div>
