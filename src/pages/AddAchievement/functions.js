@@ -3,6 +3,9 @@ import { ACHIEVEMENT_API, fieldsMapping, fieldsReverseMapping } from "../../cons
 // toast
 import { CustomToastContainer, ToastError, ToastSuccess } from "../../components/Toast/Toast";
 import { useLocation } from "react-router";
+// import { useNavigate } from "react-router-dom";
+// const navigate = useNavigate();
+// import { useNavigate } from "react-router-dom";
 const textField = (fieldName, required) => {
     return (
         `<div>
@@ -66,9 +69,9 @@ const getFieldsByAPI = async (achievement, setAchievementSchemaData) => {
         setAchievementSchemaData(data.modelFields);
     }
     catch (err) {
-        // console.log("Error Occured");
+        // //console.log("Error Occured");
         ToastError("Error Occured Getting Fields");
-        console.log(err);
+        //console.log(err);
         return;
     }
 }
@@ -86,14 +89,14 @@ const addAchievementApiFunction = async(e, ach) => {
     fields.forEach((item) => {
         data[item.id] = item.value;
     })
-    console.log(data);
+    //console.log(data);
     // data["cid"] = "507f1f77bcf86cd799439011";
     // data["uid"] = "";
     const endpoint = EndpointList[achievement];
-    // console.log("Endpoint: " + endpoint);
+    // //console.log("Endpoint: " + endpoint);
     // bring the logic of the acheivement in here
     const apiToCall = `${ACHIEVEMENT_API}/achievements/${str}`;
-    // console.log(apiToCall);
+    // //console.log(apiToCall);
     if (!endpoint) return alert("Please Select Achievement Type");
     try {
         const resp = await fetch(`${apiToCall}`, {
@@ -111,12 +114,15 @@ const addAchievementApiFunction = async(e, ach) => {
                 so the achievements are not getting updated
         */
         // window.location.href = `/achievements/${str}`;
+        // navigate(`/achievements/${str}`);
+        // eslint-disable-next-line
+        // const location = useLocation();
+        // //console.log(location);
         
-
         
     }
     catch (err) {
-        console.log(err);
+        //console.log(err);
         // alert("Error Occured");
         ToastError("Error Occured");
     }

@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import "./AddAchievement.css";
 import { AchievementDropDown } from "../../constants";
 import {makefields, addAchievementApiFunction, getFieldsByAPI} from './functions';
@@ -12,12 +12,12 @@ const tempMap = {
 }
 const AddAchievement = () => {
     const location = useLocation();
-    const prop = location.state.name;
+    const prop = location.state.name||localStorage.getItem('Achievement');
     // alert(prop);
     const [achievement, setAchievement] = useState(AchievementDropDown[prop]);
     const [AchievementSchemaData, setAchievementSchemaData] = useState({});
     const [Loading, setLoading] = useState(true);
-
+    const navigate = useNavigate();
     useEffect(() => {
         setLoading(true);
         getFieldsByAPI(tempMap[AchievementDropDown[prop]], setAchievementSchemaData)
@@ -43,6 +43,10 @@ const AddAchievement = () => {
         // makefields(AchievementSchemaData, setLoading);
     };
     
+    const addAndToast = async(e, type) => {
+        const resp = await ToastPromise(addAchievementApiFunction(e, tempMap[achievement]))
+            navigate(`/achievements/bookspublished`);
+    }
     return (
         <div className="w-1/2 ml-auto mr-auto">
             <form className="w-1/2">
@@ -68,7 +72,7 @@ const AddAchievement = () => {
                     </div>
                 </div>
                 <button type="submit" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" value = {achievement} 
-                onClick={(e)=>ToastPromise(addAchievementApiFunction(e, tempMap[achievement]))}>Submit</button>
+                onClick={(e)=>addAndToast(e, tempMap[achievement])}>Submit</button>
             </form>
             <CustomToastContainer/>
         </div>

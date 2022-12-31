@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useHistory } from 'react-router-dom';
 import AddAchievementButton from '../../components/AddAchievementButton/AddAchievementButton';
 import ViewAllAchievementsAchievement from '../../components/ViewAllAchivementsAchivement/ViewAllAchievementsAchievement';
 import Loader from '../../components/Loader/Loader';
@@ -11,31 +11,32 @@ import { CustomToastContainer } from '../../components/Toast/Toast';
 
 const ViewSingleAchievementList = () => {
     const Location = useLocation()
-    // console.log(Location.pathname.split('/')[2]);
-    // console.log(Location.state.prop.name);
+    
+    // //console.log(Location.pathname.split('/')[2]);
+    // //console.log(Location.state.prop.name);
     // set this to locastorage to come back both two
     
     // Continute Here
-    const Achievement = Location.state.prop.name||localStorage.getItem('Achievement');
-    const props = Location.state.prop||localStorage.getItem('props');
-
+    const Achievement = Location.state?.prop.name||localStorage.getItem('Achievement');
+    const props = Location.state?.prop||localStorage.getItem('props');
+    //console.log(props);
     localStorage.setItem('Achievement', Achievement);
-    localStorage.setItem('props', props);
-    // console.log(Achievement.state.prop.name);
+    localStorage.setItem('props', JSON.stringify(props));
+    // //console.log(Achievement.state.prop.name);
     // alert(Achievement);
     const [AchievementList, setAchievementList] = useState({});
     const [isLoading, setLoading] = useState(true);
     // const [AchievementList, setAchievementList] = useState(getAchievementsWithApiCall());
     useEffect(() => {
         getAchievementsWithApiCall(Achievement, setAchievementList).then(() => {
-            console.log(AchievementList);
+            //console.log(AchievementList);
             setLoading(false);
         });
     },
         // eslint-disable-next-line
         [])
     useEffect(() => {
-        console.log(AchievementList);
+        // //console.log(AchievementList);
     }, [AchievementList])
     return (
         <div>
