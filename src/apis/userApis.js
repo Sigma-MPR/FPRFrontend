@@ -22,6 +22,32 @@ const ForgotPassword = async(data) => {
     catch(err){
         console.log(err);
     }
-
 }
-export {Login, ForgotPassword};
+const ChangePassword = async(data) => {
+    const changePasswordAPI = `${USER_API}/user/changepassword`;
+    //console.log
+    try{
+        const resp = await axios.post(changePasswordAPI, data);
+        return resp;
+    }
+    catch(err){
+        console.log(err);
+    }
+}
+
+const GetContext = async() => {
+    const getContextAPI = `${USER_API}/user/getcontext`;
+    //console.log
+    try{
+        const resp = await axios.get(getContextAPI);
+        if(resp.status === 200)
+            return true;
+        else
+            return false;
+    }
+    catch(err){
+        console.log(err);
+        return false;
+    }
+}
+export {Login, ForgotPassword, ChangePassword, GetContext};
