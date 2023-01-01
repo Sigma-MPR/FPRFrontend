@@ -1,6 +1,9 @@
 import React, {useEffect, useState} from "react";
 import {  useNavigate, useLocation } from "react-router-dom";
 import {getFieldsByAPI, makefields} from '../AddAchievement/functions';
+import { updateAchievementApiFunction } from "../AddAchievement/functions";
+import { ToastPromise } from "../../components/Toast/Toast";
+
 const ViewSingleAchievement = () => {
     // alert('hi');</>
     const navigate = useNavigate();
@@ -21,26 +24,20 @@ const ViewSingleAchievement = () => {
         makefields(AchievementSchemaData, setLoading, Achievement)
         // ToastSuccess("Input Modal Made");
     }, [AchievementSchemaData]);
-
+    const updateAndToast = async(e, type) => {
+        await ToastPromise(updateAchievementApiFunction(e, Category))
+        //     navigate(`/achievements/bookspublished`);
+    }
         return (
             <>
                 <h1>View Single Achievement</h1>
                 <div>
                     <button onClick={() => navigate(-1)}>Go Back</button>
                 </div>
-                <div id="fields" className="add-achievement">
-                    </div>
-                {/* <div>
-                    <input type="text" placeholder="Title" value={Achievement.title} />
-                    <input type="text" placeholder="Publisher" value={Achievement.publisher} />
-                    <input type="text" placeholder="Place" value={Achievement.place} />
-                    <input type="text" placeholder="ISBN" value={Achievement.isbn} />
-                    <input type="month" placeholder="Month" value={Achievement.pubMonth} />
-                    <input type="year" placeholder="Year" value={Achievement.pubYear} />
-                    <input type="text" placeholder="Category" value={Achievement.pubCategory} />
-                    <input type="text" placeholder="Remarks" value={Achievement.remarks} />
-                </div> */}
-
+                <form id="fields" className="add-achievement">
+                    </form>
+                            <button type="submit" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" value = {Category} 
+                        onClick={(e)=>updateAndToast(e, Category)}>Update</button>
 
             </>
         );
