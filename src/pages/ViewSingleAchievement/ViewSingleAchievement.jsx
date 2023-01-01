@@ -1,30 +1,35 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import {  useNavigate, useLocation } from "react-router-dom";
-
+import {getFieldsByAPI, makefields} from '../AddAchievement/functions';
 const ViewSingleAchievement = () => {
     // alert('hi');</>
     const navigate = useNavigate();
     const Location = useLocation();
-    // const Achievement  = {
-    //     "title": "123",
-    //     "publisher": "123",
-    //     "place": "123",
-    //     "isbn": "123",
-    //     "pubMonth": "123",
-    //     "pubYear": "123",
-    //     "pubCategory": "123",
-    //     "remarks": "124",
-    //     "id": "63a338abeada22551428b2ad"
-    // }
     const Achievement = Location.state?.prop;
-    console.log(Location.state?.category);
-    // console.log(Achievement);
+    const Category = Location.state?.category;
+    console.log(Achievement);
+    console.log(Category);
+    const [Loading, setLoading] = useState(true);
+    const [AchievementSchemaData, setAchievementSchemaData] = useState({});
+    useEffect(() => {
+        setLoading(true);
+        getFieldsByAPI(Category.split(" ").join(""), setAchievementSchemaData)
+    }, []);
+    useEffect(() => {
+        document.querySelector("#fields").innerHTML = '';
+        setLoading(true);
+        makefields(AchievementSchemaData, setLoading, Achievement)
+        // ToastSuccess("Input Modal Made");
+    }, [AchievementSchemaData]);
+
         return (
             <>
                 <h1>View Single Achievement</h1>
                 <div>
                     <button onClick={() => navigate(-1)}>Go Back</button>
                 </div>
+                <div id="fields" className="add-achievement">
+                    </div>
                 {/* <div>
                     <input type="text" placeholder="Title" value={Achievement.title} />
                     <input type="text" placeholder="Publisher" value={Achievement.publisher} />

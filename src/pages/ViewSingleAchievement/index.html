@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <script>
+        const time  = new Date("2002-03-22T00:00:00.000Z");
+        const bod  = document.querySelector("body");
+        const input = document.createElement("input");
+        input.type = "date";
+        input.value = time.toISOString().split("T")[0];
+        input.value = time.toISOString().slice(0,7);
+
+        bod.appendChild(input);
+
+    </script>
+</body>
+</html>
