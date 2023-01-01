@@ -9,12 +9,14 @@ const string = "lorem ipsum dolor sit amet consectetur adipisicing elit. Quisqua
 const ViewAllAchievementsAchievement = (props) => {
     // alert(props.category)
     const navigate = useNavigate()
-    const achievement = props.achievement
+    const achievement = props.achievement;
+    const category = props.category;
+    
     return (
         <>
             <div className="card w-96 bg-neutral text-neutral-content" onClick={() => {
                 //console.log(achievement);
-                navigate('/achievements/view', { state: { prop: achievement } })
+                navigate('/achievements/view', { state: { prop: achievement, category } })
             }
             } >
                 <div className="card-body items-center text-center">

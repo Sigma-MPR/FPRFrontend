@@ -17,14 +17,15 @@ const ViewSingleAchievement = () => {
     //     "id": "63a338abeada22551428b2ad"
     // }
     const Achievement = Location.state?.prop;
+    console.log(Location.state?.category);
+    // console.log(Achievement);
         return (
             <>
                 <h1>View Single Achievement</h1>
                 <div>
                     <button onClick={() => navigate(-1)}>Go Back</button>
                 </div>
-                <div>
-                    {/* fill Achievement fields in inputs */}
+                {/* <div>
                     <input type="text" placeholder="Title" value={Achievement.title} />
                     <input type="text" placeholder="Publisher" value={Achievement.publisher} />
                     <input type="text" placeholder="Place" value={Achievement.place} />
@@ -33,7 +34,7 @@ const ViewSingleAchievement = () => {
                     <input type="year" placeholder="Year" value={Achievement.pubYear} />
                     <input type="text" placeholder="Category" value={Achievement.pubCategory} />
                     <input type="text" placeholder="Remarks" value={Achievement.remarks} />
-                </div>
+                </div> */}
 
 
             </>
