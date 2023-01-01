@@ -1,16 +1,18 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import AddAchievementButton from '../../components/AddAchievementButton/AddAchievementButton';
 import ViewAllAchievementsAchievement from '../../components/ViewAllAchivementsAchivement/ViewAllAchievementsAchievement';
 import Loader from '../../components/Loader/Loader';
 import { getAchievementsWithApiCall } from '../../components/functions';
 import './ViewSingleAchievementList.css';
 // import { ToastContainer } from 'react-toastify';
+
 import { CustomToastContainer } from '../../components/Toast/Toast';
 
 const ViewSingleAchievementList = () => {
     const Location = useLocation()
+    const navigate = useNavigate();
     
     // //console.log(Location.pathname.split('/')[2]);
     // //console.log(Location.state.prop.name);
@@ -58,7 +60,7 @@ const ViewSingleAchievementList = () => {
                     :
                     AchievementList && AchievementList.data && AchievementList.data.length > 0 && AchievementList.data.map((achievement) => {
                         return (
-                            <ViewAllAchievementsAchievement achievement={achievement} category={Achievement} setAchievementList={setAchievementList} />
+                            <ViewAllAchievementsAchievement achievement={achievement} category={Achievement} setAchievementList={setAchievementList}/>
                         )
                     })
                 }

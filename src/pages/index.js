@@ -6,3 +6,4 @@ export {default as ViewSingleAchievementList} from './ViewSingleAchievementList/
 export {default as ForgotPasswordPage} from './ForgotPasswordPage/ForgotPasswordPage';
 export {default as ChangePasswordPage} from './ChangePasswordPage/ChangePasswordPage';
 export {default as ProfilePage} from './ProfilePage/ProfilePage';
+export {default as ViewSingleAchievement} from './ViewSingleAchievement/ViewSingleAchievement';
