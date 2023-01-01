@@ -12,11 +12,7 @@ const ViewAllAchievementsAchievement = (props) => {
     const achievement = props.achievement
     return (
         <>
-            <div className="card w-96 bg-neutral text-neutral-content" onClick={() => {
-                //console.log(achievement);
-                navigate('/achievements/view', { state: { prop: achievement } })
-            }
-            } >
+            <div className="card w-96 bg-neutral text-neutral-content">
                 <div className="card-body items-center text-center">
                     <h2 className="card-title">{props.achievement.title || props.achievement.paperTitle || "props.title"}</h2>
                     <p>{props.achievement.remarks || string.slice(0, 256) || "props.remarks"}...</p>
