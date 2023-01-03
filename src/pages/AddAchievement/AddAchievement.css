@@ -11,29 +11,3 @@
 .submit-btn{
      margin: 7px 5px 7px 5px;
 }
-
-/*textfield  */
-.text-label
-{
-     margin-bottom:8px; 
-   
-}
-.textField{
-
-}
-/* datefield */
-/* {
-
-} */
-
-
-/* numberfield */
-.numfield-div{
-
-     mb-2
-     text-sm
-} 
-
-.numField {
-     w-full p-2.5
-}
