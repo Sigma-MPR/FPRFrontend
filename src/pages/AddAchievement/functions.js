@@ -125,7 +125,7 @@ const addAchievementApiFunction = async (e, ach) => {
     }
 };
 
-const updateAchievementApiFunction = async (e, ach) => {
+const updateAchievementApiFunction = async (e, ach, Achid) => {
 
     const str = ach.split(" ").join("").toLowerCase();
     e.preventDefault();
@@ -133,20 +133,16 @@ const updateAchievementApiFunction = async (e, ach) => {
     ele.checkValidity();
     ele.reportValidity();
     // const achievement = e.target.value;
+    console.log(Achid);
     const data = {};
     const fields = document.querySelectorAll("#fields input");
     fields.forEach((item) => {
         data[item.id] = item.value;
     })
-    //console.log(data);
+    data['id'] = Achid;
     // data["cid"] = "507f1f77bcf86cd799439011";
     // data["uid"] = "";
-    // const endpoint = EndpointList[achievement];
-    // //console.log("Endpoint: " + endpoint);
-    // bring the logic of the acheivement in here
     const apiToCall = `${ACHIEVEMENT_API}/achievements/${str}`;
-    // //console.log(apiToCall);
-    // if (!endpoint) return alert("Please Select Achievement Type");
     try {
         const resp = await fetch(`${apiToCall}`, {
             method: "PATCH",
