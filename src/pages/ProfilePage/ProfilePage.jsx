@@ -5,7 +5,7 @@ import { toast } from 'react-toastify';
 import { USER_API } from "../../constants";
 import './ProfilePage.css';
 const getUser = async (token, setUser, navigate) => {
-    console.log("token",token);
+    // console.log("token",token);
     const response = await fetch(USER_API, {
         method: 'GET',
         headers: {
@@ -26,25 +26,28 @@ const editUser = async (token, user, navigate, isDisabled, setUser) => {
         return;
     }
     if (!user.password) {
+        alert('Enter Password To Save Changes');
         toast.error('Enter Password To Save Changes', {
             position: toast.POSITION.BOTTOM_RIGHT,
         });
         return;
     }
-    const bod = {
-        id: user.id,
-        updateBody: {...user}
-    }
-    console.log(bod);
+    // const bod = {
+    
+    //     updateBody: {...user}
+    // }
+    // console.log(bod);
     const response = await fetch(USER_API, {
         method: 'PATCH',
         headers: {
             'Content-Type': 'application/json',
             'authorization': `${token}`
         },
-        body: JSON.stringify(bod)
+        body: JSON.stringify({...user})
     });
+    console.log(response);
     const data = await response.json();
+    console.log(data);
     if (data.error) {
         // toast.error('Something went wrong', {
         //     position: toast.POSITION.BOTTOM_RIGHT,
