@@ -78,7 +78,7 @@ const Profile = () => {
             <div id="profile-container">
                 <form class="">
                     <div class="">
-                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold pl-0.5 mb-1" for="grid-first-name">
+                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold pl-0.5 mb-1 my-1 mt-1" for="grid-first-name">
                             Name
                         </label>
                         <input class="userInput appearance-none block  bg-white-100 text-400 rounded-lg py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" placeholder="name" id="grid-first-name" type="text" value={user.name} disabled={isDisabled} onChange={
@@ -115,7 +115,7 @@ const Profile = () => {
                             Role
                         </label>
                         <div class="relative">
-                            <select class=" userInput block appearance-none  bg-white-100 border border-gray-200 rounded-lg text-gray-500 py-3 px-4 pr-8  leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-state" disabled={isDisabled}>
+                            <select class=" userInput block appearance-none  bg-white-100 border border-gray-200 rounded-lg text-gray-500 py-3 px-4 pr-8  leading-tight focus:outline-none focus:bg-white focus:border-gray-500 mb-2" id="grid-state" disabled={isDisabled}>
                                 {
                                     user.role === 'TEACHER' ?
                                         <option value={'TEACHER'} selected>Teacher</option> : <option value={'STUDENT'} selected>Student</option>
