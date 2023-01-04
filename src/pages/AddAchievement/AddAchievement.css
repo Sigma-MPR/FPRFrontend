@@ -9,7 +9,7 @@
 } */
 
 .submit-btn{
-     margin: 7px 5px 7px 5px;
+     margin: 7px 5px 5px 5px;
 }
 .main-div{
      /* background-color: bisque; */
@@ -18,13 +18,9 @@
      align-items: center;
      border: 5px  solid #fff ;
      border-radius: 7px;
-     padding: 5px 0;
+     padding: 5px 0 10px 0;
 }
 
-#addAchievement{
-     /* width: 500px; */
-     /* background-color: bisque; */
-}
 .Achievementform{
      /* background-color: aquamarine; */
      margin:10px 0 ;
@@ -35,11 +31,16 @@
      /* backgroundcolor: aquamarine; */
      }
 .add-achievement{
-     /* width: 500px; */
-     margin: 10px 0;
+     
+     margin: 15px 0 15px 0;
     
-     /* background-color: antiquewhite; */
 }
+.btn-div{
+     display: flex;
+     justify-content: center;
+     align-items: center;
+}
+
  @media only screen and (max-width:500px){
      .add-achievement
      {
