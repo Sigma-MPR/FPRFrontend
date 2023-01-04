@@ -12,32 +12,12 @@
      margin: 7px 5px 7px 5px;
 }
 
-/*textfield  */
-.text-label{
-    
-}
 
 .textField{
      
      padding: 7px 7px;
 }
 
-
-/* numberfield */
-.numfield-div{
-     
-} 
-
 .numField,.dateField,.textField {
      border-radius: 8px;
-}
-
-
-/* datefield */
-.datefield-div{
-    
-} 
-
-.dateField{
-    
 }

@@ -74,7 +74,7 @@ const Profile = () => {
 
     return (
         <div className="profile-container">
-            <h1 className="text-5xl font-bold text-black mb-3" id="h1"> Profile </h1>
+            <h1 className="text-4xl font-bold text-gray mb-3" id="h1"> Profile </h1>
             <div id="profile-container">
                 <form class="">
                     <div class="">
