@@ -68,7 +68,7 @@ const AddAchievement = () => {
                         <div id="sub-fields" className="achievement-field"></div>
                     </div>
                 </div>
-                <button type="submit" className="submit-btn text-white bg-blue-700 hover:bg-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-md w-full sm:w-auto px-4 py-3 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" value = {achievement} 
+                <button type="submit" className="submit-btn text-white bg-blue-700 hover:bg-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-2xl text-md w-full sm:w-auto px-4 py-3 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" value = {achievement} 
                 onClick={(e)=>ToastPromise(addAchievementApiFunction(e, tempMap[achievement]))}>SUBMIT</button>
             </form>
             <CustomToastContainer/>
