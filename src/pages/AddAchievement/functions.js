@@ -1,21 +1,41 @@
 import { EndpointList } from "../../constants";
 import { ACHIEVEMENT_API, fieldsMapping } from "../../constants";
+import './AddAchievement.css';
 // toast
 import { CustomToastContainer, ToastError, ToastSuccess } from "../../components/Toast/Toast";
 import { useLocation } from "react-router";
 const textField = (fieldName, required) => {
     return (
-        `<div>
-                <label for=${fieldsMapping[fieldName]} className="text-label block mb-4 text-md m-2 text-gray-900 dark:text-gray-400 ">${fieldsMapping[fieldName]}</label> 
-                <input type="text" id=${fieldsMapping[fieldName]} className="textField bg-gray-50 border border-gray-300 rounded-xl text-gray-900 text-md  focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 " placeholder='Enter ${fieldsMapping[fieldName]}' ${required && 'required'} /> 
+        `<div className="Achievementform">
+
+        <div class="md:flex md:items-left mb-6">
+        <div class="md:w-1/3">
+          <label class="block text-gray-500 font-bold md:text-left mb-1 md:mb-0 pr-4" for=${fieldsMapping[fieldName]} >
+          ${fieldsMapping[fieldName]}
+          </label>
+        </div>
+        <div class="md:w-2/3">
+          <input id=${fieldsMapping[fieldName]} class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-white-500" id="inline-full-name" type="text" value="" placeholder='Enter ${fieldsMapping[fieldName]}' ${required && 'required'} />
+        </div>
+      </div>
+
         </div>`
     )
 }
 const numberField = (fieldName, required) => {
     return (
         `<div>
-                <label for=${fieldsMapping[fieldName]} className="numfield-div block mb-4 text-md m-2 text-gray-900 dark:text-gray-400">${fieldsMapping[fieldName]}</label> 
-                <input type="number" id=${fieldsMapping[fieldName]} className="numField bg-gray-50 border border-gray-300 rounded-xl text-gray-900 text-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 " placeholder='Enter ${fieldsMapping[fieldName]}' required  />
+        <div class="md:flex md:items-left mb-6">
+        <div class="md:w-1/3">
+          <label class="block text-gray-500 font-bold md:text-left mb-1 md:mb-0 pr-4" for=${fieldsMapping[fieldName]} >
+          ${fieldsMapping[fieldName]}
+          </label>
+        </div>
+        <div class="md:w-2/3">
+          <input type="number" id=${fieldsMapping[fieldName]} class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="inline-full-name"  value="" placeholder='Enter ${fieldsMapping[fieldName]}' ${required && 'required'} />
+        </div>
+      </div>
+
             </div>`
     )
 }
@@ -23,8 +43,16 @@ const numberField = (fieldName, required) => {
 const dateField = (fieldName, required) => {
     return (
         `<div>
-                <label for=${fieldsMapping[fieldName]} className="datefield-div block mb-4 text-md m-2 font-black text-gray-900 dark:text-gray-400 ">${fieldsMapping[fieldName]}</label> 
-                <input type="date" id=${fieldsMapping[fieldName]} className="dateField border border-gray-300 rounded-xl bg-gray-50  text-gray-900 text-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 "  ${required && 'required'} /> 
+        <div class="md:flex md:items-left mb-6">
+        <div class="md:w-1/3">
+          <label class="block text-gray-500 font-bold md:text-left mb-1 md:mb-0 pr-4" for=${fieldsMapping[fieldName]} >
+          ${fieldsMapping[fieldName]}
+          </label>
+        </div>
+        <div class="md:w-2/3">
+          <input type="date" id=${fieldsMapping[fieldName]} class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="inline-full-name"  value="" placeholder='Enter ${fieldsMapping[fieldName]}' ${required && 'required'} />
+        </div>
+      </div>
             </div>`
     )
 }
@@ -32,7 +60,7 @@ const makefields = (fields, setLoading) => {
     if (fields.length > 0) {
         // eslint-disable-next-line
         fields.map((field) => {
-            if (field.type === "String") {
+            if (field.type === "String") { 
                 document.querySelector("#fields").innerHTML += textField(field.name, field.required);
             }
             else if (field.type === "Number") {
@@ -124,3 +152,7 @@ const addAchievementApiFunction = async(e, ach) => {
 };
 
 export { textField, numberField, dateField, makefields, addAchievementApiFunction, getFieldsByAPI };
+
+//  <label for=${fieldsMapping[fieldName]} className="text-label block mb-4 text-md m-2 text-gray-900 dark:text-gray-400 ">${fieldsMapping[fieldName]}</label> 
+
+// <input type="text" id=${fieldsMapping[fieldName]} className="textField bg-gray-50 border border-gray-300 rounded-xl text-gray-900 text-md  focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 " placeholder='Enter ${fieldsMapping[fieldName]}' ${required && 'required'} />

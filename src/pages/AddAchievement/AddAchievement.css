@@ -11,10 +11,62 @@
 .submit-btn{
      margin: 7px 5px 7px 5px;
 }
+.main-div{
+     /* background-color: bisque; */
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     border: 5px  solid #fff ;
+     border-radius: 7px;
+     padding: 5px 0;
+}
 
+#addAchievement{
+     /* width: 500px; */
+     /* background-color: bisque; */
+}
+.Achievementform{
+     /* background-color: aquamarine; */
+     margin:10px 0 ;
 
-.textField{
+}
+.achievement-field{
+     margin:10px 0 ;
+     /* backgroundcolor: aquamarine; */
+     }
+.add-achievement{
+     /* width: 500px; */
+     margin: 10px 0;
+    
+     /* background-color: antiquewhite; */
+}
+ @media only screen and (max-width:500px){
+     .add-achievement
+     {
+          padding: 10px 10px;
+     }
+     .main-div{
+          width: 70vw;
+     }
      
+}
+@media only screen and (max-width:800px){
+     .add-achievement
+     {
+          padding: 10px 10px;
+     }
+     .main-div{
+          width: 70vw;
+     }
+     
+}
+
+#sub-fields{
+     /* background-color: #fff; */
+     /* width: 500px; */
+}
+.textField{
+     margin: 7px 7px;
      padding: 7px 7px;
 }
 
