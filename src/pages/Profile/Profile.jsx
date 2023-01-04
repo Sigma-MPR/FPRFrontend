@@ -81,7 +81,7 @@ const Profile = () => {
                         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-1" for="grid-first-name">
                             Name
                         </label>
-                        <input class="userInput appearance-none block bg-gray-200 text-gray-700 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-first-name" type="text" value={user.name} disabled={isDisabled} onChange={
+                        <input class="userInput appearance-none block  bg-white-100 text-gray-700 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-first-name" type="text" value={user.name} disabled={isDisabled} onChange={
                             (e) => {
                                 setUser({ ...user, name: e.target.value });
                             }
@@ -92,7 +92,7 @@ const Profile = () => {
                         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-1 mt-4" for="grid-last-name">
                             Email
                         </label>
-                        <input class="userInput appearance-none block  bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 mb-3" id="grid-last-name" type="email" disabled={isDisabled} value={user.email} onChange={(e) => {
+                        <input class="userInput appearance-none block  bg-white-100 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 mb-3" id="grid-last-name" type="email" disabled={isDisabled} value={user.email} onChange={(e) => {
                             setUser({ ...user, email: e.target.value });
                         }} />
                     </div>
@@ -101,7 +101,8 @@ const Profile = () => {
                         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-1 mt-4" for="grid-password">
                             Password
                         </label>
-                        <input class="userInput appearance-none block  bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-password" type="password" placeholder="******************" required disabled={isDisabled} onChange={
+                       
+                        <input class="userInput appearance-none block  bg-white-100 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-password" type="password" placeholder="******************" required disabled={isDisabled} onChange={
                             (e) => {
                                 setUser({ ...user, password: e.target.value });
                             }
@@ -114,7 +115,7 @@ const Profile = () => {
                             Role
                         </label>
                         <div class="relative">
-                            <select class=" userInput block appearance-none  bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-state" disabled={isDisabled}>
+                            <select class=" userInput block appearance-none  bg-white-100 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-state" disabled={isDisabled}>
                                 {
                                     user.role === 'TEACHER' ?
                                         <option value={'TEACHER'} selected>Teacher</option> : <option value={'STUDENT'} selected>Student</option>
