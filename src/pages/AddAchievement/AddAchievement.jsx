@@ -48,7 +48,7 @@ const AddAchievement = () => {
             <form className="w-1/2">
                 <div className="grid gap-3 mb-3 md:grid-cols-1" id="addAchievement">
                     <div className="add-achievement">
-                        <label htmlFor="achievement" className="inline mb-3 text-md pl-2.5 py-2.5 font-medium text-gray-900 dark:text-gray-400 ">CHOOSE ACHIEVEMENT TYPE</label>
+                        <label htmlFor="achievement" className="inline mb-3 text-md py-2.5 font-medium text-gray-900 dark:text-gray-400 ">CHOOSE ACHIEVEMENT TYPE</label>
 
                         <select id="achievement" className="bg-gray-50 border text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 mt-2 mb-2 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500 " onChange={changeOption}>
                             {!AchievementDropDown[prop] && <option>Choose Type Of Achievement</option>}

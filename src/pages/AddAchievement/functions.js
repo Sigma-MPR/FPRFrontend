@@ -6,16 +6,16 @@ import { useLocation } from "react-router";
 const textField = (fieldName, required) => {
     return (
         `<div>
-                <label for=${fieldsMapping[fieldName]} className="text-label block mb-2 text-md m-2 text-gray-900 dark:text-gray-400 ">${fieldsMapping[fieldName]}</label> 
-                <input type="text" id=${fieldsMapping[fieldName]} className="textField bg-gray-50 border border-gray-300 text-gray-900 text-md  rounded-xlfocus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 " placeholder='Enter ${fieldsMapping[fieldName]}' ${required && 'required'} /> 
+                <label for=${fieldsMapping[fieldName]} className="text-label block mb-4 text-md m-2 text-gray-900 dark:text-gray-400 ">${fieldsMapping[fieldName]}</label> 
+                <input type="text" id=${fieldsMapping[fieldName]} className="textField bg-gray-50 border border-gray-300 rounded-xl text-gray-900 text-md  focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 " placeholder='Enter ${fieldsMapping[fieldName]}' ${required && 'required'} /> 
         </div>`
     )
 }
 const numberField = (fieldName, required) => {
     return (
         `<div>
-                <label for=${fieldsMapping[fieldName]} className="numfield-div block mb-2 text-md m-2 text-gray-900 dark:text-gray-400">${fieldsMapping[fieldName]}</label> 
-                <input type="number" id=${fieldsMapping[fieldName]} className="numField bg-gray-50 border border-gray-300 text-gray-900 text-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 rounded-xl" placeholder='Enter ${fieldsMapping[fieldName]}' required  />
+                <label for=${fieldsMapping[fieldName]} className="numfield-div block mb-4 text-md m-2 text-gray-900 dark:text-gray-400">${fieldsMapping[fieldName]}</label> 
+                <input type="number" id=${fieldsMapping[fieldName]} className="numField bg-gray-50 border border-gray-300 rounded-xl text-gray-900 text-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 " placeholder='Enter ${fieldsMapping[fieldName]}' required  />
             </div>`
     )
 }
@@ -23,8 +23,8 @@ const numberField = (fieldName, required) => {
 const dateField = (fieldName, required) => {
     return (
         `<div>
-                <label for=${fieldsMapping[fieldName]} className="datefield-div block mb-2 text-md m-2 font-black text-gray-900 dark:text-gray-400 ">${fieldsMapping[fieldName]}</label> 
-                <input type="date" id=${fieldsMapping[fieldName]} className="dateField border rounded-xl bg-gray-50  text-gray-900 text-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 "  ${required && 'required'} /> 
+                <label for=${fieldsMapping[fieldName]} className="datefield-div block mb-4 text-md m-2 font-black text-gray-900 dark:text-gray-400 ">${fieldsMapping[fieldName]}</label> 
+                <input type="date" id=${fieldsMapping[fieldName]} className="dateField border border-gray-300 rounded-xl bg-gray-50  text-gray-900 text-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 "  ${required && 'required'} /> 
             </div>`
     )
 }
