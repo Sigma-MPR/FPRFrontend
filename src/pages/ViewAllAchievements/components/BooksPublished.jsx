@@ -4,7 +4,7 @@ import Loader from '../../../components/Loader/Loader';
 import { getAchievementsWithApiCall } from '../../../components/functions';
 import ViewAllAchievementsAchievement from '../../../components/ViewAllAchivementsAchivement/ViewAllAchievementsAchievement';
 import { CustomToastContainer } from '../../../components/Toast/Toast';
-
+import '../ViewAllAchievements.css'; 
 
 const BooksPublished = () => {
     const Location = useLocation()

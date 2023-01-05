@@ -1,0 +1,20 @@
+#TopCollection{
+    display: flex;
+    flex: auto;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+}
+
+#ConferenceProceedingsCards, #booksPublishedCards{
+     display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+}
+#ConferenceProceedingsCards >div, #booksPublishedCards>div{
+    margin: 10px;
+    width: 90%;
+}

@@ -1,6 +1,7 @@
 import React from 'react';
 import BooksPublished from './components/BooksPublished';
 import ConferenceProceedings from './components/ConferenceProceedings';
+import './ViewAllAchievements.css';
 
 export default function ViewAllAchievements(){
     return(
