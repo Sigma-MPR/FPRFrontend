@@ -9,12 +9,12 @@ const textField = (fieldName, required, value) => {
 
         <div class="md:flex md:items-left mb-6">
         <div class="md:w-1/3">
-          <label class="block font-medium text-gray-900 dark:text-gray-400 md:text-left mb-1 md:mb-0 pt-2 pr-4" for=${fieldsMapping[fieldName]} >
+          <label class="block font-medium  text-black md:text-left mb-1 md:mb-0 pt-3 pr-4" for=${fieldsMapping[fieldName]} >
           ${fieldsMapping[fieldName]}
           </label>
         </div>
         <div class="md:w-2/3">
-          <input id=${fieldsMapping[fieldName]} class="bg-gray-100 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500" id="inline-full-name" type="text" value="" placeholder='Enter ${fieldsMapping[fieldName]}' ${required && 'required'} />
+          <input id=${fieldsMapping[fieldName]} class=" appearance-none border-2 border-gray-200 rounded w-full py-2 px-4  text-black  leading-3 focus:outline-none focus:bg-white focus:border-gray-500" id="inline-full-name" type="text" value="" placeholder='Enter ${fieldsMapping[fieldName]}' ${required && 'required'} />
         </div>
       </div>
 
@@ -26,12 +26,12 @@ const numberField = (fieldName, required, value) => {
         `<div>
         <div class="md:flex md:items-left mb-6">
         <div class="md:w-1/3">
-          <label class="block font-medium text-gray-900 dark:text-gray-400 md:text-left mb-1 md:mb-0 pt-2  pr-4" for=${fieldsMapping[fieldName]} >
+          <label class="block font-medium  text-black  md:text-left mb-1 md:mb-0 pt-3  pr-4" for=${fieldsMapping[fieldName]} >
           ${fieldsMapping[fieldName]}
           </label>
         </div>
         <div class="md:w-2/3">
-          <input type="number" id=${fieldsMapping[fieldName]} class="bg-gray-100 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500" id="inline-full-name"  value="" placeholder='Enter ${fieldsMapping[fieldName]}' ${required && 'required'} />
+          <input type="number" id=${fieldsMapping[fieldName]} class="appearance-none border-2 border-gray-200 rounded w-full py-2 px-4  text-black leading-tight focus:outline-none focus:bg-white focus:border-blue-500" id="inline-full-name"  value="" placeholder='Enter ${fieldsMapping[fieldName]}' ${required && 'required'} />
         </div>
       </div>
 
@@ -44,12 +44,12 @@ const dateField = (fieldName, required) => {
         `<div>
         <div class="md:flex md:items-left mb-6">
         <div class="md:w-1/3">
-          <label class="block font-medium text-gray-900 dark:text-gray-400 md:text-left mb-1 md:mb-0 pt-2 pr-4" for=${fieldsMapping[fieldName]} >
+          <label class="block font-medium text-black  md:text-left mb-1 md:mb-0 pt-3 pr-4" for=${fieldsMapping[fieldName]} >
           ${fieldsMapping[fieldName]}
           </label>
         </div>
         <div class="md:w-2/3">
-          <input type="date" id=${fieldsMapping[fieldName]} class="bg-gray-100 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500" id="inline-full-name"  value="" placeholder='Enter ${fieldsMapping[fieldName]}' ${required && 'required'} />
+          <input type="date" id=${fieldsMapping[fieldName]} class="appearance-none border-2 border-gray-200 rounded w-full py-2 px-4  text-black leading-tight focus:outline-none focus:bg-white focus:border-blue-500" id="inline-full-name"  value="" placeholder='Enter ${fieldsMapping[fieldName]}' ${required && 'required'} />
         </div>
       </div>
             </div>`
