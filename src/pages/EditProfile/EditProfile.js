@@ -1,5 +1,6 @@
-import { EndpointList } from "../../constants";
-import {fieldsMapping } from "../../constants";
+// import { EndpointList } from "../../constants";
+import {EditProfile } from "../../constants";
+import "../EditProfile.css";
 //add editprofile api for fieldname mapping
 
 import { CustomToastContainer, ToastError, ToastSuccess } from "../../components/Toast/Toast";
@@ -136,7 +137,7 @@ const addAchievementApiFunction = async(e, ach) => {
     }
 };*/
 
-export { textField, numberField, makefields, addAchievementApiFunction, getFieldsByAPI };
+export { textField, numberField, getFieldsByAPI };
 //change fields
 
 

@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import "./EditProfile.css";
 
-
+import {makefields, addAchievementApiFunction, getFieldsByAPI} from './functions';
 import Loader from "../../components/Loader/Loader";
 import {CustomToastContainer, ToastError, ToastSuccess, ToastPromise} from "../../components/Toast/Toast";
 
