@@ -1,16 +1,16 @@
-
-import { ENDPOINTS } from "../../constants"
+// import { ENDPOINTS } from "../../constants"
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
 import { toast } from 'react-toastify';
+import { USER_API } from "../../constants";
 import './ProfilePage.css';
 const getUser = async (token, setUser, navigate) => {
-    const APIDATA = ENDPOINTS.USER.GET_PROFILE;
-    const response = await fetch(APIDATA.API, {
-        method: APIDATA.METHOD,
+    // console.log("token",token);
+    const response = await fetch(USER_API, {
+        method: 'GET',
         headers: {
             'Content-Type': 'application/json',
-            'authorization': `Bearer ${token}`
+            'authorization': token
         }
     });
     const data = await response.json();
@@ -18,35 +18,41 @@ const getUser = async (token, setUser, navigate) => {
         alert(data.error);
         // navigate('/login');
     }
-    setUser(data.data);
+    console.log(data);
+    setUser(data);
 }
 const editUser = async (token, user, navigate, isDisabled, setUser) => {
     if (isDisabled) {
         return;
     }
     if (!user.password) {
+        alert('Enter Password To Save Changes');
         toast.error('Enter Password To Save Changes', {
             position: toast.POSITION.BOTTOM_RIGHT,
         });
         return;
     }
-    // select the selected option
-    const newRole = document.querySelector('select').value;
-    setUser({ ...user, role: newRole });
-    const APIDATA = ENDPOINTS.USER.UPDATE_PROFILE;
-    const response = await fetch(`${APIDATA.API}/${user.id}`, {
-        method: APIDATA.METHOD,
+    // const bod = {
+    
+    //     updateBody: {...user}
+    // }
+    // console.log(bod);
+    const response = await fetch(USER_API, {
+        method: 'PATCH',
         headers: {
             'Content-Type': 'application/json',
-            'authorization': `Bearer ${token}`
+            'authorization': `${token}`
         },
-        body: JSON.stringify(user)
+        body: JSON.stringify({...user})
     });
+    console.log(response);
     const data = await response.json();
+    console.log(data);
     if (data.error) {
-        toast.error('Something went wrong', {
-            position: toast.POSITION.BOTTOM_RIGHT,
-        });
+        // toast.error('Something went wrong', {
+        //     position: toast.POSITION.BOTTOM_RIGHT,
+        // });
+        console.log(data.error);
         // navigate('/login');
     }
     alert(data.message);
@@ -62,7 +68,7 @@ const ProfilePage = () => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
         , []);
     useEffect(() => {
-        console.log(user);
+        // console.log(user);
     }, [user, isDisabled]);
     if (!token) {
         toast.error('No Session Found', {
@@ -108,7 +114,7 @@ const ProfilePage = () => {
                         <p className="text-xs text-red-700 -mt-3 mb-3" >!Enter Password To Make Changes in the profile sections</p>
                     </div>
 
-                    <div class="">
+                    {/* <div class="">
                         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-1 mt-4" for="grid-state">
                             Role
                         </label>
@@ -126,7 +132,7 @@ const ProfilePage = () => {
                                 <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" /></svg>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
                     <button className="hover:bg-blue-700 text-white font-bold py-3 px-6 rounded mt-5"
                         onClick={
                             async (e) => {

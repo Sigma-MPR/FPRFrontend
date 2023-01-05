@@ -1,5 +1,6 @@
 import React from "react";
-import { ThreeDots, FallingLines, Vortex, ProgressBar, ColorRing} from "react-loader-spinner";
+import { ThreeDots } from "react-loader-spinner";
+    // FallingLines, Vortex, ProgressBar, ColorRing} 
 
 const Loader = () => {
     return (

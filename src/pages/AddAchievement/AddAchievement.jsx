@@ -5,19 +5,19 @@ import "./AddAchievement.css";
 import { AchievementDropDown } from "../../constants";
 import {makefields, addAchievementApiFunction, getFieldsByAPI} from './functions';
 import Loader from "../../components/Loader/Loader";
-import {CustomToastContainer, ToastError, ToastSuccess, ToastPromise} from "../../components/Toast/Toast";
+import {CustomToastContainer,ToastSuccess, ToastPromise} from "../../components/Toast/Toast";
 const tempMap = {
     "BP": "BooksPublished",
     "CP": "ConferenceProceedings",
 }
 const AddAchievement = () => {
     const location = useLocation();
-    const prop = location.state.name;
+    const prop = location.state.name||localStorage.getItem('Achievement');
     // alert(prop);
     const [achievement, setAchievement] = useState(AchievementDropDown[prop]);
     const [AchievementSchemaData, setAchievementSchemaData] = useState({});
     const [Loading, setLoading] = useState(true);
-
+    const navigate = useNavigate();
     useEffect(() => {
         setLoading(true);
         getFieldsByAPI(tempMap[AchievementDropDown[prop]], setAchievementSchemaData)
@@ -43,6 +43,10 @@ const AddAchievement = () => {
         // makefields(AchievementSchemaData, setLoading);
     };
     
+    const addAndToast = async(e, type) => {
+        await ToastPromise(addAchievementApiFunction(e, tempMap[achievement]))
+            navigate(`/achievements/bookspublished`);
+    }
     return (
         <div className=" main-div  w-1/2  md:w-1/2 ml-auto mr-auto mb-4 border border-white rounded-2xl ">
             <form className="">

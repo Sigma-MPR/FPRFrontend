@@ -2,9 +2,8 @@ import { EndpointList } from "../../constants";
 import { ACHIEVEMENT_API, fieldsMapping } from "../../constants";
 import './AddAchievement.css';
 // toast
-import { CustomToastContainer, ToastError, ToastSuccess } from "../../components/Toast/Toast";
-import { useLocation } from "react-router";
-const textField = (fieldName, required) => {
+import { ToastError } from "../../components/Toast/Toast";
+const textField = (fieldName, required, value) => {
     return (
         `<div className="Achievementform">
 
@@ -22,7 +21,7 @@ const textField = (fieldName, required) => {
         </div>`
     )
 }
-const numberField = (fieldName, required) => {
+const numberField = (fieldName, required, value) => {
     return (
         `<div>
         <div class="md:flex md:items-left mb-6">
@@ -56,18 +55,18 @@ const dateField = (fieldName, required) => {
             </div>`
     )
 }
-const makefields = (fields, setLoading) => {
-    if (fields.length > 0) {
+const makefields = (fields, setLoading, achievement) => {
+    if (fields?.length > 0) {
         // eslint-disable-next-line
         fields.map((field) => {
             if (field.type === "String") { 
                 document.querySelector("#fields").innerHTML += textField(field.name, field.required);
             }
             else if (field.type === "Number") {
-                document.querySelector("#fields").innerHTML += numberField(field.name);
+                document.querySelector("#fields").innerHTML += numberField(field.name, field.required, achievement ? achievement[field.name] : null);
             }
             else if (field.type === "Date") {
-                document.querySelector("#fields").innerHTML += dateField(field.name)
+                document.querySelector("#fields").innerHTML += dateField(field.name, field.required, achievement ? achievement[field.name] : null)
             }
         })
         setLoading(false);
@@ -82,9 +81,10 @@ const makefields = (fields, setLoading) => {
 
 const getFieldsByAPI = async (achievement, setAchievementSchemaData) => {
     const endpoint = ACHIEVEMENT_API;
-    try {  
-        const apiAchievement = achievement.split(" ").join("");
-        // apiAchievement =  apiAchievement == "Conference Proceeding"? "ConferenceProceedings" : apiAchievement;
+    try {
+        let apiAchievement = achievement.split(" ").join("");
+        apiAchievement =  apiAchievement == "ConferenceProceeding"? "ConferenceProceedings" : apiAchievement;
+        console.log(apiAchievement);
         const resp = await fetch(`${endpoint}/achievements/fields?model=${apiAchievement}`, {
             method: "GET",
             headers: {
@@ -95,14 +95,14 @@ const getFieldsByAPI = async (achievement, setAchievementSchemaData) => {
         setAchievementSchemaData(data.modelFields);
     }
     catch (err) {
-        // console.log("Error Occured");
+        // //console.log("Error Occured");
         ToastError("Error Occured Getting Fields");
-        console.log(err);
+        //console.log(err);
         return;
     }
 }
 
-const addAchievementApiFunction = async(e, ach) => {
+const addAchievementApiFunction = async (e, ach) => {
     // alert(ach);
     const str = ach.split(" ").join("").toLowerCase();
     e.preventDefault();
@@ -115,14 +115,14 @@ const addAchievementApiFunction = async(e, ach) => {
     fields.forEach((item) => {
         data[item.id] = item.value;
     })
-    console.log(data);
+    //console.log(data);
     // data["cid"] = "507f1f77bcf86cd799439011";
     // data["uid"] = "";
     const endpoint = EndpointList[achievement];
-    // console.log("Endpoint: " + endpoint);
+    // //console.log("Endpoint: " + endpoint);
     // bring the logic of the acheivement in here
     const apiToCall = `${ACHIEVEMENT_API}/achievements/${str}`;
-    // console.log(apiToCall);
+    // //console.log(apiToCall);
     if (!endpoint) return alert("Please Select Achievement Type");
     try {
         const resp = await fetch(`${apiToCall}`, {
@@ -139,13 +139,16 @@ const addAchievementApiFunction = async(e, ach) => {
                 unable to maintaint he state of the achievements
                 so the achievements are not getting updated
         */
-        window.location.href = `/achievements/${str}`;
-        
+        // window.location.href = `/achievements/${str}`;
+        // navigate(`/achievements/${str}`);
+        // eslint-disable-next-line
+        // const location = useLocation();
+        // //console.log(location);
 
-        
+
     }
     catch (err) {
-        console.log(err);
+        //console.log(err);
         // alert("Error Occured");
         ToastError("Error Occured");
     }

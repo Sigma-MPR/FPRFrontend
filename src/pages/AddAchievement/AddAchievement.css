@@ -1,3 +1,20 @@
+#fields{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    background-color: azure;
+    width: max-content;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 0 rgba(0,0,0,0.2);
+    color: black;
+    margin-left: auto;
+    margin-right: auto;
+    flex-shrink: 1;
+
+}
 /* 
 #achievement{
      margin: 9px 0 7px 0;
@@ -70,4 +87,18 @@
 
 .numField,.dateField,.textField {
      border-radius: 8px;
+}
+
+#fields input{
+    width: 300px;
+    height: 30px;
+    margin: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 5px;
+}
+#fields label{
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: start;
 }
