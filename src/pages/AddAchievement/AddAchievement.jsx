@@ -55,7 +55,7 @@ const AddAchievement = () => {
                     <div className="add-achievement w-full">
                         <label htmlFor="achievement" className="inline text-base mb-3 mt-4 py-4 font-semibold text-black leading-5 ">CHOOSE ACHIEVEMENT TYPE</label>
                             
-                        <select id="achievement" className="bg-gray-50 border text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 mt-2 mb-2 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500 " onChange={changeOption}>
+                        <select id="achievement" className="bg-gray-50 border text-sm rounded-lg focus:ring-gray-500 focus:border-gray block w-full p-2.5 mt-2 mb-2 dark:text-black dark:focus:ring-gray-500 dark:focus:border-blue-500 " onChange={changeOption}>
                             {!AchievementDropDown[prop] && <option>Choose Type Of Achievement</option>}
                             {
                                 Object.keys(AchievementDropDown).map((item, index) => {

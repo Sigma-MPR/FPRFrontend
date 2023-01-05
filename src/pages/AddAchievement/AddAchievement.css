@@ -37,20 +37,24 @@
  @media only screen and (max-width:500px){
      .add-achievement
      {
+          width: 50%;
           padding: 10px 10px;
      }
-     .main-div{
-          width: 70vw;
+     .main-div, #achievement{
+          width: fit-content;
      }
      
 }
 @media only screen and (max-width:800px){
      .add-achievement
      {
+          width: 25%;
+
           padding: 10px 10px;
      }
-     .main-div{
-          width: 70vw;
+     .main-div, #achievement{
+          /* width: 70vw; */
+          width: fit-content;
      }
      
 }
@@ -66,7 +70,7 @@
 
 #fields input{
     width: 300px;
-    height: 30px;
+    height: 35px;
     margin: 10px;
     border-radius: 5px;
     border: 1px solid #ccc;
