@@ -59,8 +59,8 @@ const makefields = (fields, setLoading, achievement) => {
     if (fields?.length > 0) {
         // eslint-disable-next-line
         fields.map((field) => {
-            if (field.type === "String") { 
-                document.querySelector("#fields").innerHTML += textField(field.name, field.required);
+            if (field.type === "String") {
+                document.querySelector("#fields").innerHTML += textField(field.name, field.required, achievement ? achievement[field.name] : null);
             }
             else if (field.type === "Number") {
                 document.querySelector("#fields").innerHTML += numberField(field.name, field.required, achievement ? achievement[field.name] : null);
@@ -154,8 +154,49 @@ const addAchievementApiFunction = async (e, ach) => {
     }
 };
 
-export { textField, numberField, dateField, makefields, addAchievementApiFunction, getFieldsByAPI };
+const updateAchievementApiFunction = async (e, ach, Achid) => {
 
-//  <label for=${fieldsMapping[fieldName]} className="text-label block mb-4 text-md m-2 text-gray-900 dark:text-gray-400 ">${fieldsMapping[fieldName]}</label> 
-
-// <input type="text" id=${fieldsMapping[fieldName]} className="textField bg-gray-50 border border-gray-300 rounded-xl text-gray-900 text-md  focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 " placeholder='Enter ${fieldsMapping[fieldName]}' ${required && 'required'} />
+    const str = ach.split(" ").join("").toLowerCase();
+    e.preventDefault();
+    var ele = document.getElementsByTagName("form")[0];
+    ele.checkValidity();
+    ele.reportValidity();
+    // const achievement = e.target.value;
+    console.log(Achid);
+    const data = {};
+    const fields = document.querySelectorAll("#fields input");
+    fields.forEach((item) => {
+        data[item.id] = item.value;
+    })
+    data['id'] = Achid;
+    // data["cid"] = "507f1f77bcf86cd799439011";
+    // data["uid"] = "";
+    const apiToCall = `${ACHIEVEMENT_API}/achievements/${str}`;
+    try {
+        const resp = await fetch(`${apiToCall}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data)
+        })
+        await resp.json();
+        /* 
+            go to achievements/str
+            problem:
+                unable to maintaint he state of the achievements
+                so the achievements are not getting updated
+        */
+        // window.location.href = `/achievements/${str}`;
+        // navigate(`/achievements/${str}`);
+        // eslint-disable-next-line
+        // const location = useLocation();
+        // //console
+    }
+    catch (err) {
+        //console.log(err);
+        // alert("Error Occured");
+        ToastError("Error Occured");
+    }
+};
+export { textField, numberField, dateField, makefields, addAchievementApiFunction, getFieldsByAPI, updateAchievementApiFunction };

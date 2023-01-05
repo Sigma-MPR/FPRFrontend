@@ -10,8 +10,8 @@ const ViewSingleAchievement = () => {
     const Location = useLocation();
     const Achievement = Location.state?.prop;
     const Category = Location.state?.category;
-    console.log(Achievement);
-    console.log(Category);
+    // console.log(Achievement);
+    // console.log(Category);
     const [Loading, setLoading] = useState(true);
     const [AchievementSchemaData, setAchievementSchemaData] = useState({});
     const [AchievementId, setAchievementId] = useState('');
