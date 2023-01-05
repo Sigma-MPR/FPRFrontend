@@ -1,14 +1,13 @@
 import React from 'react';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import './App.css';
-import { LoginPage, AddAchievement, Dashboard, ViewSingleAchievementList, ProfilePage  } from './pages';
-import Loader from './components/Loader/Loader'
-import Navbar from '../src/pages/Shared Components/Navbar.js'
-
+import { LoginPage, AddAchievement, Dashboard, ViewSingleAchievementList, ForgotPasswordPage, ChangePasswordPage, ProfilePage, ViewSingleAchievement  } from './pages';
+// import Navbar from '../src/pages/Shared Components/Navbar.js'
+import Loader from './components/Loader/Loader';
 function App() {
   return (
     <div>
-    <Navbar />
+    {/* <Navbar /> */}
     <BrowserRouter>
       <Routes>
         <Route path="/">
@@ -26,11 +25,18 @@ function App() {
           <Route path = "achievements">
               <Route path = "add" element = {<h1>achievements add Route</h1>} />
               <Route path = "*" element = {<ViewSingleAchievementList />} />
+              <Route path = "view" element = {<ViewSingleAchievement />} />
           </Route>
 
           <Route path = "addachievement" element = {<AddAchievement />} />
           <Route path = "viewachievement" element = {<ViewSingleAchievementList />} />
           <Route index element = {<Loader />} />
+          <Route path = "forgotpassword">
+            <Route path = "*" element = {<ChangePasswordPage />} />
+            <Route index element = {<ForgotPasswordPage />} />
+          </Route>
+
+
         </Route>
       </Routes>
     </BrowserRouter>

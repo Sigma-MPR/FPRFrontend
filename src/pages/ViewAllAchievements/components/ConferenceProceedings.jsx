@@ -1,0 +1,43 @@
+import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
+import Loader from '../../../components/Loader/Loader';
+import { getAchievementsWithApiCall } from '../../../components/functions';
+import ViewAllAchievementsAchievement from '../../../components/ViewAllAchivementsAchivement/ViewAllAchievementsAchievement';
+import { CustomToastContainer } from '../../../components/Toast/Toast';
+
+const ConferenceProceedings = () => {
+    const Location = useLocation()
+
+    const [ConferenceProceedings, setAllConferenceProceedings]= useState({});
+    const [isLoading, setLoading]= useState(true);
+    useEffect(() => {
+        getAchievementsWithApiCall('conferenceProceedings', setAllConferenceProceedings).then(() => {
+            setLoading(false);
+        });
+    },
+        [])
+useEffect(()=>{},[ConferenceProceedings])
+return(
+    <div>
+        <div>
+                <h1 className="text-4xl font-bold text-center text-white underline">Conference Proceedings</h1>
+            </div>
+            <div id='ConferenceProceedingsCards'>
+                {isLoading
+                    ?
+                    <Loader />
+                    :
+                    ConferenceProceedings && ConferenceProceedings.data && ConferenceProceedings.data.length > 0 && ConferenceProceedings.data.map((book) => {
+                        return (
+                            <ViewAllAchievementsAchievement achievement={book} category={'ConferenceProceedings'} setAchievementList={setAllConferenceProceedings}/>
+                        )
+                    })
+                }
+                <CustomToastContainer />
+            </div>
+            
+    </div>
+);
+}
+
+export default ConferenceProceedings;

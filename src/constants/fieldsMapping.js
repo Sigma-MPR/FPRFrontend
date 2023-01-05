@@ -14,8 +14,6 @@ const fieldsMapping = {
     authors : 'Authors',
     remarks: 'Remarks',
     title : 'Title',
-    publisher : 'Publisher',
-    place : 'Place',
     pubCategory: 'Publication Category'
 }
 

@@ -19,7 +19,7 @@ const LoginPage = () => {
         e.preventDefault();
         const email = document.getElementById("email").value;
         const password = document.getElementById("password").value;
-        console.log(email, password);
+        //console.log(email, password);
         let data = {
             email,
             password,
@@ -30,9 +30,9 @@ const LoginPage = () => {
         else{
             // setlocal storage
             console.log(loginResult);
-            localStorage.setItem("token",loginResult.token);
+            localStorage.setItem("token",loginResult.data.token);
             alert("Login Successful");
-            window.location.href = "/dashboard";
+            // window.location.href = "/dashboard";
         }
     }
     return (
