@@ -4,6 +4,7 @@ import './App.css';
 import { LoginPage, AddAchievement, Dashboard, ViewSingleAchievementList  } from './pages';
 import Loader from './components/Loader/Loader'
 import Navbar from '../src/pages/Shared Components/Navbar.js'
+import ViewAllAchievements from './pages/ViewAllAchievements/ViewAllAchievements';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
           <Route path = "achievements">
               <Route path = "add" element = {<h1>achievements add Route</h1>} />
               <Route path = "*" element = {<ViewSingleAchievementList />} />
+              <Route path ="All" element={<ViewAllAchievements/>} />
           </Route>
 
           <Route path = "addachievement" element = {<AddAchievement />} />
