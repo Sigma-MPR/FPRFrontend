@@ -10,6 +10,8 @@ export {AchievementDropDown} from './AchievmentMetaData';
 
 // Mapping Data
 export {default as fieldsMapping} from './fieldsMapping';
+export {default as EditProfile} from './ProfileField';
+
 // Endpoints
 export {USER_API} from './endpoints';
 export {ACHIEVEMENT_API} from './endpoints';

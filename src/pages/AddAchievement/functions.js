@@ -1,44 +1,72 @@
 import { EndpointList } from "../../constants";
 import { ACHIEVEMENT_API, fieldsMapping } from "../../constants";
+import './AddAchievement.css';
 // toast
-import { CustomToastContainer, ToastError, ToastSuccess } from "../../components/Toast/Toast";
-import { useLocation } from "react-router";
-const textField = (fieldName, required) => {
+import { ToastError } from "../../components/Toast/Toast";
+const textField = (fieldName, required, value) => {
     return (
-        `<div>
-                <label for=${fieldsMapping[fieldName]} className="block mb-2 text-sm text-gray-900 dark:text-gray-400 ">${fieldsMapping[fieldName]}</label>
-                <input type="text" id=${fieldsMapping[fieldName]} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm  focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 rounded-md" placeholder='Enter ${fieldsMapping[fieldName]}' ${required && 'required'} />
+        `<div className="Achievementform">
+
+        <div class="md:flex md:items-left mb-6">
+        <div class="md:w-1/3">
+          <label class="block font-medium text-gray-900 dark:text-gray-400 md:text-left mb-1 md:mb-0 pt-2 pr-4" for=${fieldsMapping[fieldName]} >
+          ${fieldsMapping[fieldName]}
+          </label>
+        </div>
+        <div class="md:w-2/3">
+          <input id=${fieldsMapping[fieldName]} class="bg-gray-100 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500" id="inline-full-name" type="text" value="" placeholder='Enter ${fieldsMapping[fieldName]}' ${required && 'required'} />
+        </div>
+      </div>
+
         </div>`
     )
 }
-const numberField = (fieldName, required) => {
+const numberField = (fieldName, required, value) => {
     return (
         `<div>
-                <label for=${fieldsMapping[fieldName]} className="block mb-2 text-sm text-gray-900 dark:text-gray-400">${fieldsMapping[fieldName]}</label>
-                <input type="number" id=${fieldsMapping[fieldName]} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 rounded-md" placeholder='Enter ${fieldsMapping[fieldName]}' required  />
+        <div class="md:flex md:items-left mb-6">
+        <div class="md:w-1/3">
+          <label class="block font-medium text-gray-900 dark:text-gray-400 md:text-left mb-1 md:mb-0 pt-2  pr-4" for=${fieldsMapping[fieldName]} >
+          ${fieldsMapping[fieldName]}
+          </label>
+        </div>
+        <div class="md:w-2/3">
+          <input type="number" id=${fieldsMapping[fieldName]} class="bg-gray-100 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500" id="inline-full-name"  value="" placeholder='Enter ${fieldsMapping[fieldName]}' ${required && 'required'} />
+        </div>
+      </div>
+
             </div>`
     )
 }
+
 const dateField = (fieldName, required) => {
     return (
         `<div>
-                <label for=${fieldsMapping[fieldName]} className="block mb-2 text-sm font-black text-gray-900 dark:text-gray-400 ">${fieldsMapping[fieldName]}</label>
-                <input type="date" id=${fieldsMapping[fieldName]} className="bg-gray-50 border border-gray-450 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 rounded-md"  ${required && 'required'} />
+        <div class="md:flex md:items-left mb-6">
+        <div class="md:w-1/3">
+          <label class="block font-medium text-gray-900 dark:text-gray-400 md:text-left mb-1 md:mb-0 pt-2 pr-4" for=${fieldsMapping[fieldName]} >
+          ${fieldsMapping[fieldName]}
+          </label>
+        </div>
+        <div class="md:w-2/3">
+          <input type="date" id=${fieldsMapping[fieldName]} class="bg-gray-100 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500" id="inline-full-name"  value="" placeholder='Enter ${fieldsMapping[fieldName]}' ${required && 'required'} />
+        </div>
+      </div>
             </div>`
     )
 }
-const makefields = (fields, setLoading) => {
-    if (fields.length > 0) {
+const makefields = (fields, setLoading, achievement) => {
+    if (fields?.length > 0) {
         // eslint-disable-next-line
         fields.map((field) => {
             if (field.type === "String") {
-                document.querySelector("#fields").innerHTML += textField(field.name, field.required);
+                document.querySelector("#fields").innerHTML += textField(field.name, field.required, achievement ? achievement[field.name] : null);
             }
             else if (field.type === "Number") {
-                document.querySelector("#fields").innerHTML += numberField(field.name);
+                document.querySelector("#fields").innerHTML += numberField(field.name, field.required, achievement ? achievement[field.name] : null);
             }
             else if (field.type === "Date") {
-                document.querySelector("#fields").innerHTML += dateField(field.name)
+                document.querySelector("#fields").innerHTML += dateField(field.name, field.required, achievement ? achievement[field.name] : null)
             }
         })
         setLoading(false);
@@ -53,9 +81,10 @@ const makefields = (fields, setLoading) => {
 
 const getFieldsByAPI = async (achievement, setAchievementSchemaData) => {
     const endpoint = ACHIEVEMENT_API;
-    try {  
-        const apiAchievement = achievement.split(" ").join("");
-        // apiAchievement =  apiAchievement == "Conference Proceeding"? "ConferenceProceedings" : apiAchievement;
+    try {
+        let apiAchievement = achievement.split(" ").join("");
+        apiAchievement =  apiAchievement == "ConferenceProceeding"? "ConferenceProceedings" : apiAchievement;
+        console.log(apiAchievement);
         const resp = await fetch(`${endpoint}/achievements/fields?model=${apiAchievement}`, {
             method: "GET",
             headers: {
@@ -66,14 +95,14 @@ const getFieldsByAPI = async (achievement, setAchievementSchemaData) => {
         setAchievementSchemaData(data.modelFields);
     }
     catch (err) {
-        // console.log("Error Occured");
+        // //console.log("Error Occured");
         ToastError("Error Occured Getting Fields");
-        console.log(err);
+        //console.log(err);
         return;
     }
 }
 
-const addAchievementApiFunction = async(e, ach) => {
+const addAchievementApiFunction = async (e, ach) => {
     // alert(ach);
     const str = ach.split(" ").join("").toLowerCase();
     e.preventDefault();
@@ -86,14 +115,14 @@ const addAchievementApiFunction = async(e, ach) => {
     fields.forEach((item) => {
         data[item.id] = item.value;
     })
-    console.log(data);
+    //console.log(data);
     // data["cid"] = "507f1f77bcf86cd799439011";
     // data["uid"] = "";
     const endpoint = EndpointList[achievement];
-    // console.log("Endpoint: " + endpoint);
+    // //console.log("Endpoint: " + endpoint);
     // bring the logic of the acheivement in here
     const apiToCall = `${ACHIEVEMENT_API}/achievements/${str}`;
-    // console.log(apiToCall);
+    // //console.log(apiToCall);
     if (!endpoint) return alert("Please Select Achievement Type");
     try {
         const resp = await fetch(`${apiToCall}`, {
@@ -110,16 +139,64 @@ const addAchievementApiFunction = async(e, ach) => {
                 unable to maintaint he state of the achievements
                 so the achievements are not getting updated
         */
-        window.location.href = `/achievements/${str}`;
-        
+        // window.location.href = `/achievements/${str}`;
+        // navigate(`/achievements/${str}`);
+        // eslint-disable-next-line
+        // const location = useLocation();
+        // //console.log(location);
 
-        
+
     }
     catch (err) {
-        console.log(err);
+        //console.log(err);
         // alert("Error Occured");
         ToastError("Error Occured");
     }
 };
 
-export { textField, numberField, dateField, makefields, addAchievementApiFunction, getFieldsByAPI };
+const updateAchievementApiFunction = async (e, ach, Achid) => {
+
+    const str = ach.split(" ").join("").toLowerCase();
+    e.preventDefault();
+    var ele = document.getElementsByTagName("form")[0];
+    ele.checkValidity();
+    ele.reportValidity();
+    // const achievement = e.target.value;
+    console.log(Achid);
+    const data = {};
+    const fields = document.querySelectorAll("#fields input");
+    fields.forEach((item) => {
+        data[item.id] = item.value;
+    })
+    data['id'] = Achid;
+    // data["cid"] = "507f1f77bcf86cd799439011";
+    // data["uid"] = "";
+    const apiToCall = `${ACHIEVEMENT_API}/achievements/${str}`;
+    try {
+        const resp = await fetch(`${apiToCall}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data)
+        })
+        await resp.json();
+        /* 
+            go to achievements/str
+            problem:
+                unable to maintaint he state of the achievements
+                so the achievements are not getting updated
+        */
+        // window.location.href = `/achievements/${str}`;
+        // navigate(`/achievements/${str}`);
+        // eslint-disable-next-line
+        // const location = useLocation();
+        // //console
+    }
+    catch (err) {
+        //console.log(err);
+        // alert("Error Occured");
+        ToastError("Error Occured");
+    }
+};
+export { textField, numberField, dateField, makefields, addAchievementApiFunction, getFieldsByAPI, updateAchievementApiFunction };

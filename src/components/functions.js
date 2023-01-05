@@ -3,13 +3,13 @@ const getAchievementsWithApiCall = async (achievement, setAchievementList) => {
     
     let str = achievement.split(' ').join('').toLowerCase();
     const apiToCall = `${ACHIEVEMENT_API}/achievements/${str}/all`;
-    // console.log(apiToCall);
+    // //console.log(apiToCall);
     const response = await fetch(apiToCall, {
         method: 'POST',
     });
     const data = await response.json();
-    console.log(data);
-    // console.log(data);
+    //console.log(data);
+    // //console.log(data);
     setAchievementList(data);
     return data;
 }
@@ -20,7 +20,7 @@ const deleteAchievement = async(id, cat, setAchievementList) => {
     const resp = await fetch(apiToCall, {
         method: 'DELETE'
     })
-    const data = await resp.json();
+    await resp.json();
     await getAchievementsWithApiCall(cat, setAchievementList);
 
     // alert(data);

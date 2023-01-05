@@ -72,5 +72,5 @@ const ToastPromise = async (code) => {
 //       error: 'Promise rejected 🤯'
 //     }
 // );
-// console.log(response)
+// //console.log(response)
 export { ToastSuccess, CustomToastContainer, ToastError, ToastPromise };

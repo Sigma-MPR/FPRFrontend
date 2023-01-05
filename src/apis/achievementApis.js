@@ -1,6 +1,6 @@
 import axios from 'axios';
 const addAchievement = async() => {
-    // console.log(data);
+    // //console.log(data);
     // const loginAPI = "http://localhost:3000/login";
     try{
         // const resp = await axios.post(loginAPI, data);
@@ -8,7 +8,7 @@ const addAchievement = async() => {
         alert("Achievement Added");
     }
     catch(err){
-        console.log(err);
+        //console.log(err);
         alert("Achievement Not Added");
     }
 
