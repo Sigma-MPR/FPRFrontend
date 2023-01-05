@@ -44,7 +44,7 @@ const AddAchievement = () => {
     };
     
     return (
-        <div className=" main-div  w-1/2  md:w-1/2 ml-auto mr-auto ">
+        <div className=" main-div  w-1/2  md:w-1/2 ml-auto mr-auto mb-4 border border-white rounded-2xl ">
             <form className="">
                 <div className="" id="addAchievement ">
                     <div className="add-achievement w-full">
@@ -71,8 +71,8 @@ const AddAchievement = () => {
 
                     </div>
                 </div>
-                <div className="btn-div">
-                <button type="submit" className="submit-btn text-white bg-blue-700 hover:bg-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-md w-full sm:w-auto px-8 py-3 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" value = {achievement} 
+                <div className="btn-div mt-0">
+                <button type="submit" className="submit-btn text-white bg-blue-700 hover:bg-800 focus:ring-4 focus:outline-none focus:ring-blue-300  font-medium rounded-lg text-md  mt-0 w-full sm:w-auto px-8 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" value = {achievement} 
                 onClick={(e)=>ToastPromise(addAchievementApiFunction(e, tempMap[achievement]))}>SUBMIT</button>
                 </div>
             </form>

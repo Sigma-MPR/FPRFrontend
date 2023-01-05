@@ -10,25 +10,26 @@
 
 .submit-btn{
      margin: 7px 5px 5px 5px;
+     background-color:#2853A5 ;
 }
 .main-div{
-     /* background-color: bisque; */
      display: flex;
      justify-content: center;
      align-items: center;
-     border: 5px  solid #fff ;
-     border-radius: 7px;
+     border: 3px;
+     border-style:ridge;
      padding: 5px 0 10px 0;
-}
-
+     font-size: 1rem;
+    line-height: 1.5rem;
+ }
+ 
 .Achievementform{
-     /* background-color: aquamarine; */
      margin:10px 0 ;
 
 }
+
 .achievement-field{
      margin:10px 0 ;
-     /* backgroundcolor: aquamarine; */
      }
 .add-achievement{
      
@@ -62,10 +63,6 @@
      
 }
 
-#sub-fields{
-     /* background-color: #fff; */
-     /* width: 500px; */
-}
 .textField{
      margin: 7px 7px;
      padding: 7px 7px;
