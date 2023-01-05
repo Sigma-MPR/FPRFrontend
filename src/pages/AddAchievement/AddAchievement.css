@@ -15,6 +15,79 @@
     flex-shrink: 1;
 
 }
+/* 
+#achievement{
+     margin: 9px 0 7px 0;
+}
+
+#fields > label{
+     padding: 3px 0 7px 3px;
+     margin-bottom: 5px;
+} */
+
+.submit-btn{
+     margin: 7px 5px 5px 5px;
+     background-color:#2853A5 ;
+}
+.main-div{
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     border: 3px;
+     border-style:ridge;
+     padding: 5px 0 10px 0;
+     font-size: 1rem;
+    line-height: 1.5rem;
+ }
+ 
+.Achievementform{
+     margin:10px 0 ;
+
+}
+
+.achievement-field{
+     margin:10px 0 ;
+     }
+.add-achievement{
+     
+     margin: 15px 0 15px 0;
+    
+}
+.btn-div{
+     display: flex;
+     justify-content: center;
+     align-items: center;
+}
+
+ @media only screen and (max-width:500px){
+     .add-achievement
+     {
+          padding: 10px 10px;
+     }
+     .main-div{
+          width: 70vw;
+     }
+     
+}
+@media only screen and (max-width:800px){
+     .add-achievement
+     {
+          padding: 10px 10px;
+     }
+     .main-div{
+          width: 70vw;
+     }
+     
+}
+
+.textField{
+     margin: 7px 7px;
+     padding: 7px 7px;
+}
+
+.numField,.dateField,.textField {
+     border-radius: 8px;
+}
 
 #fields input{
     width: 300px;

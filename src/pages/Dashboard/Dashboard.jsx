@@ -3,7 +3,7 @@ import DashboardCards from "../../components/DashboardCards/DashboardCards";
 import "./Dashboard.css";
 const AchievementArray = [
     {
-        "name": "Books Published",
+        "name": "Books Published", 
         "link": "/achievements/bookspublished",
         "available": true
     },
