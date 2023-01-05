@@ -45,7 +45,7 @@ const AchievementArray = [
 ]
 export default function Dashboard() {
     return (
-        <div id="DashboardContainer">
+        <div id="DashboardContainer" className="bg-blue ">
         {
             AchievementArray.map((item, index) => {
                 return (
