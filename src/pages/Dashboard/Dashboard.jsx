@@ -12,6 +12,12 @@ const AchievementArray = [
         "link": "/achievements/conferenceproceedings",
         "available": true
     },
+    
+    {
+        "name": "View All",
+        "link": "/achievements/All",
+        "available": true
+    },
     {
         "name": "Attended Events",
         "link": "/achievements/attendedevents",
@@ -36,11 +42,6 @@ const AchievementArray = [
         "name": "Projects",
         "link": "/achievements/projects",
         "available": false
-    },
-    {
-        "name": "View All",
-        "link": "/achievements/All",
-        "available": true
     }
 ]
 export default function Dashboard() {
