@@ -11,7 +11,7 @@ const ConferenceProceedings = () => {
     const [ConferenceProceedings, setAllConferenceProceedings]= useState({});
     const [isLoading, setLoading]= useState(true);
     useEffect(() => {
-        getAchievementsWithApiCall('conferenceProceedings', setAllConferenceProceedings).then(() => {
+        getAchievementsWithApiCall('conferenceProceeding', setAllConferenceProceedings).then(() => {
             setLoading(false);
         });
     },
@@ -29,7 +29,7 @@ return(
                     :
                     ConferenceProceedings && ConferenceProceedings.data && ConferenceProceedings.data.length > 0 && ConferenceProceedings.data.map((book) => {
                         return (
-                            <ViewAllAchievementsAchievement achievement={book} category={'ConferenceProceedings'} setAchievementList={setAllConferenceProceedings}/>
+                            <ViewAllAchievementsAchievement achievement={book} category={'ConferenceProceeding'} setAchievementList={setAllConferenceProceedings}/>
                         )
                     })
                 }

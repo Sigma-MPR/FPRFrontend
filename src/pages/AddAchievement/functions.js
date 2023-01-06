@@ -14,7 +14,7 @@ const textField = (fieldName, required, value) => {
           </label>
         </div>
         <div class="md:w-2/3">
-          <input id=${fieldsMapping[fieldName]} class=" appearance-none border-2 border-gray-200 rounded w-full py-2 px-4  text-black  leading-3 focus:outline-none focus:bg-white focus:border-gray " id="inline-full-name" type="text" value="" placeholder='Enter ${fieldsMapping[fieldName]}' ${required && 'required'} />
+          <input id=${fieldName} class="bg-gray-100 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500" id="inline-full-name" type="text" value="" placeholder='Enter ${fieldsMapping[fieldName]}' ${required && 'required'} />
         </div>
       </div>
 
@@ -31,7 +31,7 @@ const numberField = (fieldName, required, value) => {
           </label>
         </div>
         <div class="md:w-2/3">
-          <input type="number" id=${fieldsMapping[fieldName]} class="appearance-none border-2 border-gray-200 rounded w-full py-2 px-4  text-black leading-tight focus:outline-none focus:bg-white focus:border-gray" id="inline-full-name"  value="" placeholder='Enter ${fieldsMapping[fieldName]}' ${required && 'required'} />
+          <input type="number" id=${fieldName} class="bg-gray-100 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500" id="inline-full-name"  value="" placeholder='Enter ${fieldsMapping[fieldName]}' ${required && 'required'} />
         </div>
       </div>
 
@@ -49,7 +49,7 @@ const dateField = (fieldName, required) => {
           </label>
         </div>
         <div class="md:w-2/3">
-          <input type="date" id=${fieldsMapping[fieldName]} class="appearance-none border-2 border-gray-200 rounded w-full py-2 px-4  text-black leading-tight focus:outline-none focus:bg-white focus:border-gray" id="inline-full-name"  value="" placeholder='Enter ${fieldsMapping[fieldName]}' ${required && 'required'} />
+          <input type="date" id=${fieldName} class="bg-gray-100 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500" id="inline-full-name"  value="" placeholder='Enter ${fieldsMapping[fieldName]}' ${required && 'required'} />
         </div>
       </div>
             </div>`
@@ -115,6 +115,7 @@ const addAchievementApiFunction = async (e, ach) => {
     fields.forEach((item) => {
         data[item.id] = item.value;
     })
+    console.log(data);
     //console.log(data);
     // data["cid"] = "507f1f77bcf86cd799439011";
     // data["uid"] = "";
