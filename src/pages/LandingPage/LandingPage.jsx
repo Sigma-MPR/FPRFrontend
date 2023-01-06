@@ -1,195 +1,360 @@
-import React from 'react';
+import { Link } from 'react-router-dom';
+// services
+// import { getUserAccessToken } from '@services/storageServices';
+//assets
+// import AppLogo from '@assets/images/AppLogo.svg';
+// import 'images/feature1.png' from 'images/feature1.png';
+// import data_illustration from 'images/feature1.png';
+// import edit_illustration from 'images/feature1.png';
+// import track_illustration from 'images/feature1.png';
+// import profile_illustration from 'images/feature1.png';
+// import happy_illustration from 'images/feature1.png';
+// import KaranPic from '@assets/images/karanPic.jpg';
+// import AbhishekSPic from '@assets/images/AbhishekSPic.jpg';
+// import AbhishekGPic from '@assets/images/AbhishekGPic.png';
+// import SriramPic from '@assets/images/sriramPic.jpg';
+// import TanishcqPic from '@assets/images/tanishcqPic.jpg';
+// import OmPic from '@assets/images/OmPic.jpeg';
+// import SahilPic from '@assets/images/SahilPic.png';
+//styles
 import './LandingPage.css';
+// import { Footer } from '@components/';
 
 const LandingPage = () => {
-    return (<main>
-        <header>
-            <img className="brand" src="" alt="FCAMs" />
-            <nav className="navbar">
-                <ul>
-                    <li><a href="#features">Features</a></li>
-                    <li><a href="#team">Our Team</a></li>
-                    <li><a href="#contact">Contact Us</a></li>
-                </ul>
-                <button className="btn" type='button'>
-                    LOG IN
-                </button>
-            </nav>
-        </header>
+	// const isLoggedIn = getUserAccessToken();
+	return (
+		<div className='landing-page-wrapper'>
+			{/* <!-- hero section --> */}
+				<div className='hero'>
+					<div className='landcontainer'>
+						<div className='content-container'>
+							<h1>Maintain your Achievements like never before.</h1>
+							<p>
+								A way for college faculties to organise and maintain their
+								achievements digitally with minimal efforts. All your progress
+								under one roof.
+							</p>
+						</div>
+						<div className='img-container'>
+							{/* <img src={data_illustration} alt='' /> */}
+						</div>
+					</div>
+				</div>
+			{/* </header>  */} 
 
-        <section className="home" id="home">
+			{/* <!-- features --> */}
 
-            <div className="content">
-                <h1>We appreciate your feedback</h1>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Non consectetur suscipit aut ut eos odio
-                    nobis minima officiis mollitia tempore.</p>
-            </div>
-            <div className="image">
-                <img src="images/graphic.jpeg" alt="" />
-            </div>
-        </section>
+			<section className='landing-features'>
+				<h2>Features to Help your achievements thrive</h2>
+				<div className='wrapper'>
+					<div className='features-container'>
+						<div className='feature-img'>
+							<img src={'images/feature1.png'} alt='Add logo' />
+						</div>
+						<div className='feature-content'>
+							<h2>Add new Achievements on the go</h2>
+							<p>
+								Just click on the plus icon and add a new achievement
+								effortlessly
+							</p>
+						</div>
+					</div>
+					<div className='features-container'>
+						<div className='feature-img'>
+							<img src={'images/feature1.png'} alt='Edit logo' />
+						</div>
+						<div className='feature-content'>
+							<h2>Edit your achievements when necessary </h2>
+							<p>
+								We humans make a lot of mistakes. Just edit the achievement to
+								rectify them.
+							</p>
+						</div>
+					</div>
+					<div className='features-container'>
+						<div className='feature-img'>
+							{/* <img src={track_illustration} alt='Add logo' /> */}
+						</div>
+						<div className='feature-content'>
+							<h2>Track your progress</h2>
+							<p>
+								Detailed charts and analytics help you track your progress over
+								time.
+							</p>
+						</div>
+					</div>
+					<div className='features-container'>
+						<div className='feature-img'>
+							{/* <img src={profile_illustration} alt='Add logo' /> */}
+						</div>
+						<div className='feature-content'>
+							<h2>View and Edit your profile</h2>
+							<p>View and edit your personal information whenever needed.</p>
+						</div>
+					</div>
+					<div className='features-container'>
+						<div className='feature-img'>
+							{/* <img src={happy_illustration} alt='Add logo' /> */}
+						</div>
+						<div className='feature-content'>
+							<h2>A seamless experience</h2>
+							<p>
+								Wooohoo! Look at that organised and well maintained data you got
+								there. Perfect!
+							</p>
+						</div>
+					</div>
+				</div>
+			</section>
 
-        <section className="features" id="features">
+			{/* <section className='landing-team'>
+				<h2 className='team-head'>Meet Our Team</h2>
+				<div className='team-container'>
+					<div className='landcard'>
+						<div className='card-content'>
+							<div className='card-imgbox'>
+								<img src={OmPic} alt='user' />
+							</div>
+							<div className='card-contentbox'>
+								<h3>Om gupta</h3>
+								<a href='mailto:omgupta1608@gmail.com'>
+									<span>omgupta1608@gmail.com</span>
+								</a>
+							</div>
+						</div>
+						<ul className='sci'>
+							<li>
+								<a
+									target='_blank'
+									rel='noreferrer'
+									href='https://github.com/omgupta1608'
+								>
+									<i className='fab fa-github'></i>
+								</a>
+							</li>
+							<li>
+								<a
+									target='_blank'
+									rel='noreferrer'
+									href='https://www.linkedin.com/in/om-gupta-aaa0981a8/'
+								>
+									<i className='fab fa-linkedin'></i>
+								</a>
+							</li>
+						</ul>
+					</div>
 
-            <h1 className="heading">Features</h1>
+					{/* <div className='landcard'>
+						<div className='card-content'>
+							<div className='card-imgbox'>
+								<img src={SriramPic} alt='user' />
+							</div>
+							<div className='card-contentbox'>
+								<h3>Sriram</h3>
+								<a href='mailto:sriramiyer.dev@gmail.com'>
+									<span>sriramiyer.dev@gmail.com</span>
+								</a>
+							</div>
+						</div>
+						<ul className='sci'>
+							<li>
+								<a
+									target='_blank'
+									rel='noreferrer'
+									href='https://www.github.com/Pika-Pool'
+								>
+									<i className='fab fa-github'></i>
+								</a>
+							</li>
+							<li>
+								<a
+									target='_blank'
+									rel='noreferrer'
+									href='https://www.linkedin.com/in/sriram-iyer-11b4291a3/'
+								>
+									<i className='fab fa-linkedin'></i>
+								</a>
+							</li>
+						</ul>
+					</div>
 
-            <div className="box-container">
-                <div className="container">
-                    <div className="feature-img-container">
-                        <img className="feature1-img" src="images/feature1.png" alt="features-img" />
-                    </div>
-                    <div className="feature-text">
-                        <h3>Feature1</h3>
-                        <p>Lorem ipsum dolor sit amet, quis in duis, iaculis id felis. Consectetuer vestibulum, nunc
-                            urna
-                            lectus, erat ligula. Hendrerit nam.</p>
-                    </div>
-                </div>
-                <div className="container">
-                    <div className="feature-img-container">
-                        <img className="feature2-img" src="images/feature2.png" alt="features-img" />
-                    </div>
-                    <div className="feature-text">
-                        <h3>Feature2</h3>
-                        <p>Lorem ipsum dolor sit amet, quis in duis, iaculis id felis. Consectetuer vestibulum, nunc
-                            urna
-                            lectus, erat ligula. Hendrerit nam.</p>
-                    </div>
-                </div>
-                <div className="container">
-                    <div className="feature-img-container">
-                        <img className="feature3-img" src="images/feature3.png" alt="features-img" />
-                    </div>
-                    <div className="feature-text">
-                        <h3>Feature3</h3>
-                        <p>Lorem ipsum dolor sit amet, quis in duis, iaculis id felis. Consectetuer vestibulum, nunc
-                            urna
-                            lectus, erat ligula. Hendrerit nam.</p>
-                    </div>
-                </div>
-                <div className="container">
-                    <div className="feature-img-container">
-                        <img className="feature4-img" src="images/feature4.png" alt="features-img" />
-                    </div>
-                    <div className="feature-text">
-                        <h3>Feature4</h3>
-                        <p>Lorem ipsum dolor sit amet, quis in duis, iaculis id felis. Consectetuer vestibulum, nunc
-                            urna
-                            lectus, erat ligula. Hendrerit nam.</p>
-                    </div>
-                </div>
-            </div>
+					<div className='landcard'>
+						<div className='card-content'>
+							<div className='card-imgbox'>
+								<img src={SahilPic} alt='user' />
+							</div>
+							<div className='card-contentbox'>
+								<h3>sahil</h3>
+								<a href='mailto:sahilchalia20@gmail.com'>
+									<span>sahilchalia20@gmail.com</span>
+								</a>
+							</div>
+						</div>
+						<ul className='sci'>
+							<li>
+								<a
+									target='_blank'
+									rel='noreferrer'
+									href='https://github.com/sahilchalia'
+								>
+									<i className='fab fa-github'></i>
+								</a>
+							</li>
+							<li>
+								<a
+									target='_blank'
+									rel='noreferrer'
+									href='https://www.linkedin.com/in/sahil-kumar-a511201b6/'
+								>
+									<i className='fab fa-linkedin'></i>
+								</a>
+							</li>
+						</ul>
+					</div> */}
 
-        </section>
+					{/* <div className='landcard'>
+						<div className='card-content'>
+							<div className='card-imgbox'>
+								<img src={KaranPic} alt='user' />
+							</div>
+							<div className='card-contentbox'>
+								<h3>Karan Banjade</h3>
+								<a href='mailto:karan.banjade@gmail.com'>
+									<span>karan.banjade@gmail.com</span>
+								</a>
+							</div>
+						</div>
+						<ul className='sci'>
+							<li>
+								<a
+									target='_blank'
+									rel='noreferrer'
+									href='https://github.com/KaranBanjade'
+								>
+									<i className='fab fa-github'></i>
+								</a>
+							</li>
+							<li>
+								<a
+									target='_blank'
+									rel='noreferrer'
+									href='https://www.linkedin.com/in/karan-banjade-929b9a167/'
+								>
+									<i className='fab fa-linkedin'></i>
+								</a>
+							</li>
+						</ul>
+					</div>
 
-        {/* <!-- Team Section starts --> */}
+					<div className='landcard'>
+						<div className='card-content'>
+							<div className='card-imgbox'>
+								<img src={AbhishekGPic} alt='user' />
+							</div>
+							<div className='card-contentbox'>
+								<h3>Abhishek Gupta</h3>
+								<a href='mailto:abhishekg323@gmail.com'>
+									<span>abhishekg323@gmail.com</span>
+								</a>
+							</div>
+						</div>
+						<ul className='sci'>
+							<li>
+								<a
+									target='_blank'
+									rel='noreferrer'
+									href='https://github.com/abhishekg323'
+								>
+									<i className='fab fa-github'></i>
+								</a>
+							</li>
+							<li>
+								<a
+									target='_blank'
+									rel='noreferrer'
+									href='https://www.linkedin.com/in/abhishekg323/'
+								>
+									<i className='fab fa-linkedin'></i>
+								</a>
+							</li>
+						</ul>
+					</div>
 
-        <section className="team" id="team">
-            <h1 className="heading">Meet our Team</h1>
-            <div className="team-container">
-                <div className="landcard">
-                    <div className="card-content">
-                        <div className="card-imgbox">
-                            <img src="" alt="" />
-                        </div>
-                        <div className="card-contentbox">
-                            <h3>Ayush Pun</h3>
-                            <a href="mailto:ayushpun504@gmail.com">
-                                <span>ayushpun504@gmail.com</span>
-                            </a>
-                        </div>
-                    </div>
-                    <ul className="sci">
-                        <li>
-                            <a href="http://" target="_blank" rel="noopener noreferrer">
-                                <i className="fab fa-github" />
-                            </a>
-                        </li>
-                        <li>
-                            <a href="http://" target="_blank" rel="noopener noreferrer">
-                                <i className="fab fa-linkedin" />
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <div className="landcard">
-                    <div className="card-content">
-                        <div className="card-imgbox">
-                            <img src="" alt="" />
-                        </div>
-                        <div className="card-contentbox">
-                            <h3>Abhishek Sachdeva</h3>
-                            <a href="mailto:sachdevaabu@gmail.com">
-                                <span>sachdevaabu30@gmail.com</span>
-                            </a>
-                        </div>
-                    </div>
-                    <ul className="sci">
-                        <li>
-                            <a href="http://" target="_blank" rel="noopener noreferrer">
-                                <i className="fab fa-github" />
-                            </a>
-                        </li>
-                        <li>
-                            <a href="http://" target="_blank" rel="noopener noreferrer">
-                                <i className="fab fa-linkedin" />
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <div className="landcard">
-                    <div className="card-content">
-                        <div className="card-imgbox">
-                            <img src="" alt="" />
-                        </div>
-                        <div className="card-contentbox">
-                            <h3>Tanishcq Mehta</h3>
-                            <a href="mailto:tanishcqmehta@gmail.cpm">
-                                <span>tanishcqmehta@gmail.com</span>
-                            </a>
-                        </div>
-                    </div>
-                    <ul className="sci">
-                        <li>
-                            <a href="http://" target="_blank" rel="noopener noreferrer">
-                                <i className="fab fa-github" />
-                            </a>
-                        </li>
-                        <li>
-                            <a href="http://" target="_blank" rel="noopener noreferrer">
-                                <i className="fab fa-linkedin" />
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <div className="landcard">
-                    <div className="card-content">
-                        <div className="card-imgbox">
-                            <img src="" alt="" />
-                        </div>
-                        <div className="card-contentbox">
-                            <h3>Harsh Verma</h3>
-                            <a href="mailto:rharsh242@gmail.com">
-                                <span>rharsh242@gmail.com</span>
-                            </a>
-                        </div>
-                    </div>
-                    <ul className="sci">
-                        <li>
-                            <a href="http://" target="_blank" rel="noopener noreferrer">
-                                <i className="fab fa-github" />
-                            </a>
-                        </li>
-                        <li>
-                            <a href="http://" target="_blank" rel="noopener noreferrer">
-                                <i className="fab fa-linkedin" />
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-    </main>)
+					<div className='landcard'>
+						<div className='card-content'>
+							<div className='card-imgbox'>
+								<img src={TanishcqPic} alt='user' />
+							</div>
+							<div className='card-contentbox'>
+								<h3>tanishcq mehta</h3>
+								<a href='mailto:tanishcqmehta@gmail.com'>
+									<span>tanishcqmehta@gmail.com</span>
+								</a>
+							</div>
+						</div>
+						<ul className='sci'>
+							<li>
+								<a
+									target='_blank'
+									rel='noreferrer'
+									href='https://github.com/tanishcq'
+								>
+									<i className='fab fa-github'></i>
+								</a>
+							</li>
+							<li>
+								<a
+									target='_blank'
+									rel='noreferrer'
+									href='https://www.linkedin.com/in/tanishcq-m-63122417a/'
+								>
+									<i className='fab fa-linkedin'></i>
+								</a>
+							</li>
+						</ul>
+					</div>
+
+					<div className='landcard'>
+						<div className='card-content'>
+							<div className='card-imgbox'>
+								<img src={AbhishekSPic} alt='user' />
+							</div>
+							<div className='card-contentbox'>
+								<h3>Abhishek Sachdeva</h3>
+								<a href='mailto:sachdevaabu30@gmail.com'>
+									<span>sachdevaabu30@gmail.com</span>
+								</a>
+							</div>
+						</div>
+						<ul className='sci'>
+							<li>
+								<a
+									target='_blank'
+									rel='noreferrer'
+									href='https://github.com/Abhishek312s'
+								>
+									<i className='fab fa-github'></i>
+								</a>
+							</li>
+							<li>
+								<a
+									target='_blank'
+									rel='noreferrer'
+									href='https://www.linkedin.com/in/abhishek-sachdeva-877758202/'
+								>
+									<i className='fab fa-linkedin'></i>
+								</a>
+							</li>
+						</ul>
+					</div> */}
+				{/* </div> */}
+			{/* </section> */} 
+
+			{/* <div className='landing-footer-wrapper'>
+				<Footer />
+			</div> */}
+		</div>
+	);
 };
 
 export default LandingPage;
