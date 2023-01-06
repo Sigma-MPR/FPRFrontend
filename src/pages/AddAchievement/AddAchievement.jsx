@@ -48,13 +48,14 @@ const AddAchievement = () => {
             navigate(`/achievements/bookspublished`);
     }
     return (
-        <div className=" main-div  w-1/2  md:w-1/2 ml-auto mr-auto mb-4 border border-white rounded-2xl ">
+        <div className="root bg-blue">
+        <div className=" main-div  w-1/2 bg-light  md:w-1/2 ml-auto mr-auto mb-4 mt-3 border leading-6 px-2 py-2.5 rounded-2xl ">
             <form className="">
                 <div className="" id="addAchievement ">
                     <div className="add-achievement w-full">
-                        <label htmlFor="achievement" className="inline mb-3 text-md py-2.5 font-medium text-gray-900 dark:text-gray-400 ">CHOOSE ACHIEVEMENT TYPE</label>
+                        <label htmlFor="achievement" className="inline text-base mb-3 mt-4 py-4 font-semibold text-black leading-5 ">CHOOSE ACHIEVEMENT TYPE</label>
                             
-                        <select id="achievement" className="bg-gray-50 border text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 mt-2 mb-2 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500 " onChange={changeOption}>
+                        <select id="achievement" className="bg-gray-50 border text-sm rounded-lg focus:ring-gray-500 focus:border-gray block w-full p-2.5 mt-2 mb-2 dark:text-black dark:focus:ring-gray-500 dark:focus:border-blue-500 " onChange={changeOption}>
                             {!AchievementDropDown[prop] && <option>Choose Type Of Achievement</option>}
                             {
                                 Object.keys(AchievementDropDown).map((item, index) => {
@@ -68,12 +69,11 @@ const AddAchievement = () => {
                         </select>
                     </div>
                     {Loading&&<Loader />}
-                    <div id="fields" className="add-achievement mb-3">
+                    <div id="fields" className="add-achievement mb-3 bg-lavender mt-5 p-5 border rounded-xl ml-auto mr-auto shadow-md shadow-gray">
+
                         <div id="sub-fields" className="achievement-field mb-3"></div>
                     </div>
-                    <div>
-
-                    </div>
+                   
                 </div>
                 <div className="btn-div mt-0">
                 <button type="submit" className="submit-btn text-white bg-blue-700 hover:bg-800 focus:ring-4 focus:outline-none focus:ring-blue-300  font-medium rounded-lg text-md  mt-0 w-full sm:w-auto px-8 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" value = {achievement} 
@@ -82,7 +82,7 @@ const AddAchievement = () => {
             </form>
            
             <CustomToastContainer/>
-        </div>
+        </div> </div>
 
 
 
