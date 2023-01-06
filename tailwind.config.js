@@ -1,25 +1,11 @@
-// /** @type {import('tailwindcss').Config} */
-// module.exports = {
-//   content: [
-//     "./src/**/*.{js,jsx,ts,tsx}"
-//   ],
-//   theme: {
-//     extend: {},
-//   },
-//   plugins: [
-//     require('@tailwindcss/forms'),
-//     require("daisyui"),
-//   ],
-// }
-
 
 /**@type {import('tailwindcss').Config}  */ 
 module.exports = {
   content: [
     "./src/**/*.{js,jsx,ts,tsx}"
-  ],
+  ], 
   theme: {
-    colors: {
+    colors: { 
       'light-beige': '#fdf8f6',
       'blue':"#1C1258",
       'red':'#EE4166',
@@ -30,7 +16,8 @@ module.exports = {
       'yellow': "#FFD28C",
       'lavender':'#BAB7CD',
       'black':'#000',
-      
+      'white':'#fff',
+      'gray':'#808080',
     },
     extend: {
       colors: {

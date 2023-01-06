@@ -1,16 +1,13 @@
 #DashboardCard{
-    /* background-color: #fff; */
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(0,0,0,0.5);
     display: flex;
     justify-content: space-around;
-    /* justify-content: center; */
     align-items: center;
     transition: all 0.3s ease;
     cursor: pointer;
     text-decoration: none;
-    /* color: #000; */
-    margin: 2% ;
+    margin: 2%;
 }
 
 /* css to blur out the component on class soon */
