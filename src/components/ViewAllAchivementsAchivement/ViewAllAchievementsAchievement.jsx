@@ -13,6 +13,7 @@ const toastAndDelete = async(id, category, setAchievementList, e) => {
     // toast.success("Deleted Successfully")
 }
 const ViewAllAchievementsAchievement = (props) => {
+    // const [Loading, setLoading] = React.useState(false)
     // alert(props.category)
     const navigate = useNavigate()
     const achievement = props.achievement;
