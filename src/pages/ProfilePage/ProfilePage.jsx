@@ -33,17 +33,17 @@ const editUser = async (token, user, navigate, isDisabled, setUser) => {
         return;
     }
     // const bod = {
-    
+
     //     updateBody: {...user}
     // }
-    // console.log(bod);
+    console.log(user);
     const response = await fetch(USER_API, {
         method: 'PATCH',
         headers: {
             'Content-Type': 'application/json',
             'authorization': `${token}`
         },
-        body: JSON.stringify({...user})
+        body: JSON.stringify({ ...user })
     });
     console.log(response);
     const data = await response.json();
@@ -78,44 +78,109 @@ const ProfilePage = () => {
     }
 
     return (
-        <div className="main-profile bg-light">
-        <div className="profile-container">
-            <h1 className="text-5xl font-bold text-black mb-3" id="h1"> Profile </h1>
-            <div id="profile-container">
-                <form class="">
-                    <div class="">
-                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-1" for="grid-first-name">
-                            Name
-                        </label>
-                        <input class="userInput appearance-none block bg-gray-200 text-gray-700 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-first-name" type="text" value={user.name} disabled={isDisabled} onChange={
-                            (e) => {
-                                setUser({ ...user, name: e.target.value });
-                            }
-                        } />
-                    </div>
+        <>
+            <div className="main-profile bg-light">
+                <div className="profile-container">
+                    <h1 className="text-5xl font-bold text-black mb-3" id="h1"> Profile </h1>
+                    <div id="profile-container">
+                        <form class="">
+                            <div class="">
+                                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-1" for="name">
+                                    Name
+                                </label>
+                                <input class="userInput appearance-none block bg-gray-200 text-gray-700 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="name" type="text" value={user.name} disabled={isDisabled} onChange={
+                                    (e) => {
+                                        setUser({ ...user, name: e.target.value });
+                                    }
+                                } />
+                            </div>
+                            <div class="">
+                                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-1 mt-4" for="email">
+                                    Email
+                                </label>
+                                <input class="userInput appearance-none block  bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 mb-3" id="email" type="email" disabled={isDisabled} value={user.email} onChange={(e) => {
+                                    setUser({ ...user, email: e.target.value });
+                                }} />
+                            </div>
+                            {/* flex div */}
+                            <div className="flex w-3/4 justify-around">
+                                <div>
+                                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-1 mt-4" for="isactive">Active</label>
+                                    {
+                                        user.isActive ?
+                                            <input type="checkbox" className="toggle toggle-success disabled:bg-success" id="isActive" checked onChange={
+                                                (e) => {
+                                                    setUser({ ...user, isActive: e.target.checked });
+                                                }
+                                            }
+                                            disabled={isDisabled}
+                                            />
+                                            :
+                                            <input type="checkbox" className="toggle toggle-success disabled:bg-error" id="isActive" onChange={
+                                                (e) => {
+                                                    setUser({ ...user, isActive: e.target.checked });
+                                                }
+                                            } 
+                                            disabled={isDisabled}
+                                            />
+                                    }
+                                </div>
+                                <div>
+                                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-1 mt-4" for="isHOD">HOD</label>
+                                    {
+                                        user.isHod ?
+                                            <input type="checkbox" className="toggle toggle-success disabled:bg-success" id="isHOD" checked onChange={
+                                                (e) => {
+                                                    setUser({ ...user, isHod: e.target.checked });
+                                                }
+                                            }
+                                            disabled={isDisabled}
+                                            />
+                                            :
+                                            <input type="checkbox" className="toggle toggle-success disabled:bg-error" id="isHOD" onChange={
+                                                (e) => {
+                                                    setUser({ ...user, isHod: e.target.checked });
+                                                }
+                                            }
+                                            disabled={isDisabled}
+                                            />
+                                    }
+                                </div>
+                                <div>
+                                    <lable class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-1 mt-4" for="isAdmin">Admin</lable>
+                                    {
+                                        user.isAdmin ?
+                                            <input type="checkbox" className="toggle toggle-success disabled:bg-success" id="isAdmin" checked onChange={
+                                                (e) => {
+                                                    setUser({ ...user, isAdmin: e.target.checked });
+                                                }
+                                            }
+                                            disabled={isDisabled}
+                                            />
+                                            :
+                                            <input type="checkbox" className="toggle toggle-success disabled:bg-error" id="isAdmin" onChange={
+                                                (e) => {
+                                                    setUser({ ...user, isAdmin: e.target.checked });
+                                                }
+                                            }
+                                            disabled={isDisabled}
+                                            />
+                                    }
+                                </div>
+                            </div>
+                            <div class="">
+                                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-1 mt-4" for="grid-password">
+                                    Password
+                                </label>
+                                <input class="userInput appearance-none block  bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-password" type="password" placeholder="******************" required={true} disabled={isDisabled} onChange={
+                                    (e) => {
+                                        setUser({ ...user, password: e.target.value });
+                                    }
+                                } />
+                                <p className="text-xs text-red-700 -mt-3 mb-3" >!Enter Password To Make Changes in the profile sections</p>
+                            </div>
 
-                    <div class="">
-                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-1 mt-4" for="grid-last-name">
-                            Email
-                        </label>
-                        <input class="userInput appearance-none block  bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 mb-3" id="grid-last-name" type="email" disabled={isDisabled} value={user.email} onChange={(e) => {
-                            setUser({ ...user, email: e.target.value });
-                        }} />
-                    </div>
-
-                    <div class="">
-                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-1 mt-4" for="grid-password">
-                            Password
-                        </label>
-                        <input class="userInput appearance-none block  bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-password" type="password" placeholder="******************" required = {true} disabled={isDisabled} onChange={
-                            (e) => {
-                                setUser({ ...user, password: e.target.value });
-                            }
-                        } />
-                        <p className="text-xs text-red-700 -mt-3 mb-3" >!Enter Password To Make Changes in the profile sections</p>
-                    </div>
-
-                    {/* <div class="">
+                            {/* <div class="">
                         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-1 mt-4" for="grid-state">
                             Role
                         </label>
@@ -134,21 +199,22 @@ const ProfilePage = () => {
                             </div>
                         </div>
                     </div> */}
-                    <button className="hover:bg-blue-700 text-white font-bold py-3 px-6 rounded mt-5"
-                        onClick={
-                            async (e) => {
-                                e.preventDefault();
-                                await editUser(token, user, navigate, isDisabled, setUser);
-                                setisdisabled(!isDisabled)
-                            }
-                        }
-                        style={{ backgroundColor: '#78eaff'  }}
-                    >{isDisabled ? 'Edit Profile' : 'Save Changes'}</button>
-                </form>
+                            <button className="hover:bg-blue-700 font-bold py-3 px-6 rounded mt-5"
+                                onClick={
+                                    async (e) => {
+                                        e.preventDefault();
+                                        await editUser(token, user, navigate, isDisabled, setUser);
+                                        setisdisabled(!isDisabled)
+                                    }
+                                }
+                                style={{ backgroundColor: '#D9F9FF' }}
+                            >{isDisabled ? 'Edit Profile' : 'Save Changes'}</button>
+                        </form>
 
+                    </div>
+                </div>
             </div>
-        </div>
-        </div>
+        </>
     )
 }
 export default ProfilePage;

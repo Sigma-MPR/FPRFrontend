@@ -13,7 +13,7 @@ const NotLoggedInNavbar = () => {
             navigate('/');
           }
         }>
-          <img src="images/FPRSquares.png" width={'35%'}  />
+          <img src="images/FPRSquares.png" width={'35%'} alt="FPR" />
         </a>
       </div>
       <div className="flex-none">
