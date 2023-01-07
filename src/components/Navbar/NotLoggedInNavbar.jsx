@@ -1,9 +1,10 @@
 import { useNavigate } from "react-router";
 
 const NotLoggedInNavbar = () => {
+  
   const navigate = useNavigate();
   return (
-    <div className="navbar fixed" style={{
+    <div className="navbar" style={{
       backgroundColor: "rgba(255, 255, 255, 0.9)",
     }}>
        <div className="flex-1">
@@ -34,4 +35,4 @@ const NotLoggedInNavbar = () => {
   )
 }
 
-export default NotLoggedInNavbar
+export default NotLoggedInNavbar;
