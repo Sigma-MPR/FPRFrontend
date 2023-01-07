@@ -31,7 +31,7 @@ const ViewSingleAchievement = () => {
     }, [AchievementSchemaData]);
     const updateAndToast = async(e, type, id) => {
         await ToastPromise(updateAchievementApiFunction(e, Category, id), "Updating Achievement", "Achievement Updated Successfully", "Error Updating Achievement");
-        //     navigate(`/achievements/bookspublished`);
+            navigate(`/achievements/${type}`);
     }
         return (
             <>

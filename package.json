@@ -43,7 +43,18 @@
     "extends": [
       "react-app",
       "react-app/jest"
-    ]
+    ],
+    "ignorePatterns": [
+      "node_modules/",
+      "build/",
+      "public/"
+    ],
+    "rules": {
+      "no-unused-vars": "off",
+      "react-hooks/exhaustive-deps" : "off",
+      "eqeqeq" : "off",
+      "jsx-a11y/anchor-is-valid" : "off"
+    }
   },
   "browserslist": {
     "production": [

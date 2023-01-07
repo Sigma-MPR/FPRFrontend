@@ -12,6 +12,17 @@ const Login = async(data) => {
     }
 
 }
+const Register = async(data) => {
+    const registerAPI = `${USER_API}/user/signup`;
+    //console.log(registerAPI);
+    try{
+        const resp = await axios.post(registerAPI, data);
+        return resp;
+    }
+    catch(err){
+        //console.log(err);
+    }
+}
 const ForgotPassword = async(data) => {
     const forgotPasswordAPI = `${USER_API}/user/forgotpassword`;
     //console.log
@@ -58,4 +69,4 @@ const GetContext = async(token) => {
         return false;
     }
 }
-export {Login, ForgotPassword, ChangePassword, GetContext};
+export {Login, ForgotPassword, ChangePassword, GetContext, Register};

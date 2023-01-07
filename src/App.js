@@ -2,14 +2,14 @@ import React from 'react';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import './App.css';
 import ViewAllAchievements from './pages/ViewAllAchievements/ViewAllAchievements';
-import { LoginPage, AddAchievement, Dashboard, ViewSingleAchievementList, ForgotPasswordPage, ChangePasswordPage, ProfilePage, ViewSingleAchievement, LandingPage } from './pages';
-import Loader from './components/Loader/Loader';
+import { LoginPage, AddAchievement, Dashboard, ViewSingleAchievementList, ForgotPasswordPage, ChangePasswordPage, ProfilePage, ViewSingleAchievement, LandingPage, RegisterPage } from './pages';
+// import Loader from './components/Loader/Loader';
 import Navbar from './components/Navbar/Navbar';
 function App() {
   return (
     <>
-      <Navbar />
       <BrowserRouter>
+        <Navbar />
         <Routes>
           <Route path="/">
           <Route index element={<LandingPage />} />
@@ -17,6 +17,7 @@ function App() {
               <Route index element={<LoginPage />} />
               <Route path="*" element={<LoginPage />} />
             </Route>
+            <Route path="signup" element={<RegisterPage />} />
 
             <Route path="dashboard" element={<Dashboard />} />
 
