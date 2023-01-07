@@ -21,7 +21,9 @@ useEffect(()=>{},[BooksPublished])
 return(
     <div>
         <div>
-                <h1 className="text-4xl font-bold text-center text-white underline">Books Published</h1>
+                <h1 className="text-4xl font-bold text-center underline" style={{
+                    color: '#1C1258'
+                }}>Books Published</h1>
             </div>
             <div id='booksPublishedCards'>
                 {isLoading
