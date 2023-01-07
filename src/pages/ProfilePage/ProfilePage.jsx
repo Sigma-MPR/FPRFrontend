@@ -204,6 +204,7 @@ const ProfilePage = () => {
                                     async (e) => {
                                         e.preventDefault();
                                         await editUser(token, user, navigate, isDisabled, setUser);
+                                        document.querySelector('#grid-password').value = '';
                                         setisdisabled(!isDisabled)
                                     }
                                 }
