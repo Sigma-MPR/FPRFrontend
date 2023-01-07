@@ -3,6 +3,7 @@ import { ACHIEVEMENT_API, fieldsMapping } from "../../constants";
 import './AddAchievement.css';
 // toast
 import { ToastError } from "../../components/Toast/Toast";
+import { error } from "daisyui/src/colors";
 const textField = (fieldName, required, value) => {
     return (
         `<div className="Achievementform">
@@ -14,7 +15,7 @@ const textField = (fieldName, required, value) => {
           </label>
         </div>
         <div class="md:w-2/3">
-          <input id=${fieldName} class="bg-gray-100 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500" id="inline-full-name" type="text" value="" placeholder='Enter ${fieldsMapping[fieldName]}' ${required && 'required'} />
+          <input id=${fieldName} class="bg-gray-100 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500" id="inline-full-name" type="text" value=${value||''} placeholder='Enter ${fieldsMapping[fieldName]}' required =${required} />
         </div>
       </div>
 
@@ -31,7 +32,7 @@ const numberField = (fieldName, required, value) => {
           </label>
         </div>
         <div class="md:w-2/3">
-          <input type="number" id=${fieldName} class="bg-gray-100 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500" id="inline-full-name"  value="" placeholder='Enter ${fieldsMapping[fieldName]}' ${required && 'required'} />
+          <input type="number" id=${fieldName} class="bg-gray-100 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500" id="inline-full-name"  value=${value||''} placeholder='Enter ${fieldsMapping[fieldName]}' required = ${required} />
         </div>
       </div>
 
@@ -39,7 +40,7 @@ const numberField = (fieldName, required, value) => {
     )
 }
 
-const dateField = (fieldName, required) => {
+const dateField = (fieldName, required, value) => {
     return (
         `<div>
         <div class="md:flex md:items-left mb-6">
@@ -49,7 +50,7 @@ const dateField = (fieldName, required) => {
           </label>
         </div>
         <div class="md:w-2/3">
-          <input type="date" id=${fieldName} class="bg-gray-100 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500" id="inline-full-name"  value="" placeholder='Enter ${fieldsMapping[fieldName]}' ${required && 'required'} />
+          <input type="date" id=${fieldName} class="bg-gray-100 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500" id="inline-full-name"  value = '${value?new Date(value).toISOString().split("T")[0]:''}' placeholder='Enter ${fieldsMapping[fieldName]}' required = ${required} />
         </div>
       </div>
             </div>`
@@ -103,19 +104,22 @@ const getFieldsByAPI = async (achievement, setAchievementSchemaData) => {
 }
 
 const addAchievementApiFunction = async (e, ach) => {
-    // alert(ach);
     const str = ach.split(" ").join("").toLowerCase();
     e.preventDefault();
     var ele = document.getElementsByTagName("form")[0];
     ele.checkValidity();
-    ele.reportValidity();
+    if(!ele.reportValidity())
+    {
+        // ToastError("Please Fill All Required Fields");
+        return new error()
+    }
     const achievement = e.target.value;
     const data = {};
     const fields = document.querySelectorAll("#fields input");
     fields.forEach((item) => {
         data[item.id] = item.value;
     })
-    console.log(data);
+    // console.log(data);
     //console.log(data);
     // data["cid"] = "507f1f77bcf86cd799439011";
     // data["uid"] = "";
@@ -134,6 +138,7 @@ const addAchievementApiFunction = async (e, ach) => {
             body: JSON.stringify(data)
         })
         await resp.json();
+        return true
         /* 
             go to achievements/str
             problem:
@@ -161,7 +166,10 @@ const updateAchievementApiFunction = async (e, ach, Achid) => {
     e.preventDefault();
     var ele = document.getElementsByTagName("form")[0];
     ele.checkValidity();
-    ele.reportValidity();
+    
+    if(!ele.reportValidity()){
+        return new error()
+    }
     // const achievement = e.target.value;
     console.log(Achid);
     const data = {};
@@ -182,6 +190,7 @@ const updateAchievementApiFunction = async (e, ach, Achid) => {
             body: JSON.stringify(data)
         })
         await resp.json();
+        return true
         /* 
             go to achievements/str
             problem:
@@ -197,7 +206,7 @@ const updateAchievementApiFunction = async (e, ach, Achid) => {
     catch (err) {
         //console.log(err);
         // alert("Error Occured");
-        ToastError("Error Occured");
+        ToastError("Error Occured Updating");
     }
 };
 export { textField, numberField, dateField, makefields, addAchievementApiFunction, getFieldsByAPI, updateAchievementApiFunction };
