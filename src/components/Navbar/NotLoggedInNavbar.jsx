@@ -1,10 +1,20 @@
+import { useNavigate } from "react-router";
+
 const NotLoggedInNavbar = () => {
+  const navigate = useNavigate();
   return (
     <div className="navbar fixed" style={{
       backgroundColor: "rgba(255, 255, 255, 0.9)",
     }}>
-      <div className="flex-1">
-        <a className="btn btn-ghost normal-case text-xl">FPR</a>
+       <div className="flex-1">
+        <a href="#" onClick={
+          (e) => {
+            e.preventDefault()
+            navigate('/');
+          }
+        }>
+          <img src="images/FPRSquares.png" width={'35%'}  />
+        </a>
       </div>
       <div className="flex-none">
         <ul className="menu menu-horizontal px-1">

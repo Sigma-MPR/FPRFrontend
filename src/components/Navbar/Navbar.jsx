@@ -7,8 +7,9 @@ const Navbar = () => {
     const location = useLocation();
     useEffect(() => {
     }, [location.pathname])
-    
-    if(window.location.pathname.includes("login", "register", "forgot-password", "reset-password",))
+    const token = localStorage.getItem("token");
+    // if(window.location.pathname.includes("login", "register", "forgot-password", "reset-password",))
+    if(!token)
         return <NotLoggedInNavbar />
     else
         return <LoggedInNavbar />
