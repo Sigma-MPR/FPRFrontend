@@ -8,3 +8,4 @@ export {default as ChangePasswordPage} from './ChangePasswordPage/ChangePassword
 export {default as ProfilePage} from './ProfilePage/ProfilePage';
 export {default as ViewSingleAchievement} from './ViewSingleAchievement/ViewSingleAchievement';
 export {default as LandingPage} from './LandingPage/LandingPage';
+export {default as RegisterPage} from './RegisterPage/RegisterPage';
