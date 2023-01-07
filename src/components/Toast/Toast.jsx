@@ -43,13 +43,13 @@ const ToastError = (text) => {
         theme: "dark",
     });
 }
-const ToastPromise = async (code) => {
+const ToastPromise = async (code, promise, success, error) => {
     await toast.promise(
         code,
         {
-            pending: "Loading...",
-            success: "Success",
-            error: "Error",
+            pending: promise,
+            success: success,
+            error: error,
         },
         {
             position: "bottom-right",
