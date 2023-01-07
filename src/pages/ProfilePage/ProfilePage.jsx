@@ -78,6 +78,7 @@ const ProfilePage = () => {
     }
 
     return (
+        <div className="main-profile bg-light">
         <div className="profile-container">
             <h1 className="text-5xl font-bold text-black mb-3" id="h1"> Profile </h1>
             <div id="profile-container">
@@ -146,6 +147,7 @@ const ProfilePage = () => {
                 </form>
 
             </div>
+        </div>
         </div>
     )
 }
