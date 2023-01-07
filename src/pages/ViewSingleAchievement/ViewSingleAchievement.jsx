@@ -1,9 +1,11 @@
 import React, {useEffect, useState} from "react";
 import {  useNavigate, useLocation } from "react-router-dom";
+import "./AddAchievement.css"; 
 import {getFieldsByAPI, makefields} from '../AddAchievement/functions';
 import { updateAchievementApiFunction } from "../AddAchievement/functions";
 import { ToastPromise } from "../../components/Toast/Toast";
 
+ 
 const ViewSingleAchievement = () => {
     // alert('hi');</>
     const navigate = useNavigate();
@@ -33,15 +35,27 @@ const ViewSingleAchievement = () => {
     }
         return (
             <>
-                <h1>View Single Achievement</h1>
-                <div>
-                    <button onClick={() => navigate(-1)}>Go Back</button>
+            <div className="bg-blue">
+                <div className="grid grid-cols-2 my-6 pt-4"><h1 className="text-center leading-3 text-white py-3">View Single Achievement</h1> 
+                <div className="btn-div">
+                    <button className="update-btn text-black bg-lavender hover:bg-800 focus:ring-4 focus:outline-none hover:bg-yellow font-medium rounded-lg text-md  mt-0 w-full sm:w-auto mb-2 px-8 py-2.5 text-center dark:focus:ring-blue-200" onClick={() => navigate(-1)}>Go Back</button>
                 </div>
-                <form id="fields" className="add-achievement">
-                    </form>
-                            <button className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" value = {Category} 
-                        onClick={(e)=>updateAndToast(e, Category, AchievementId)}>Update</button>
-
+                </div>
+                <div className=" main-div  w-1/2 bg-light  md:w-1/2 ml-auto mr-auto mb-4 mt-3 border leading-6 px-2 py-2.5 rounded-2xl ">
+                <form id="" className="add-achievementform">
+                <div className="" id="addAchievement ">
+      
+                <div id="fields" className="add-achievement mb-3 bg-light mt-5 p-5 border rounded-xl ml-auto mr-auto shadow-md shadow-gray">
+                    <div id="sub-fields" className="achievement-field mb-3"></div>
+                </div>
+                <div className="btn-div mt-0 ">
+                            <button type="submit" className="update-btn bg-blue text-white hover:bg-800 focus:ring-4 focus:outline-none  font-medium rounded-lg text-md hover:bg-yellow mt-0 w-full sm:w-auto px-8 py-2.5 text-center dark:focus:ring-blue-200" value = {Category} 
+                        onClick={(e)=>updateAndToast(e, Category, AchievementId)}>UPDATE</button>
+                    </div>
+                </div>
+                </form>
+                </div>
+                </div>
             </>
         );
     }
