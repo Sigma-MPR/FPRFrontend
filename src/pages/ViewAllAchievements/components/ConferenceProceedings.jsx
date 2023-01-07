@@ -20,7 +20,9 @@ useEffect(()=>{},[ConferenceProceedings])
 return(
     <div>
         <div>
-                <h1 className="text-4xl font-bold text-center text-white underline">Conference Proceedings</h1>
+                <h1 className="text-4xl font-bold text-center underline" style={{
+                    color: '#1C1258'
+                }}>Conference Proceedings</h1>
             </div>
             <div id='ConferenceProceedingsCards'>
                 {isLoading

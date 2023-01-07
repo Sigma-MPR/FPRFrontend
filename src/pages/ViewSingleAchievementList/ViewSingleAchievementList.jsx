@@ -21,7 +21,7 @@ const ViewSingleAchievementList = () => {
     // Continute Here
     const Achievement = Location.state?.prop.name||localStorage.getItem('Achievement');
     const props = Location.state?.prop||localStorage.getItem('props');
-    //console.log(props);
+    console.log(JSON.stringify(props));
     // localStorage.setItem('Achievement', Achievement);
     // localStorage.setItem('props', JSON.stringify(props));
     // //console.log(Achievement.state.prop.name);
@@ -51,7 +51,9 @@ const ViewSingleAchievementList = () => {
                 <AddAchievementButton achievement = {{prop: props}} />
             </div>
             <div>
-                <h1 className="text-4xl font-bold text-center text-white underline">{Achievement}</h1>
+                <h1 className="text-4xl font-bold text-center underline" style={{
+                    color: '#1C1258'
+                }}>{Achievement}</h1>
             </div>
             <div id='cardsContainer'>
                 {isLoading
@@ -60,7 +62,7 @@ const ViewSingleAchievementList = () => {
                     :
                     AchievementList && AchievementList.data && AchievementList.data.length > 0 && AchievementList.data.map((achievement) => {
                         return (
-                            <ViewAllAchievementsAchievement achievement={achievement} category={Achievement} setAchievementList={setAchievementList}/>
+                            <ViewAllAchievementsAchievement achievement={achievement} category={Achievement} setAchievementList={setAchievementList} prop = {props}/>
                         )
                     })
                 }

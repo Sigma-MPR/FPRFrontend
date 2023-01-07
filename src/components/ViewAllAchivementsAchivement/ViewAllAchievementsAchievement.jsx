@@ -1,6 +1,6 @@
 import React from 'react'
 import { deleteAchievement } from '../functions'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useLocation } from 'react-router-dom'
 import './ViewAllAchievementsAchievement.css'
 import { ToastPromise } from '../Toast/Toast'
 import { toast } from 'react-toastify'
@@ -16,14 +16,17 @@ const ViewAllAchievementsAchievement = (props) => {
     // const [Loading, setLoading] = React.useState(false)
     // alert(props.category)
     const navigate = useNavigate()
+    const location = useLocation()
     const achievement = props.achievement;
     const category = props.category;
+    const prop = location.state.prop;
+    // console.log(prop);
     
     return (
         <>
             <div className="card w-96 bg-neutral text-neutral-content" onClick={() => {
                 //console.log(achievement);
-                navigate('/achievements/view', { state: { prop: achievement, category } })
+                navigate('/achievements/view', { state: { prop: achievement, category, propData: prop } })
             }
             } >
                 <div className="card-body items-center text-center">
