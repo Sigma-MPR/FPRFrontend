@@ -6,6 +6,7 @@ import ViewAllAchievementsAchievement from '../../components/ViewAllAchivementsA
 import Loader from '../../components/Loader/Loader';
 import { getAchievementsWithApiCall } from '../../components/functions';
 import './ViewSingleAchievementList.css';
+import AchievementNotFound from '../../components/ViewAllAchivementsAchivement/AchievementFNF/AchievementNotFound';
 // import { ToastContainer } from 'react-toastify';
 
 import { CustomToastContainer } from '../../components/Toast/Toast';
@@ -60,13 +61,16 @@ const ViewSingleAchievementList = () => {
                     ?
                     <Loader />
                     :
-                    AchievementList && AchievementList.data && AchievementList.data.length > 0 && AchievementList.data.map((achievement) => {
+                    (AchievementList && AchievementList.data && AchievementList.data.length > 0?
+                        AchievementList.data.map((achievement) => {
                         return (
                             <div id='cards'>
                             <ViewAllAchievementsAchievement achievement={achievement} category={Achievement} setAchievementList={setAchievementList} prop = {props}/>
                         </div>
                         )
-                    })
+                    }):
+                    <AchievementNotFound/>
+                    )
                 }
                 <CustomToastContainer />
             </div>

@@ -5,6 +5,7 @@ import { getAchievementsWithApiCall } from '../../../components/functions';
 import ViewAllAchievementsAchievement from '../../../components/ViewAllAchivementsAchivement/ViewAllAchievementsAchievement';
 import { CustomToastContainer } from '../../../components/Toast/Toast';
 import '../ViewAllAchievements.css'; 
+import AchievementNotFound from '../../../components/ViewAllAchivementsAchivement/AchievementFNF/AchievementNotFound';
 
 const ConferenceProceedings = () => {
     const Location = useLocation()
@@ -29,13 +30,16 @@ return(
                     ?
                     <Loader />
                     :
-                    ConferenceProceedings && ConferenceProceedings.data && ConferenceProceedings.data.length > 0 && ConferenceProceedings.data.map((book) => {
+                    (ConferenceProceedings && ConferenceProceedings.data && ConferenceProceedings.data.length > 0?
+                        ConferenceProceedings.data.map((book) => {
                         return (
                             <div id='ConferenceProceedingsCards'>
                             <ViewAllAchievementsAchievement achievement={book} category={'ConferenceProceeding'} setAchievementList={setAllConferenceProceedings}/>
                         </div>
                         )
-                    })
+                    }):
+                    <AchievementNotFound />
+                    )
                 }
                 <CustomToastContainer />
             </div>
