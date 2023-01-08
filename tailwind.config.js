@@ -6,18 +6,18 @@ module.exports = {
   ],
   theme: {
     colors: {
-      'light-beige': '#fdf8f6',
-      'blue': "#1C1258",
+      'light-beige': '#F8F7F7',
+      'blue': "#D50032",    //it is red
       'red': '#EE4166',
       'pink': '#EABFCB',
-      'light': '#D9F9FF',
+      'light': '#0389FF',    //it is blue
       'dark': '#293747',
       'Mustard': '#FF9B00',
       'yellow': "#FFD28C",
       'lavender': '#BAB7CD',
       'black': '#000',
       'white': '#fff',
-      'gray': '#808080',
+      'gray': '#a6a6a6',
       "primary": "#6419E6",
       "secondary": "#D926A9",
       "accent": "#1FB2A6",

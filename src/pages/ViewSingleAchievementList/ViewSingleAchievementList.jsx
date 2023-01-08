@@ -44,15 +44,15 @@ const ViewSingleAchievementList = () => {
         <div>
             <div id='TopCollection'>
                 <input type="text" placeholder="Click Here To Search Achievement" className="input input-ghost w-9/12 max-w-full" />
-                <button className="btn glass bg-secondary disabled px-12 ">Filter</button>
-                <button className="btn glass bg-primary px-12">Sort</button>
+                <button className="btn glass bg-light disabled px-12 text-white ">Filter</button>
+                <button className="btn glass bg-gray px-12 text-white hover:text-light">Sort</button>
             </div>
             <div id='longAddButton'>
                 <AddAchievementButton achievement = {{prop: props}} />
             </div>
             <div>
                 <h1 className="text-4xl font-bold text-center underline" style={{
-                    color: '#1C1258'
+                    color: '#0389FF'
                 }}>{Achievement}</h1>
             </div>
             <div id='cardsContainer'>

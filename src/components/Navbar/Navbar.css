@@ -1,6 +1,28 @@
-li{
+:root {
+    --light-beige: #F7F7F7;
+    --gray: #BEBEBE;
+    --red: #D50032;
+    --blue: #0389FF;
+    --white: #F8F7F7;
+}
+
+li {
     list-style: none;
     display: inline-block;
     border-radius: 5px;
     cursor: pointer;
+}
+
+.logo {
+    margin-left: 7vw;
+}
+
+.flex-none {
+    margin-right: 4vw;
+}
+
+.navbar {
+    height: 3.7rem;
+    background-color: #fdf8f6;
+    /* box-shadow: 10px 10px 8px #888888; */
 }

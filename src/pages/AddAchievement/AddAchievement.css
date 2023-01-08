@@ -1,10 +1,29 @@
+*{
+     box-sizing: border-box;
+     margin: 0;
+     padding: 0;
+}
+:root {
+     --light-beige: #DEF1F7;
+     --lavendar:#BAB7CD;
+     --blue: #1C1258;
+     --red: #EE4166;
+     --pink: #EABFCB;
+ }
+.root{
+     min-height: 100vh;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     
+}
 #fields{
     display: flex;
     flex-direction: column;
     align-items: left;
     justify-content: left;
     width: max-content;
-    box-shadow: 0 0 10px 0;
+    /* box-shadow: 0 0 10px 0; */
     flex-shrink: 1;
 }
 
@@ -13,6 +32,7 @@
    
 }
 .main-div{
+     background-color: var(--light-beige);
      display: flex;
      justify-content: center;
      align-items: center;
@@ -22,10 +42,18 @@
  
 .achievement-field, .Achievementform{
      margin:10px 0 ;
+     box-shadow: none;
 }
 
 .add-achievement{
-     margin: 20px 0 15px 0;
+     /* margin: 20px 0 15px 0; */
+     background-color: var(--light-beige);
+     
+}
+.addAchievemen{
+     box-shadow: 5px 8px 10px gray;
+     padding: 2vw 3vw;
+     background-color: #BAB7CD;
 }
 
 .btn-div{
