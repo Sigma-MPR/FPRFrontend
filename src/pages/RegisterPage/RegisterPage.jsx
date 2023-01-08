@@ -38,7 +38,7 @@ const RegisterPage = () => {
     return (
         <div class="flex items-center justify-center min-h-screen bg-gray-100 CollegeBackground">
             <div class="px-9 py-10 mt-4 text-left bg-white shadow-lg rounded-lg FadedWhiteBackground">
-                <h3 class="text-2xl font-bold text-center">{user==='Admin'?'Faculty':'Admin'} Register</h3>
+                <h3 class=" text-2xl font-bold text-center" >{user==='Admin'?'Faculty':'Admin'} Register</h3>
                 <form action="">
                     <div class="mt-4">
                         <div>
@@ -58,7 +58,7 @@ const RegisterPage = () => {
                                 class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600" id='name'/>
                         </div>
 
-                            <button class="px-10 py-2 my-3 mx-auto place-self-center text-white rounded-3xl hover:bg-blue-900 block RegisterButton" onClick={register}>Register</button>
+                            <button class="px-10 py-2 my-3 mx-auto place-self-center  rounded-3xl hover:bg-blue-900 block RegisterButton" id="Registerbtn" onClick={register}>Register</button>
                             <div class="Line"></div>
                             <hr class="black"/>
                     </div>

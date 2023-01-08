@@ -6,7 +6,7 @@ export default function DashboardCards(props) {
     // console.log(props)
     return (
         <span id="DashboardCard" className={props.available ? "show" : "soon"} title={props.available ? props.name : "Feature Coming Soon"} disabled>
-            <div className="dashboardCard w-full max-w-sm p-2 bg-lavender border rounded-lg shadow-md sm:p-5 ">
+            <div className="dashboardCard w-full max-w-sm p-2 bg-light-beige border rounded-lg shadow-md sm:p-5 ">
                 <Link to={props.available ? props.link : "/"} className="DashboardCardLink" state={{prop: props}}> 
                     <h5 className=" mb-4 font-semibold text-blue">Achievement Category</h5>
                     <div className="flex items-baseline pb-1">

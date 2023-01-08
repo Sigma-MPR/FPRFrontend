@@ -50,13 +50,13 @@ const AddAchievement = () => {
     }
     return (
         <div className="root bg-blue">
-        <div className=" main-div  w-1/2 bg-light  md:w-1/2 ml-auto mr-auto mb-4 mt-3 border leading-6 px-2 py-2.5 rounded-2xl ">
+        <div className=" main-div  w-1/2   md:w-1/2 ml-auto mr-auto mb-4 mt-3 border leading-6 px-2 py-2.5 rounded-2xl ">
             <form className="">
                 <div className="" id="addAchievement ">
                     <div className="add-achievement w-full">
                         <label htmlFor="achievement" className="inline text-base mb-3 mt-4 py-4 font-semibold text-black leading-5 ">CHOOSE ACHIEVEMENT TYPE</label>
                             
-                        <select id="achievement" className="bg-gray-50 border text-sm rounded-lg focus:ring-gray-500 focus:border-gray block w-full p-2.5 mt-2 mb-2 dark:text-black dark:focus:ring-gray-500 dark:focus:border-blue-500 " onChange={changeOption}>
+                        <select id="achievement" className="bg-gray-50 border text-sm rounded-lg focus:ring-gray-500  block w-full p-2.5 mt-2 mb-2 dark:text-black dark:focus:ring-gray-500 dark:focus:border-blue-500 " onChange={changeOption}>
                             {!AchievementDropDown[prop] && <option>Choose Type Of Achievement</option>}
                             {
                                 Object.keys(AchievementDropDown).map((item, index) => {
@@ -70,7 +70,7 @@ const AddAchievement = () => {
                         </select>
                     </div>
                     {Loading&&<Loader />}
-                    <div id="fields" className="add-achievement mb-3 bg-lavender mt-5 p-5 border rounded-xl ml-auto mr-auto shadow-md shadow-gray">
+                    <div id="fields" className="  mb-3  mt-5 p-5  rounded-xl ml-auto mr-auto bg-lavendar" style={{border:"none",boxShadow:"none"}}>
 
                         <div id="sub-fields" className="achievement-field mb-3"></div>
                     </div>
@@ -91,3 +91,5 @@ const AddAchievement = () => {
     )
 }
 export default AddAchievement;
+// field mb-3  mt-5 p-5 border rounded-xl ml-auto mr-auto 
+//sub mb-3

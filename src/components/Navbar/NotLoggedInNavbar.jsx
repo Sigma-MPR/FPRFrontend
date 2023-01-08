@@ -4,17 +4,15 @@ const NotLoggedInNavbar = () => {
   
   const navigate = useNavigate();
   return (
-    <div className="navbar" style={{
-      backgroundColor: "rgba(255, 255, 255, 0.9)",
-    }}>
-       <div className="flex-1">
+    <div className="navbar" >
+      <div className="flex-1">
         <a href="#" onClick={
           (e) => {
             e.preventDefault()
             navigate('/');
           }
         }>
-          <img src="images/FPRSquares.png" width={'35%'} alt="FPR" />
+          <img src="images/FPRSquare.png" width={'20%'} alt="FPR" className="logo"/>
         </a>
       </div>
       <div className="flex-none">
@@ -31,7 +29,7 @@ const NotLoggedInNavbar = () => {
           }>About Us</a></li>
         </ul>
       </div>
-    </div>
+  </div>
   )
 }
 

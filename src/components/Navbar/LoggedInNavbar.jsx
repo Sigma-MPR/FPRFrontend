@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom"
 const LoggedInNavbar = () => {
   const navigate = useNavigate();
   return (
-    <div className="navbar bg-base-100">
+    <div className="navbar ">
       <div className="flex-1">
         <a href="#" onClick={
           (e) => {
@@ -10,7 +10,7 @@ const LoggedInNavbar = () => {
             navigate('/');
           }
         }>
-          <img src="images/FPRSquares.png" width={'35%'} alt="FPR"  />
+          <img src="images/FPRSquare.png" width={'20%'} alt="FPR"  className="logo"/>
         </a>
       </div>
       <div className="flex-none">

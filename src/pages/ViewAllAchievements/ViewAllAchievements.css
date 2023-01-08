@@ -14,7 +14,7 @@
     justify-content: space-around;
     align-items: center;
     padding: 10px;
-    background-color: #ffd9fe;
+    background-color:#F8F8F7;
     margin: 20px;
     border-radius: 20px;
 }
@@ -25,7 +25,7 @@
 }
 
 #ConferenceProceedingsCardsContainer, #booksPublishedCardsContainer{
-        background-color: #1C1258;
+        background-color:  #0389FF;
         padding: 20px 20px;
         margin: 20px 20px;
         border-radius: 20px;

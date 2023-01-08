@@ -23,7 +23,7 @@ return(
     <div>
         <div>
                 <h1 className="text-4xl font-bold text-center underline" style={{
-                    color: '#1C1258'
+                    color: '#0389FF'
                 }}>Books Published</h1>
             </div>
             <div id='booksPublishedCardsContainer'>
