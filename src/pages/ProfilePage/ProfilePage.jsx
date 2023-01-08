@@ -63,6 +63,8 @@ const ProfilePage = () => {
     const [isDisabled, setisdisabled] = useState(true);
     const navigate = useNavigate();
     useEffect(() => {
+        // scroll to bottom
+        window.scrollTo(0, document.body.scrollHeight);
         getUser(token, setUser, navigate);
     }
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -74,7 +76,7 @@ const ProfilePage = () => {
         toast.error('No Session Found', {
             position: toast.POSITION.BOTTOM_RIGHT,
         });
-        // navigate('/login');
+        navigate('/login');
     }
 
     return (

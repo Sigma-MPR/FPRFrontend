@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-// import { useEffect } from 'react';
+import { useEffect } from 'react';
 import {useNavigate} from 'react-router-dom';
 // import use
 import './LoginPage.css';
@@ -39,6 +39,10 @@ const LoginPage = () => {
             // window.location.href = "/dashboard";
         }
     }
+    useEffect(() => {
+        // scroll to bottom
+        window.scrollTo(0,document.body.scrollHeight);
+    },[])
     return (
         <div class="flex items-center justify-center min-h-screen bg-gray-100 CollegeBackground">
             <div class="px-9 py-10 mt-4 text-left bg-white shadow-lg rounded-lg FadedWhiteBackground">
