@@ -12,19 +12,26 @@
     margin-left: 6%;
 }
 
-#cardsContainer{
+#cards{
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
     padding: 10px;
-    background-color: #EABFCB;
+    background-color: #ffd9fe;
     margin: 20px; 
     border-radius: 20px;
     margin:20px 30px;
 }
-#cardsContainer > div{
+#cards > div{
     margin: 10px;
     width: 80%;
+}
+
+#cardsContainer{
+    background-color: #1C1258;
+    padding: 20px 20px;
+    margin: 20px 20px;
+    border-radius: 20px;
 }

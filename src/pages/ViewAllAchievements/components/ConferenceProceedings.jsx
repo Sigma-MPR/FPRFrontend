@@ -24,14 +24,16 @@ return(
                     color: '#1C1258'
                 }}>Conference Proceedings</h1>
             </div>
-            <div id='ConferenceProceedingsCards'>
+            <div id='ConferenceProceedingsCardsContainer'>
                 {isLoading
                     ?
                     <Loader />
                     :
                     ConferenceProceedings && ConferenceProceedings.data && ConferenceProceedings.data.length > 0 && ConferenceProceedings.data.map((book) => {
                         return (
+                            <div id='ConferenceProceedingsCards'>
                             <ViewAllAchievementsAchievement achievement={book} category={'ConferenceProceeding'} setAchievementList={setAllConferenceProceedings}/>
+                        </div>
                         )
                     })
                 }

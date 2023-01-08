@@ -62,7 +62,9 @@ const ViewSingleAchievementList = () => {
                     :
                     AchievementList && AchievementList.data && AchievementList.data.length > 0 && AchievementList.data.map((achievement) => {
                         return (
+                            <div id='cards'>
                             <ViewAllAchievementsAchievement achievement={achievement} category={Achievement} setAchievementList={setAchievementList} prop = {props}/>
+                        </div>
                         )
                     })
                 }
