@@ -79,10 +79,17 @@ const ProfilePage = () => {
 
     return (
         <>
-            <div className="main-profile bg-light">
+            <div className="main-profile" style={
+                {
+                    // backgroundColor: "#D9F9FF",
+                    backgroundColor: "#F7F7F7"
+                }
+            }>
                 <div className="profile-container">
                     <h1 className="text-5xl font-bold text-black mb-3" id="h1"> Profile </h1>
-                    <div id="profile-container">
+                    <div id="profile-container" style={{
+                    backgroundColor: "#D50032"
+                }}>
                         <form class="">
                             <div class="">
                                 <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-1" for="name">
@@ -177,7 +184,8 @@ const ProfilePage = () => {
                                         setUser({ ...user, password: e.target.value });
                                     }
                                 } />
-                                <p className="text-xs text-red-700 -mt-3 mb-3" >!Enter Password To Make Changes in the profile sections</p>
+                                <p className="text-xs text-white -mt-3 mb-3" >!Enter Password To Make Changes in the profile sections</p>
+                                <p className="text-xs text-primary-400 -mt-3 mb-3" >!Password can only be changed using forgot password link in login section</p>
                             </div>
 
                             {/* <div class="">

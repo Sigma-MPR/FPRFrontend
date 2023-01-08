@@ -5,7 +5,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    background-image: url('thinking.svg');
+    /* background-image: url('thinking.svg'); */
+    background-image: url('./profileRed.svg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position-x: left;

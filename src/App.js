@@ -38,6 +38,7 @@ function App() {
               <Route path="*" element={<ChangePasswordPage />} />
               <Route index element={<ForgotPasswordPage />} />
             </Route>
+            <Route path = "changePassword" element = {<ChangePasswordPage />} />
 
 
           </Route>
