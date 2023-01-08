@@ -56,7 +56,10 @@ const LoginPage = () => {
                             <button class="px-10 py-2 my-3 mx-auto place-self-center text-white rounded-3xl hover:bg-blue-900 block LoginButton" onClick={login}>Login</button>
                             <div class="Line"></div>
                             <hr class="black"/>
-                            <a href="google.com" class="mx-auto flex items-center justify-center text-sm text-blue-600 hover:underline">Forgot password?</a>
+                            <a href = "#" class="mx-auto flex items-center justify-center text-sm text-blue-600 hover:underline" onClick={(e)=>{
+                                e.preventDefault();
+                                navigate("/forgotpassword")
+                            }}>Forgot password?</a>
                     </div>
                 </form>
                 <a href = "/" class="flex items-center justify-center mt-3 text-blue-600 hover:underline text-base mb-1" onClick={changeUser}>Login As {user}</a>
