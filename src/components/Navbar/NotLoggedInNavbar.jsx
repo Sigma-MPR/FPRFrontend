@@ -19,8 +19,18 @@ const NotLoggedInNavbar = () => {
         <ul className="menu menu-horizontal px-1">
           <li><a href="#" onClick={(e) => {
             e.preventDefault()
-            window.location.href = "/signup"
-          }}>Sign Up</a></li>
+            window.location.href.toString().includes('login')
+            ?
+            navigate('/signup')
+            :
+            navigate('/login')
+          }}>{
+            window.location.href.toString().includes('login')
+            ?
+            'Sign Up'
+            :
+            'Login'
+          }</a></li>
           <li><a href="#" onClick={
             (e) => {
               e.preventDefault()

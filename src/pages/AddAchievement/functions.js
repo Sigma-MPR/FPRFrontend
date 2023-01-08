@@ -122,6 +122,7 @@ const addAchievementApiFunction = async (e, ach) => {
     // console.log(data);
     //console.log(data);
     // data["cid"] = "507f1f77bcf86cd799439011";
+    data["uid"] = localStorage.getItem("userId");
     // data["uid"] = "";
     const endpoint = EndpointList[achievement];
     // //console.log("Endpoint: " + endpoint);
@@ -133,7 +134,8 @@ const addAchievementApiFunction = async (e, ach) => {
         const resp = await fetch(`${apiToCall}`, {
             method: "POST",
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                "authorization": localStorage.getItem("token")
             },
             body: JSON.stringify(data)
         })
@@ -179,13 +181,14 @@ const updateAchievementApiFunction = async (e, ach, Achid) => {
     })
     data['id'] = Achid;
     // data["cid"] = "507f1f77bcf86cd799439011";
-    // data["uid"] = "";
+    data["uid"] = localStorage.getItem("userId");
     const apiToCall = `${ACHIEVEMENT_API}/achievements/${str}`;
     try {
         const resp = await fetch(`${apiToCall}`, {
             method: "PATCH",
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                "authorization": localStorage.getItem("token")
             },
             body: JSON.stringify(data)
         })

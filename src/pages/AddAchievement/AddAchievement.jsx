@@ -44,9 +44,10 @@ const AddAchievement = () => {
     };
     
     const addAndToast = async(e, type) => {
-        const resp = await ToastPromise(addAchievementApiFunction(e, tempMap[achievement]), "Adding Achievement","Achievement Added", "Error Adding Achievement");
-        if(resp)
-            navigate(`/achievements/${type}`);
+        await ToastPromise(addAchievementApiFunction(e, tempMap[achievement]), "Adding Achievement","Achievement Added", "Error Adding Achievement")
+        .then((resp)=>{
+          navigate(-1);
+        })
     }
     return (
         <div className="root bg-blue">

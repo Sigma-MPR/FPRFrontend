@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 // import { useEffect } from 'react';
+import {useNavigate} from 'react-router-dom';
 // import use
 import './LoginPage.css';
 
 import {Login}  from '../../apis';
 const LoginPage = () => {
+    const navigate = useNavigate();
     const [user, setUser] = useState("Admin");
     
     const changeUser = (e) => {
@@ -32,6 +34,8 @@ const LoginPage = () => {
             console.log(loginResult);
             localStorage.setItem("token",loginResult.data.token);
             alert("Login Successful");
+            // redirect to dashboard
+            navigate("/dashboard");
             // window.location.href = "/dashboard";
         }
     }

@@ -15,6 +15,13 @@ const LoggedInNavbar = () => {
       </div>
       <div className="flex-none">
         <ul className="menu menu-horizontal px-1">
+          <li><a href="#" onClick={(e) => {
+            e.preventDefault()
+            navigate('/dashboard');
+          }}>
+            Dashboard
+          </a></li>
+          
           <li><a  href="#" onClick={(e) => {
             e.preventDefault()
             navigate('/profile');

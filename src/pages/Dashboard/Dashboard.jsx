@@ -18,31 +18,31 @@ const AchievementArray = [
         "link": "/achievements/All",
         "available": true
     },
-    {
-        "name": "Attended Events",
-        "link": "/achievements/attendedevents",
-        "available": false
-    },
-    {
-        "name": "Organized Seminars",
-        "link": "/achievements/oraganizedseminars",
-        "available": false
-    },
-    {
-        "name": "Journals",
-        "link": "/achievements/journals",
-        "available": false
-    },
-    {
-        "name": "Student Activities",
-        "link": "/achievements/studentactivities",
-        "available": false
-    },
-    {
-        "name": "Projects",
-        "link": "/achievements/projects",
-        "available": false
-    }
+    // {
+    //     "name": "Attended Events",
+    //     "link": "/achievements/attendedevents",
+    //     "available": false
+    // },
+    // {
+    //     "name": "Organized Seminars",
+    //     "link": "/achievements/oraganizedseminars",
+    //     "available": false
+    // },
+    // {
+    //     "name": "Journals",
+    //     "link": "/achievements/journals",
+    //     "available": false
+    // },
+    // {
+    //     "name": "Student Activities",
+    //     "link": "/achievements/studentactivities",
+    //     "available": false
+    // },
+    // {
+    //     "name": "Projects",
+    //     "link": "/achievements/projects",
+    //     "available": false
+    // }
 ]
 export default function Dashboard() {
     return (
