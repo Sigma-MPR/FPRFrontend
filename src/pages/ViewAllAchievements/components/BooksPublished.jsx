@@ -25,14 +25,16 @@ return(
                     color: '#1C1258'
                 }}>Books Published</h1>
             </div>
-            <div id='booksPublishedCards'>
+            <div id='booksPublishedCardsContainer'>
                 {isLoading
                     ?
                     <Loader />
                     :
                     BooksPublished && BooksPublished.data && BooksPublished.data.length > 0 && BooksPublished.data.map((book) => {
                         return (
+                            <div id='booksPublishedCards'>
                             <ViewAllAchievementsAchievement achievement={book} category={'bookspublished'} setAchievementList={setAllBooksPublished}/>
+                        </div>
                         )
                     })
                 }

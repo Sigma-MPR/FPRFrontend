@@ -33,8 +33,8 @@ const ViewAllAchievementsAchievement = (props) => {
                     <h2 className="card-title">{props.achievement.title || props.achievement.paperTitle || "props.title"}</h2>
                     <p>{props.achievement.remarks || string.slice(0, 256) || "props.remarks"}...</p>
                     <div className="card-actions justify-end">
-                        <button className="btn btn-primary mx-3	">Modify</button>
-                        <button className="btn btn-secondary mx-3" onClick={(e) => toastAndDelete(props.achievement.id, props.category, props.setAchievementList, e)}>Delete</button>
+                        <button className="btn btn-outline btn-primary mx-3">Modify</button>
+                        <button className="btn btn-outline btn-secondary mx-3" onClick={(e) => toastAndDelete(props.achievement.id, props.category, props.setAchievementList, e)}>Delete</button>
                     </div>
                 </div>
                 <div id="createdAt">
