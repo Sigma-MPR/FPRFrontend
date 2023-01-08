@@ -12,9 +12,9 @@ const tempMap = {
 }
 const AddAchievement = () => {
     const location = useLocation();
-    const prop = location.state.name||localStorage.getItem('Achievement');
+    const prop = location.state.name == "View All" ? "Books Published" :location.state.name || localStorage.getItem('Achievement')||"Books Published";
     // alert(prop);
-    const [achievement, setAchievement] = useState(AchievementDropDown[prop]);
+    const [achievement, setAchievement] = useState(AchievementDropDown[prop]||"BP");
     const [AchievementSchemaData, setAchievementSchemaData] = useState({});
     const [Loading, setLoading] = useState(true);
     const navigate = useNavigate();
@@ -49,6 +49,7 @@ const AddAchievement = () => {
           navigate(-1);
         })
     }
+    let flag = false;
     return (
         <div className="root bg-blue">
         <div className=" main-div  w-1/2   md:w-1/2 ml-auto mr-auto mb-4 mt-3 border leading-6 px-2 py-2.5 rounded-2xl ">
@@ -58,14 +59,28 @@ const AddAchievement = () => {
                         <label htmlFor="achievement" className="inline text-base mb-3 mt-4 py-4 font-semibold text-black leading-5 ">CHOOSE ACHIEVEMENT TYPE</label>
                             
                         <select id="achievement" className="bg-gray-50 border text-sm rounded-lg focus:ring-gray-500  block w-full p-2.5 mt-2 mb-2 dark:text-black dark:focus:ring-gray-500 dark:focus:border-blue-500 " onChange={changeOption}>
-                            {!AchievementDropDown[prop] && <option>Choose Type Of Achievement</option>}
                             {
+                                Object.keys(AchievementDropDown).map((item, index) => {
+                                    if (item === prop) {
+                                        flag = true;
+                                    }
+                                })
+                            }
+                            {
+                                flag?
                                 Object.keys(AchievementDropDown).map((item, index) => {
                                     if (item !== prop) {
                                         return <option value={AchievementDropDown[item]} key={index}>{item}</option>
                                     }
                                     else
                                         return <option selected value={AchievementDropDown[item]} key = {index}>{item}</option>
+                                }):
+                                Object.keys(AchievementDropDown).map((item, index) => {
+                                    if (item === 'Books Published') {
+                                        return <option selected value={AchievementDropDown[item]} key = {index}>{item}</option>
+                                    }
+                                    else
+                                        return <option value={AchievementDropDown[item]} key={index}>{item}</option>
                                 })
                             }
                         </select>

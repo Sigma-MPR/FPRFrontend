@@ -10,7 +10,7 @@ const LoggedInNavbar = () => {
             navigate('/');
           }
         }>
-          <img src="images/FPRSquare.png" width={'20%'} alt="FPR"  className="logo"/>
+          <img src="/images/FPRSquare.png" width={'20%'} alt="FPR"  className="logo"/>
         </a>
       </div>
       <div className="flex-none">

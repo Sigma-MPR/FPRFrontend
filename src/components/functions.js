@@ -2,10 +2,17 @@ import { ACHIEVEMENT_API } from '../constants';
 const getAchievementsWithApiCall = async (achievement, setAchievementList) => {
     
     let str = achievement.split(' ').join('').toLowerCase();
+    const token = localStorage.getItem('token');
+    const id = localStorage.getItem('userId');
     const apiToCall = `${ACHIEVEMENT_API}/achievements/${str}/all`;
     // //console.log(apiToCall);
     const response = await fetch(apiToCall, {
         method: 'POST',
+        body: JSON.stringify({
+            "filter" : {
+              "uid" : id
+            }
+          })
     });
     const data = await response.json();
     //console.log(data);
