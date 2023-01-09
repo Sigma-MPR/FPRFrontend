@@ -33,6 +33,7 @@ const LoginPage = () => {
             // setlocal storage
             console.log(loginResult);
             localStorage.setItem("token",loginResult.data.token);
+            localStorage.setItem("userId",loginResult.data.userId);
             alert("Login Successful");
             // redirect to dashboard
             navigate("/dashboard");
