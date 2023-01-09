@@ -1,0 +1,97 @@
+.rootS{
+     min-height: 100vh;
+     display: flex;
+     /* justify-content: center; */
+     align-items: center;
+     flex-direction: column;
+}
+#fields{
+     display: flex;
+     /* flex-direction: column; */
+     align-items: left;
+     justify-content: left;
+     width: max-content;
+     box-shadow: 0 0 10px 0;
+     flex-shrink: 1;
+ }
+
+ /*btn  */
+ .update-btn{
+      margin: 7px 5px 5px 5px;
+ }
+ 
+ .btn-div{
+     display: flex;
+     justify-content: center;
+     align-items: center;
+}
+
+ /* divs */
+ .main-div{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-style:groove;  
+      
+  }
+  /* fields */
+ .achievement-field, .Achievementform{
+      margin:10px 0 ;
+ }
+ 
+ .add-achievement{
+      margin: 20px 0 15px 0;
+ }
+ 
+  @media only screen and (max-width:500px){
+      .add-achievement
+      {
+           width: 50%;
+           padding: 10px 10px;
+      }
+      .main-div, #achievement{
+           width: fit-content;
+      }
+      
+ }
+ @media only screen and (max-width:800px){
+      .add-achievement
+      {
+           width: 25%;
+ 
+           padding: 10px 10px;
+      }
+      .main-div, #achievement{
+           /* width: 70vw; */
+           width: fit-content;
+      }
+      
+ }
+ 
+ .textField{
+      margin: 7px 7px;
+      padding: 7px 7px;
+ }
+ 
+ .numField,.dateField,.textField {
+      border-radius: 8px;
+ }
+ 
+ #fields input{
+     width: 300px;
+     height: 35px;
+     margin: 10px;
+     border-radius: 5px;
+     border: 1px solid #ccc;
+     padding: 5px;
+ }
+ #fields label{
+     font-size: 1.2rem;
+     /* font-weight: bold; */
+     text-align: start;
+ }
+ /* .add-achievementform {
+     display: flex;
+ } */
+ /* heads */
+ h1{align-self: center;}

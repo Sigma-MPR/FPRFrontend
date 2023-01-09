@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
-// import { useEffect } from 'react';
+import { useEffect } from 'react';
+import {useNavigate} from 'react-router-dom';
 // import use
 import './LoginPage.css';
 
 import {Login}  from '../../apis';
 const LoginPage = () => {
+    const navigate = useNavigate();
     const [user, setUser] = useState("Admin");
     
     const changeUser = (e) => {
@@ -19,7 +21,7 @@ const LoginPage = () => {
         e.preventDefault();
         const email = document.getElementById("email").value;
         const password = document.getElementById("password").value;
-        console.log(email, password);
+        //console.log(email, password);
         let data = {
             email,
             password,
@@ -30,11 +32,18 @@ const LoginPage = () => {
         else{
             // setlocal storage
             console.log(loginResult);
-            localStorage.setItem("token",loginResult.token);
+            localStorage.setItem("token",loginResult.data.token);
+            localStorage.setItem("userId",loginResult.data.userId);
             alert("Login Successful");
-            window.location.href = "/dashboard";
+            // redirect to dashboard
+            navigate("/dashboard");
+            // window.location.href = "/dashboard";
         }
     }
+    useEffect(() => {
+        // scroll to bottom
+        window.scrollTo(0,document.body.scrollHeight);
+    },[])
     return (
         <div class="flex items-center justify-center min-h-screen bg-gray-100 CollegeBackground">
             <div class="px-9 py-10 mt-4 text-left bg-white shadow-lg rounded-lg FadedWhiteBackground">
@@ -52,10 +61,13 @@ const LoginPage = () => {
                             <button class="px-10 py-2 my-3 mx-auto place-self-center text-white rounded-3xl hover:bg-blue-900 block LoginButton" onClick={login}>Login</button>
                             <div class="Line"></div>
                             <hr class="black"/>
-                            <a href="google.com" class="mx-auto flex items-center justify-center text-sm text-blue-600 hover:underline">Forgot password?</a>
+                            <a href = "#" class="mx-auto flex items-center justify-center text-sm text-blue-600 hover:underline" onClick={(e)=>{
+                                e.preventDefault();
+                                navigate("/forgotpassword")
+                            }}>Forgot password?</a>
                     </div>
                 </form>
-                <a href = "/" class="flex items-center justify-center mt-3 text-sm text-blue-600 hover:underline text-base mb-1" onClick={changeUser}>Login As {user}</a>
+                <a href = "/" class="flex items-center justify-center mt-3 text-blue-600 hover:underline text-base mb-1" onClick={changeUser}>Login As {user}</a>
             </div>
         </div>
     )

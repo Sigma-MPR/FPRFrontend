@@ -1,21 +1,21 @@
 import React from "react";
 import './DashboardCards.css'
-import Button from '../Button/Button'
 import { Link } from 'react-router-dom'
+import AddAchievementButton from '../AddAchievementButton/AddAchievementButton'
 export default function DashboardCards(props) {
-
+    // console.log(props)
     return (
         <span id="DashboardCard" className={props.available ? "show" : "soon"} title={props.available ? props.name : "Feature Coming Soon"} disabled>
-            <div className="w-full max-w-sm p-4 bg-white border rounded-lg shadow-md sm:p-7 dark:bg-gray-800 dark:border-gray-700">
-                <Link to={props.available ? props.link : "/"} className="DashboardCardLink">
-                    <h5 className="mb-4 text-xl font-medium text-gray-500 dark:text-gray-400">Achievement Category</h5>
-                    <div className="flex items-baseline text-gray-900 dark:text-white">
-                        <span className="text-2xl font-semibold">{props.name}</span>
+            <div className="dashboardCard w-full max-w-sm p-2 bg-light-beige border rounded-lg shadow-md sm:p-5 ">
+                <Link to={props.available ? props.link : "/"} className="DashboardCardLink" state={{prop: props}}> 
+                    <h5 className=" mb-4 font-semibold text-blue">Achievement Category</h5>
+                    <div className="flex items-baseline pb-1">
+                        <span className="text-black leading-5 text-lg font-semibold ml-2 mb-2 content-center" >
+                           
+                            {props.name}</span>
                     </div>
                 </Link>
-                <Link to={"/addachievement"} state={{ name: props.name }} >
-                        <Button available={props.available} text="Add New" />
-                </Link>
+                <AddAchievementButton achievement = {{prop: props}}/>
             </div>
         </span>
     );

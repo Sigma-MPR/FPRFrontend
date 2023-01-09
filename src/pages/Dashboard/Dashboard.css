@@ -1,9 +1,12 @@
+
 #DashboardContainer{
-    justify-content: space-around;
-    align-items: center;
+    justify-content: center;
+    align-items: flex-start;
     display: flex;
-    padding: 3px;
-    margin-top: 2%;
+    height: 100vh;
+    /* padding: 3px; */
+    /* margin-top: 8%; */
     flex-wrap: wrap;
 }
+
 
