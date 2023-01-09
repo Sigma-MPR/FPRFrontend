@@ -12,7 +12,7 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/">
-          <Route index element={<LandingPage />} />
+          <Route path = "home" element={<LandingPage />} />
             <Route path="login">
               <Route index element={<LoginPage />} />
               <Route path="*" element={<LoginPage />} />
