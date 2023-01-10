@@ -13,23 +13,13 @@ import { CustomToastContainer } from '../../components/Toast/Toast';
 
 const ViewSingleAchievementList = () => {
     const Location = useLocation()
-    const navigate = useNavigate();
-    
-    // //console.log(Location.pathname.split('/')[2]);
-    // //console.log(Location.state.prop.name);
-    // set this to locastorage to come back both two
-    
+
     // Continute Here
-    const Achievement = Location.state?.prop.name||localStorage.getItem('Achievement');
-    const props = Location.state?.prop||localStorage.getItem('props');
+    const Achievement = Location.state?.prop.name || localStorage.getItem('Achievement');
+    const props = Location.state?.prop || localStorage.getItem('props');
     console.log(JSON.stringify(props));
-    // localStorage.setItem('Achievement', Achievement);
-    // localStorage.setItem('props', JSON.stringify(props));
-    // //console.log(Achievement.state.prop.name);
-    // alert(Achievement);
     const [AchievementList, setAchievementList] = useState({});
     const [isLoading, setLoading] = useState(true);
-    // const [AchievementList, setAchievementList] = useState(getAchievementsWithApiCall());
     useEffect(() => {
         getAchievementsWithApiCall(Achievement, setAchievementList).then(() => {
             //console.log(AchievementList);
@@ -49,27 +39,27 @@ const ViewSingleAchievementList = () => {
                 <button className="btn glass bg-gray px-12 text-white hover:text-light">Sort</button>
             </div>
             <div id='longAddButton'>
-                <AddAchievementButton achievement = {{prop: props}} />
+                <AddAchievementButton achievement={{ prop: props }} />
             </div>
             <div>
                 <h1 className="text-4xl font-bold text-center underline" style={{
                     color: '#0389FF'
                 }}>{Achievement}</h1>
             </div>
-            <div id='cardsContainer'>
+            <div id='cardsContainer' className='w-full'>
                 {isLoading
                     ?
                     <Loader />
                     :
-                    (AchievementList && AchievementList.data && AchievementList.data.length > 0?
+                    (AchievementList && AchievementList.data && AchievementList.data.length > 0 ?
                         AchievementList.data.map((achievement) => {
-                        return (
-                            <div id='cards'>
-                            <ViewAllAchievementsAchievement achievement={achievement} category={Achievement} setAchievementList={setAchievementList} prop = {props}/>
-                        </div>
-                        )
-                    }):
-                    <AchievementNotFound/>
+                            return (
+                                <div id='cards' className='w-full'>
+                                    <ViewAllAchievementsAchievement achievement={achievement} category={Achievement} setAchievementList={setAchievementList} prop={props} />
+                                </div>
+                            )
+                        }) :
+                        <AchievementNotFound />
                     )
                 }
                 <CustomToastContainer />

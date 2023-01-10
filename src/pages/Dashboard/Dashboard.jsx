@@ -51,7 +51,9 @@ const AchievementArray = [
 export default function Dashboard() {
     return (
         <div id="DashboardContainer" className="" style={{
-            backgroundImage: "linear-gradient(to top, #fff1eb 0%, #ace0f9 100%)"
+            backgroundImage: "linear-gradient(to top, #fff1eb 0%, #ace0f9 100%)",
+            height: "85.5vh",
+            paddingTop: "5vh",
         }}>
         {
             AchievementArray.map((item, index) => {
