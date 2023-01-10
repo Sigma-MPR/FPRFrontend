@@ -38,8 +38,10 @@ const LoginPage = () => {
     }
 
     const googleSuccessHandler = async (userObject) => {
+        console.log(userObject)
         const email = userObject.email;
         // const exp = userObject.exp;
+        // console.log(exp);
         const resp = await fetch(`${USER_API}/all`, {
             method: "POST",
             body: JSON.stringify(
