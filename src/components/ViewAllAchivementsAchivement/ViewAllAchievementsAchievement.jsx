@@ -25,17 +25,23 @@ const ViewAllAchievementsAchievement = (props) => {
     return (
         <>
             <div id="card" className="card bg-neutral text-neutral-content">
-                <div className="card-body flex flex-row justify-between">
-                    <img className='' src='/images/edit.png' onClick={(e) => toastAndDelete(props.achievement.id, props.category, props.setAchievementList, e)} />
+                <div className="card-body flex flex-row">
+                    <img className='w-16 h-16 lg:mr-20' src='/images/edit.png' onClick={(e) => toastAndDelete(props.achievement.id, props.category, props.setAchievementList, e)} />
                     <div onClick={() => {
                         navigate('/achievements/view', { state: { prop: achievement, category, propData: prop, edit: 'true' } })
                     }}
                         className='cursor-pointer'
                     >
-                        <h2 className="card-title">{props.achievement.title ? "Title: " : "Paper Title: "}{props.achievement.title || props.achievement.paperTitle || "props.title"}</h2>
-                        <p className="text-neutral-content content-center">Publishing Date: {new Date(props.achievement.pubDate).toString().slice(0, 15) || "props.createdAt"}</p>
+                        <div>
+                        <h2 className="card-title mx-auto justify-center lg:inline">{props.achievement.title ? "Title: " : "Paper Title: "}</h2>
+                        <h2 className="card-title mx-auto justify-center lg:inline">{props.achievement.title || props.achievement.paperTitle || "props.title"}</h2>
+                        </div>
+                        <div>
+                        <p className="text-neutral-content content-center lg:inline">Publishing Date: </p>
+                        <p className="text-neutral-content content-center lg:inline">{new Date(props.achievement.pubDate).toString().slice(0, 15) || "props.createdAt"}</p>
+                        </div>
                     </div>
-                    <img src='/images/delete.png' onClick={(e) => toastAndDelete(props.achievement.id, props.category, props.setAchievementList, e)} />
+                    <img className='w-16 h-16 lg:ml-20' src='/images/delete.png' onClick={(e) => toastAndDelete(props.achievement.id, props.category, props.setAchievementList, e)} />
                 </div>
             </div>
         </>
