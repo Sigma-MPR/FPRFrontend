@@ -53,7 +53,8 @@ const AddAchievement = () => {
     }
     let flag = false;
     return (
-        <div className="root bg-blue">
+        <main>
+        <div className="root">
         <div className=" main-div  w-1/2   md:w-1/2 ml-auto mr-auto mb-4 mt-3 border leading-6 px-2 py-2.5 rounded-2xl ">
             <form className="">
                 <div className="" id="addAchievement ">
@@ -104,7 +105,7 @@ const AddAchievement = () => {
            
             <CustomToastContainer/>
         </div> </div>
-
+        </main>
 
 
     )

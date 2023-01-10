@@ -42,7 +42,7 @@ const ViewSingleAchievementList = () => {
         // //console.log(AchievementList);
     }, [AchievementList])
     return (
-        <div>
+        <main>
             <div id='TopCollection'>
                 <input type="text" placeholder="Click Here To Search Achievement" className="input input-ghost w-9/12 max-w-full" />
                 <button className="btn glass bg-light disabled px-12 text-white ">Filter</button>
@@ -74,7 +74,7 @@ const ViewSingleAchievementList = () => {
                 }
                 <CustomToastContainer />
             </div>
-        </div>
+        </main>
     );
 }
 

@@ -18,7 +18,7 @@ export default function ViewAllAchievements(){
     }
     
     return(
-        <div>
+        <main>
             <div id='TopCollection'>
                 <input type="text" placeholder="Click Here To Search Achievement" className="input input-ghost w-9/12 max-w-full" />
                 <button className="btn glass bg-light disabled px-12 ">Filter</button>
@@ -31,6 +31,6 @@ export default function ViewAllAchievements(){
             <ConferenceProceedings />
             <Journals />
             <Awards />
-        </div>
+        </main>
     );
 }

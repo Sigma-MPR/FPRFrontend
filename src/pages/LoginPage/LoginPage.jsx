@@ -73,6 +73,7 @@ const LoginPage = () => {
         // }
     }, [email])
     return (
+        <main>
         <div class="flex items-center justify-center min-h-screen bg-gray-100 CollegeBackground w-full">
             <div class="px-9 py-10 mt-4 text-left bg-white shadow-lg rounded-lg FadedWhiteBackground lg:w-4/12">
                 <h3 class="text-2xl font-bold text-center">Faculty Login</h3>
@@ -110,7 +111,8 @@ const LoginPage = () => {
                     />
                 </a>
             </div>
-        </div>
+            </div>
+            </main>
     )
 }
 export default LoginPage;

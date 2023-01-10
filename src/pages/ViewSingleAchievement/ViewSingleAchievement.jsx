@@ -45,7 +45,7 @@ const ViewSingleAchievement = () => {
         setIsDisabled(true);
     }
     return (
-        <>
+        <main>
             <div className=" rootS bg-blue">
                 <div className="grid grid-cols-2 my-6 pt-4"><h1 className="text-center leading-3 text-white py-3 text-2xl">View Single Achievement</h1>
                     <div className="btn-div">
@@ -72,7 +72,7 @@ const ViewSingleAchievement = () => {
                     </form>
                 </div>
             </div>
-        </>
+        </main>
     );
 }
 

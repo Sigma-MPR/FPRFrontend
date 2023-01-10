@@ -37,7 +37,7 @@ const ViewAllAchievementsAchievement = (props) => {
                     </div>
                 </div>
             </div>
-        </>
+            </>
     )
 }
 export default ViewAllAchievementsAchievement;

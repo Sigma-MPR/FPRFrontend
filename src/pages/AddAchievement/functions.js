@@ -127,7 +127,7 @@ const addAchievementApiFunction = async (e, ach) => {
     const endpoint = EndpointList[achievement];
     // //console.log("Endpoint: " + endpoint);
     // bring the logic of the acheivement in here
-    const apiToCall = `${ACHIEVEMENT_API}/achievements/${str}`;
+    const apiToCall = `${ACHIEVEMENT_API}/${str}`;
     // //console.log(apiToCall);
     if (!endpoint) return alert("Please Select Achievement Type");
     try {

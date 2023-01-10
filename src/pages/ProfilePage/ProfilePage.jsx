@@ -80,18 +80,11 @@ const ProfilePage = () => {
     }
 
     return (
-        <>
-            <div className="main-profile" style={
-                {
-                    // backgroundColor: "#D9F9FF",
-                    backgroundColor: "#F7F7F7"
-                }
-            }>
+        <main>
+            <div className="main-profile">
                 <div className="profile-container">
                     <h1 className="text-5xl font-bold text-black mb-3" id="h1"> Profile </h1>
-                    <div id="profile-container" style={{
-                    backgroundColor: "#D50032"
-                }}>
+                    <div id="profile-container">
                         <form class="">
                             <div class="">
                                 <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-1" for="name">
@@ -225,7 +218,7 @@ const ProfilePage = () => {
                     </div>
                 </div>
             </div>
-        </>
+        </main>
     )
 }
 export default ProfilePage;
