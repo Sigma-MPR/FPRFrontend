@@ -22,10 +22,10 @@ return(
     <div>
         <div>
                 <h1 className="text-4xl font-bold text-center underline" style={{
-                    color: '#1C1258'
+                    color: '#0389FF'
                 }}>Conference Proceedings</h1>
             </div>
-            <div id='ConferenceProceedingsCardsContainer'>
+            <div id='CardsContainer'>
                 {isLoading
                     ?
                     <Loader />
@@ -33,7 +33,7 @@ return(
                     (ConferenceProceedings && ConferenceProceedings.data && ConferenceProceedings.data.length > 0?
                         ConferenceProceedings.data.map((book) => {
                         return (
-                            <div id='ConferenceProceedingsCards'>
+                            <div id='Cards'>
                             <ViewAllAchievementsAchievement achievement={book} category={'ConferenceProceeding'} setAchievementList={setAllConferenceProceedings}/>
                         </div>
                         )
