@@ -53,7 +53,7 @@ const LoginPage = () => {
         // console.log(res.data.length);
         if (res.data.length > 0) {
             setEmail(email);
-            navigate('/login', { state: { email: email } });
+            // navigate('/login', { state: { email: email } });
         }
         else {
             navigate('/register', { state: { email: email } });
@@ -71,8 +71,8 @@ const LoginPage = () => {
         // }
     }, [email])
     return (
-        <div class="flex items-center justify-center min-h-screen bg-gray-100 CollegeBackground">
-            <div class="px-9 py-10 mt-4 text-left bg-white shadow-lg rounded-lg FadedWhiteBackground w-4/12">
+        <div class="flex items-center justify-center min-h-screen bg-gray-100 CollegeBackground w-full">
+            <div class="px-9 py-10 mt-4 text-left bg-white shadow-lg rounded-lg FadedWhiteBackground lg:w-4/12">
                 <h3 class="text-2xl font-bold text-center">Faculty Login</h3>
                 <form action="">
                     <div class="mt-4">

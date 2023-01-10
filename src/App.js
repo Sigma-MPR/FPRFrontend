@@ -5,6 +5,7 @@ import ViewAllAchievements from './pages/ViewAllAchievements/ViewAllAchievements
 import { LoginPage, AddAchievement, Dashboard, ViewSingleAchievementList, ForgotPasswordPage, ChangePasswordPage, ProfilePage, ViewSingleAchievement, LandingPage, RegisterPage } from './pages';
 // import Loader from './components/Loader/Loader';
 import Navbar from './components/Navbar/Navbar';
+import { useNavigate } from 'react-router-dom';
 function App() {
   return (
     <>

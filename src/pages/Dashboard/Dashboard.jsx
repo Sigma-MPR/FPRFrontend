@@ -12,7 +12,16 @@ const AchievementArray = [
         "link": "/achievements/conferenceproceedings",
         "available": true
     },
-    
+    {
+        "name": "Journals",
+        "link": "/achievements/journals",
+        "available": true
+    },
+    {
+        "name": "Awards",
+        "link": "/achievements/awards",
+        "available": true
+    },
     {
         "name": "View All",
         "link": "/achievements/All",
@@ -26,11 +35,6 @@ const AchievementArray = [
     // {
     //     "name": "Organized Seminars",
     //     "link": "/achievements/oraganizedseminars",
-    //     "available": false
-    // },
-    // {
-    //     "name": "Journals",
-    //     "link": "/achievements/journals",
     //     "available": false
     // },
     // {

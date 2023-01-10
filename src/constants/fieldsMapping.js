@@ -5,6 +5,8 @@ const fieldsMapping = {
     isbn : 'ISBN',
     sPageNo :  'Start Page Number',
     ePageNo : 'End Page Number',
+    epageno: 'End Page Number',
+    spageno :  'Start Page Number',
     startDate  : 'Start Date',
     endDate : 'End Date',
     pubDate : 'Publishing Date',
@@ -14,7 +16,19 @@ const fieldsMapping = {
     authors : 'Authors',
     remarks: 'Remarks',
     title : 'Title',
-    pubCategory: 'Publication Category'
+    pubCategory: 'Publication Category',
+    jname: "Journal Name",
+    volumeno: "Volume Number",
+    issueno: "Issue Number",
+    issn : "ISSN",
+    webUrl: "Web URL",
+    indexedBy: "Indexed By",
+    isUgcApproved: "UGC Approved",
+    isHardCopy: "Hard Copy",
+    activityName: "Activity Name",
+    awardName: "Award Name",
+    awardingInstitution: "Awarding Institution",
+    awardDate: "Award Date",
 }
 
 export default fieldsMapping;

@@ -9,6 +9,8 @@ import {CustomToastContainer,ToastSuccess, ToastPromise} from "../../components/
 const tempMap = {
     "BP": "BooksPublished",
     "CP": "ConferenceProceedings",
+    "JR" : "Journal",
+    "AW": "Award"
 }
 const AddAchievement = () => {
     const location = useLocation();
