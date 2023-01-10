@@ -1,8 +1,14 @@
 import React from 'react';
+// achievements
 import BooksPublished from './components/BooksPublished';
 import ConferenceProceedings from './components/ConferenceProceedings';
+import Journals from './components/Journals';
+import Awards from './components/Awards';
+
+// css
 import './ViewAllAchievements.css';
 import AddAchievementButton from '../../components/AddAchievementButton/AddAchievementButton';
+
 import { useLocation } from 'react-router';
 export default function ViewAllAchievements(){
     const props = {
@@ -23,6 +29,8 @@ export default function ViewAllAchievements(){
             </div>
             <BooksPublished/>
             <ConferenceProceedings />
+            <Journals />
+            <Awards />
         </div>
     );
 }

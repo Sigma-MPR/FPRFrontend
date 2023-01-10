@@ -19,12 +19,12 @@
     border-radius: 20px;
 }
 
-#ConferenceProceedingsCards >div, #booksPublishedCards>div{
+#ConferenceProceedingsCards >div, #booksPublishedCards>div {
     margin: 10px;
     width: 80%;
 }
 
-#ConferenceProceedingsCardsContainer, #booksPublishedCardsContainer{
+#CardsContainer {
         background-color:  #0389FF;
         padding: 20px 20px;
         margin: 20px 20px;

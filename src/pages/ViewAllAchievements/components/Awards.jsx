@@ -7,35 +7,35 @@ import { CustomToastContainer } from '../../../components/Toast/Toast';
 import '../ViewAllAchievements.css'; 
 import AchievementNotFound from '../../../components/ViewAllAchivementsAchivement/AchievementFNF/AchievementNotFound';
 
-const BooksPublished = () => {
+const Awards = () => {
     const Location = useLocation()
 
-    const [BooksPublished, setAllBooksPublished]= useState({});
+    const [awards, setAllawards]= useState({});
     const [isLoading, setLoading]= useState(true);
     useEffect(() => {
-        getAchievementsWithApiCall('bookspublished', setAllBooksPublished).then(() => {
+        getAchievementsWithApiCall('awards', setAllawards).then(() => {
             setLoading(false);
         });
     },
         [])
-useEffect(()=>{},[BooksPublished])
+useEffect(()=>{},[awards])
 return(
     <div>
         <div>
                 <h1 className="text-4xl font-bold text-center underline" style={{
                     color: '#0389FF'
-                }}>Books Published</h1>
+                }}>Awards</h1>
             </div>
             <div id='CardsContainer'>
                 {isLoading
                     ?
                     <Loader />
                     :
-                    (BooksPublished && BooksPublished.data && BooksPublished.data.length > 0?
-                        BooksPublished.data.map((book) => {
+                    (awards && awards.data && awards.data.length > 0?
+                        awards.data.map((book) => {
                         return (
                             <div id='Cards'>
-                            <ViewAllAchievementsAchievement achievement={book} category={'bookspublished'} setAchievementList={setAllBooksPublished}/>
+                            <ViewAllAchievementsAchievement achievement={book} category={'awards'} setAchievementList={setAllawards}/>
                         </div>
                         )
                     }):
@@ -49,4 +49,4 @@ return(
 );
 }
 
-export default BooksPublished;
+export default Awards;

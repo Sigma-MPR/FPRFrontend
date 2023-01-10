@@ -52,7 +52,7 @@ const LoginPage = () => {
                 }),
         })
         const res = await resp.json();
-        // console.log(res.data.length);
+        // console.log(res);
         if (res.data.length > 0) {
             setEmail(email);
             // navigate('/login', { state: { email: email } });
