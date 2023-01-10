@@ -21,7 +21,7 @@ const ForgotPasswordPage = () => {
         })
     }
     return (
-        <main className='w-full fixed'>
+        <main className='w-full fixed h-full'>
             <section style={{
                 marginTop: "7%"
             }}>
