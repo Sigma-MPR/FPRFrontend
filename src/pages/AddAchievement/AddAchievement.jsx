@@ -60,6 +60,7 @@ const AddAchievement = () => {
                             
                         <select id="achievement" className="bg-gray-50 border text-sm rounded-lg focus:ring-gray-500  block w-full p-2.5 mt-2 mb-2 dark:text-black dark:focus:ring-gray-500 dark:focus:border-blue-500 " onChange={changeOption}>
                             {
+                                // eslint-disable-next-line
                                 Object.keys(AchievementDropDown).map((item, index) => {
                                     if (item === prop) {
                                         flag = true;

@@ -4,10 +4,12 @@ import './index.css';
 import App from './App';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
-
+import { GoogleOAuthProvider } from '@react-oauth/google';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
+    <GoogleOAuthProvider clientId="679244474248-4rs8k6h2ffjgs92f0q0vrg9m4s01gm5t.apps.googleusercontent.com">
     <App />
+    </GoogleOAuthProvider>
 );
 
 // If you want your app to work offline and load faster, you can change
