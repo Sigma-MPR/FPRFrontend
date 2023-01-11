@@ -38,7 +38,7 @@ const LoggedInNavbar = () => {
             }
           }>Logout</a></li>
           <li>
-             <img src = {user.picture} alt="Profile" style={{
+             {/* <img src = {user.picture} alt="Profile" style={{
               borderRadius: "50%",
               height: "70px"
              }}
@@ -46,7 +46,7 @@ const LoggedInNavbar = () => {
               e.preventDefault()
               navigate('/profile');
             }}
-             />
+             /> */}
             {/* <img src={user.picture} alt="user-avatar" height={"50px"} width={"50px"} /> */}
             </li>
         </ul>
