@@ -1,5 +1,5 @@
 import { ACHIEVEMENT_API } from '../constants';
-const getAchievementsWithApiCall = async (achievement, setAchievementList) => {
+const getAchievementsWithApiCall = async (achievement, setAchievementList,setSearch) => {
     
     let str = achievement.split(' ').join('').toLowerCase();
     const token = localStorage.getItem('token');
@@ -18,7 +18,9 @@ const getAchievementsWithApiCall = async (achievement, setAchievementList) => {
           })
     });
     const data = await response.json();
-    setAchievementList(data);
+    setSearch(data.data)
+    localStorage.setItem('search', JSON.stringify(data.data));
+    setAchievementList(data.data);
     return data;
 }
 

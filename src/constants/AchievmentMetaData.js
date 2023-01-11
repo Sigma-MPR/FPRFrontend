@@ -232,8 +232,8 @@ const EndpointList = {
 const AchievementDropDown = {
     "Books Published": "BP",
     "Conference Proceeding": "CP",
-    "Journals": "JR",
-    "Awards": "AW"
+    "Journal": "JR",
+    "Award": "AW"
 };
 
 export { AchievementSchemaData, AchievementArray, EndpointList, AchievementDropDown };
