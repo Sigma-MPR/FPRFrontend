@@ -68,7 +68,7 @@ const boolFields = (fieldsName, required, value) => {
         <div class="md:w-2/3 text-center">
         <label class="relative inline-flex items-center cursor-pointer">
         
-          <input type="checkbox" value="" class="sr-only peer"  id=${fieldsName}>
+          <input type="checkbox" ${value?"checked":''} class="sr-only peer"  id=${fieldsName}>
             <div class="w-11 h-6 bg-gray-200 peer-focus:ring-4 peer-focus:ring-blue-300 bg-blue dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all  peer-checked:bg-light"></div>
             <span class="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300"></span>
         </label>
