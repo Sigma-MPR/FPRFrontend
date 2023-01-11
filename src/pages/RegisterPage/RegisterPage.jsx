@@ -1,8 +1,4 @@
-import jwt_decode from "jwt-decode";
-import { GoogleLogin } from '@react-oauth/google';
 import { useNavigate } from "react-router-dom";
-// import { GoogleOAuthProvider } from '@react-oauth/google';
-import {signInWithGoogle} from '../../firebase';
 import "./RegisterPage.css";
 const RegisterPage = () => {
     const navigate = useNavigate();
@@ -11,7 +7,6 @@ const RegisterPage = () => {
         var a = localStorage.getItem('User') || "[]";
         const u = JSON.parse(a);
         console.log(u);
-        // navigate('/dashboard');
         const data = {
             "email": u.email,
 

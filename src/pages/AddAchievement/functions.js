@@ -1,7 +1,6 @@
 import { EndpointList } from "../../constants";
 import { ACHIEVEMENT_API, fieldsMapping } from "../../constants";
 import './AddAchievement.css';
-// toast
 import { ToastError } from "../../components/Toast/Toast";
 import { error } from "daisyui/src/colors";
 const textField = (fieldName, required, value) => {
@@ -70,7 +69,7 @@ const boolFields = (fieldsName, required, value) => {
         
           <input type="checkbox" ${value?"checked":''} class="sr-only peer"  id=${fieldsName}>
             <div class="w-11 h-6 bg-gray-200 peer-focus:ring-4 peer-focus:ring-blue-300 bg-blue dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all  peer-checked:bg-light"></div>
-            <span class="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300"></span>
+            <span id = ${fieldsName} class="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300 text-input">N/A   </span>
         </label>
         </div>
       </div>
@@ -99,7 +98,6 @@ const makefields = (fields, setLoading, achievement) => {
     else {
         document.querySelector("#fields").innerHTML = `<h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100">No Fields Found</h1>`
         setLoading(true);
-        // ToastError("No Fields Found");
     }
 
 }
@@ -121,9 +119,7 @@ const getFieldsByAPI = async (achievement, setAchievementSchemaData) => {
         setAchievementSchemaData(data.modelFields);
     }
     catch (err) {
-        // //console.log("Error Occured");
         ToastError("Error Occured Getting Fields");
-        //console.log(err);
         return;
     }
 }
@@ -134,7 +130,6 @@ const addAchievementApiFunction = async (e, ach) => {
     var ele = document.getElementsByTagName("form")[0];
     ele.checkValidity();
     if (!ele.reportValidity()) {
-        // ToastError("Please Fill All Required Fields");
         return new error()
     }
     const achievement = e.target.value;
@@ -149,15 +144,10 @@ const addAchievementApiFunction = async (e, ach) => {
     })
 
     console.log(data);
-    //console.log(data);
     data["uid"] = localStorage.getItem("userId");
     data["cid"] = localStorage.getItem("collegeId");
-    // data["uid"] = "";
     const endpoint = EndpointList[achievement];
-    // //console.log("Endpoint: " + endpoint);
-    // bring the logic of the acheivement in here
     const apiToCall = `${ACHIEVEMENT_API}/${str}`;
-    // //console.log(apiToCall);
     if (!endpoint) return alert("Please Select Achievement Type");
     try {
         const resp = await fetch(`${apiToCall}`, {
@@ -170,23 +160,9 @@ const addAchievementApiFunction = async (e, ach) => {
         })
         await resp.json();
         return true
-        /* 
-            go to achievements/str
-            problem:
-                unable to maintaint he state of the achievements
-                so the achievements are not getting updated
-        */
-        // window.location.href = `/achievements/${str}`;
-        // navigate(`/achievements/${str}`);
-        // eslint-disable-next-line
-        // const location = useLocation();
-        // //console.log(location);
-
-
     }
     catch (err) {
-        //console.log(err);
-        // alert("Error Occured");
+        console.log(err);
         ToastError("Error Occured");
     }
 };
@@ -201,7 +177,6 @@ const updateAchievementApiFunction = async (e, ach, Achid) => {
     if (!ele.reportValidity()) {
         return new error()
     }
-    // const achievement = e.target.value;
     console.log(Achid);
     const data = {};
     const fields = document.querySelectorAll("#fields input");
@@ -223,21 +198,9 @@ const updateAchievementApiFunction = async (e, ach, Achid) => {
         })
         await resp.json();
         return true
-        /* 
-            go to achievements/str
-            problem:
-                unable to maintaint he state of the achievements
-                so the achievements are not getting updated
-        */
-        // window.location.href = `/achievements/${str}`;
-        // navigate(`/achievements/${str}`);
-        // eslint-disable-next-line
-        // const location = useLocation();
-        // //console
+    
     }
     catch (err) {
-        //console.log(err);
-        // alert("Error Occured");
         ToastError("Error Occured Updating");
     }
 };

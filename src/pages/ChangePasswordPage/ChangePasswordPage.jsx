@@ -13,14 +13,9 @@ const ChangePasswordPage = () => {
             setToken(lastWord);
             // get context
             GetContext(lastWord).then((res) => {
-                // console.log(res.data);
-                if (res.data === 'true' || res.data === true || res === true) {
-                    // console.log('true');
-                }
+                if (res.data === 'true' || res.data === true || res === true) {}
                 else {
-                    // console.log('false');
                     navigate('/login');
-
                 }
             }).catch((err) => {
                 console.log(err);

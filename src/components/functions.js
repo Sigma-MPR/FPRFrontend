@@ -5,7 +5,6 @@ const getAchievementsWithApiCall = async (achievement, setAchievementList) => {
     const token = localStorage.getItem('token');
     const id = localStorage.getItem('userId');
     const apiToCall = `${ACHIEVEMENT_API}/${str}/all`;
-    // //console.log(apiToCall);
     const response = await fetch(apiToCall, {
         method: 'POST',
         headers: {
@@ -19,8 +18,6 @@ const getAchievementsWithApiCall = async (achievement, setAchievementList) => {
           })
     });
     const data = await response.json();
-    //console.log(data);
-    // //console.log(data);
     setAchievementList(data);
     return data;
 }
@@ -36,9 +33,6 @@ const deleteAchievement = async(id, cat, setAchievementList) => {
         }
     })
     await resp.json();
-    await getAchievementsWithApiCall(cat, setAchievementList);
-
-    // alert(data);
-    
+    await getAchievementsWithApiCall(cat, setAchievementList);    
 }
 export { getAchievementsWithApiCall, deleteAchievement };

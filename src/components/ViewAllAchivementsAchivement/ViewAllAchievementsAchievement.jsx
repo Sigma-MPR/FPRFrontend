@@ -10,24 +10,13 @@ const string = "lorem ipsum dolor sit amet consectetur adipisicing elit. Quisqua
 const toastAndDelete = async (id, category, setAchievementList, e) => {
     e.stopPropagation();
     await ToastPromise(deleteAchievement(id, category, setAchievementList), "Deleting Achievement", "Deleted Successfully", "Error Deleting Achievement")
-    // toast.success("Deleted Successfully")
 }
 const ViewAllAchievementsAchievement = (props) => {
-    // const [Loading, setLoading] = React.useState(false)
-    // alert(props.category)
     const navigate = useNavigate()
     const location = useLocation()
     const achievement = props.achievement;
     const category = props.category;
     const prop = props.prop||location.state.props;
-    console.log(props);
-    console.log(location);
-    // const prop = {
-    //     "name": "Books Published",
-    //     "link": "/achievements/bookspublished",
-    //     "available": true
-    // }
-    // console.log(props);
 
     return (
         <>

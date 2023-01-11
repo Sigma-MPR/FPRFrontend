@@ -15,7 +15,6 @@ const LoginPage = () => {
 
     const login = async (e) => {
         e.preventDefault();
-        // const email = document.getElementById("email").value;
         const password = document.getElementById("password").value;
         let data = {
             email,
@@ -34,15 +33,12 @@ const LoginPage = () => {
             alert("Login Successful");
             // redirect to dashboard
             navigate("/dashboard");
-            // window.location.href = "/dashboard";
         }
     }
 
     const googleSuccessHandler = async (userObject) => {
         console.log(userObject)
         const email = userObject.email;
-        // const exp = userObject.exp;
-        // console.log(exp);
         const resp = await fetch(`${USER_API}/all`, {
             method: "POST",
             body: JSON.stringify(
@@ -53,25 +49,19 @@ const LoginPage = () => {
                 }),
         })
         const res = await resp.json();
-        // console.log(res);
         if (res.data.length > 0) {
             setEmail(email);
-            // navigate('/login', { state: { email: email } });
         }
         else {
-            navigate('/register', { state: { email: email } });
+            navigate('/register', { state: { email: email, name: userObject.family_name } });
         }
         localStorage.removeItem('User');
         localStorage.setItem('User', JSON.stringify(userObject));
-        // console.log(res);
     }
     useEffect(() => {
         // scroll to bottom
         window.scrollTo(0, document.body.scrollHeight);
-        // if (location.state){
-        //     setEmail(location.state.email);
-        //     alert("Welcome " + location.state.email);
-        // }
+      
     }, [email])
     return (
         <main className='fixed w-full' style={{
@@ -100,14 +90,11 @@ const LoginPage = () => {
                         }}>Forgot password?</a>
                     </div>
                 </form>
-                {/* <a href = "/" class="flex items-center justify-center mt-3 text-blue-600 hover:underline text-base mb-1" onClick={changeUser}>Login As {user}</a> */}
                 <a href="#" class="flex items-center justify-center mt-3 text-blue-600 hover:underline text-base mb-1" onClick={(e) => { e.preventDefault() }}>
                     <GoogleLogin
                         onSuccess={credentialResponse => {
                             var userObject = jwt_decode(credentialResponse.credential);
                             googleSuccessHandler(userObject);
-                            // (userObject);
-                            // navigate('/dashboard');   //here we navigate to landing page if user name is found in db otherwise to complete-your-profile page
                         }}
                         onError={() => {
                             console.log('Login Failed');

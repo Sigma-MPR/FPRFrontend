@@ -7,15 +7,10 @@ import { ToastPromise } from "../../components/Toast/Toast";
 
 
 const ViewSingleAchievement = () => {
-    // alert('hi');</>
     const navigate = useNavigate();
     const Location = useLocation();
     const Achievement = Location.state?.prop;
     const Category = Location.state?.category;
-    const {propData} = Location.state;
-    // console.log(propData);
-    // console.log(Achievement);
-    // console.log(Category);
     const [Loading, setLoading] = useState(true);
     const [AchievementSchemaData, setAchievementSchemaData] = useState({});
     const [AchievementId, setAchievementId] = useState('');
@@ -29,8 +24,6 @@ const ViewSingleAchievement = () => {
         setLoading(true);
         makefields(AchievementSchemaData, setLoading, Achievement)
         setAchievementId(Achievement.id);
-        // console.log(Achievement.id);
-        // ToastSuccess("Input Modal Made");
     }, [AchievementSchemaData]);
     const updateAndToast = async (e, type, id) => {
         e.preventDefault();

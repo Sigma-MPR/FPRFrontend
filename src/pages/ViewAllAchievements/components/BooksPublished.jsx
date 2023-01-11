@@ -8,13 +8,7 @@ import '../ViewAllAchievements.css';
 import AchievementNotFound from '../../../components/ViewAllAchivementsAchivement/AchievementFNF/AchievementNotFound';
 
 const BooksPublished = (prop) => {
-    const Location = useLocation()
     const props = prop.prop;
-    // const props = {
-    //     "name": "Books Published",
-    //     "link": "/achievements/bookspublished",
-    //     "available": true
-    // }
     const [BooksPublished, setAllBooksPublished]= useState({});
     const [isLoading, setLoading]= useState(true);
     useEffect(() => {

@@ -6,7 +6,6 @@ const ForgotPasswordPage = () => {
     const [email, setEmail] = useState('');
     const forgotPassword = async (e) => {
         e.preventDefault();
-        // console.log(email);
         ForgotPassword({
             email: email
         }).then((res) => {

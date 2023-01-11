@@ -6,11 +6,9 @@ const LoggedInNavbar = () => {
   useEffect(() => {
     setUser(JSON.parse(localStorage.getItem('User')));
   }, [])
-  // console.log(localStorage.getItem("User"))
   const navigate = useNavigate();
   return (
     <div className="navbar ">
-      {/* <img src = {"https://lh3.googleusercontent.com/a/AEdFTp6oO_FtEah5hqN0263DiD0E1nGL7hsx6k1CGTTsHQ=s96-c"} alt="karan"/> */}
       <div className="flex-1">
         <a href="#" onClick={
           (e) => {
@@ -38,7 +36,7 @@ const LoggedInNavbar = () => {
             }
           }>Logout</a></li>
           <li>
-             {/* <img src = {user.picture} alt="Profile" style={{
+             <img src = {user.picture} alt="Profile" style={{
               borderRadius: "50%",
               height: "70px"
              }}
@@ -46,8 +44,7 @@ const LoggedInNavbar = () => {
               e.preventDefault()
               navigate('/profile');
             }}
-             /> */}
-            {/* <img src={user.picture} alt="user-avatar" height={"50px"} width={"50px"} /> */}
+             />
             </li>
         </ul>
       </div>

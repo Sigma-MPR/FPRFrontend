@@ -15,7 +15,6 @@ const tempMap = {
 const AddAchievement = () => {
     const location = useLocation();
     const prop = location.state.name == "View All" ? "Books Published" :location.state.name || localStorage.getItem('Achievement')||"Books Published";
-    // alert(prop);
     const [achievement, setAchievement] = useState(AchievementDropDown[prop]||"BP");
     const [AchievementSchemaData, setAchievementSchemaData] = useState({});
     const [Loading, setLoading] = useState(true);
@@ -31,7 +30,6 @@ const AddAchievement = () => {
         document.querySelector("#fields").innerHTML = '';
         setLoading(true); 
         makefields(AchievementSchemaData, setLoading)
-        // ToastSuccess("Input Modal Made");
     }, [AchievementSchemaData]);
     
     const changeOption = (e) => {
@@ -39,10 +37,7 @@ const AddAchievement = () => {
         setLoading(true);
         ToastSuccess("Model Changed");
         setAchievement(e.target.value);
-        // console.log(e.target.value);
-        // alert(tempMap[e.target.value]);
         getFieldsByAPI(tempMap[e.target.value], setAchievementSchemaData)
-        // makefields(AchievementSchemaData, setLoading);
     };
     
     const addAndToast = async(e, type) => {
@@ -111,5 +106,3 @@ const AddAchievement = () => {
     )
 }
 export default AddAchievement;
-// field mb-3  mt-5 p-5 border rounded-xl ml-auto mr-auto 
-//sub mb-3

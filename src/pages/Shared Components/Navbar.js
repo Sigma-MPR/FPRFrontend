@@ -3,7 +3,6 @@ import SurajmalLogo from '../Images/SurajmalLogo.jpg'
 import {AiFillHome} from 'react-icons/ai'
 import {MdAccountCircle} from 'react-icons/md'
 import {IoIosLogOut} from 'react-icons/io'
- // this page needs to be rendered properly and icons need to be resized
 export default function Navbar(){
     if( document.location.href.split("/")[document.location.href.split("/").length-1]!=='login')
         return(

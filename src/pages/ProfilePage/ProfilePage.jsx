@@ -1,11 +1,9 @@
-// import { ENDPOINTS } from "../../constants"
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
 import { toast } from 'react-toastify';
 import { USER_API } from "../../constants";
 import './ProfilePage.css';
 const getUser = async (token, setUser, navigate) => {
-    // console.log("token",token);
     const response = await fetch(USER_API, {
         method: 'GET',
         headers: {
@@ -16,7 +14,6 @@ const getUser = async (token, setUser, navigate) => {
     const data = await response.json();
     if (data.error) {
         alert(data.error);
-        // navigate('/login');
     }
     console.log(data);
     setUser(data);
@@ -32,10 +29,7 @@ const editUser = async (token, user, navigate, isDisabled, setUser) => {
         });
         return;
     }
-    // const bod = {
-
-    //     updateBody: {...user}
-    // }
+   
     console.log(user);
     const response = await fetch(USER_API, {
         method: 'PATCH',
@@ -49,11 +43,7 @@ const editUser = async (token, user, navigate, isDisabled, setUser) => {
     const data = await response.json();
     console.log(data);
     if (data.error) {
-        // toast.error('Something went wrong', {
-        //     position: toast.POSITION.BOTTOM_RIGHT,
-        // });
         console.log(data.error);
-        // navigate('/login');
     }
     alert(data.message);
 }
@@ -70,7 +60,6 @@ const ProfilePage = () => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
         , []);
     useEffect(() => {
-        // console.log(user);
     }, [user, isDisabled]);
     if (!token) {
         toast.error('No Session Found', {

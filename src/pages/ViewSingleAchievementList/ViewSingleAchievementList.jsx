@@ -7,14 +7,12 @@ import Loader from '../../components/Loader/Loader';
 import { getAchievementsWithApiCall } from '../../components/functions';
 import './ViewSingleAchievementList.css';
 import AchievementNotFound from '../../components/ViewAllAchivementsAchivement/AchievementFNF/AchievementNotFound';
-// import { ToastContainer } from 'react-toastify';
 
 import { CustomToastContainer } from '../../components/Toast/Toast';
 
 const ViewSingleAchievementList = () => {
     const Location = useLocation()
 
-    // Continute Here
     const Achievement = Location.state?.prop.name || localStorage.getItem('Achievement');
     const props = Location.state?.prop || localStorage.getItem('props');
     console.log(JSON.stringify(props));
@@ -22,14 +20,12 @@ const ViewSingleAchievementList = () => {
     const [isLoading, setLoading] = useState(true);
     useEffect(() => {
         getAchievementsWithApiCall(Achievement, setAchievementList).then(() => {
-            //console.log(AchievementList);
             setLoading(false);
         });
     },
         // eslint-disable-next-line
         [])
     useEffect(() => {
-        // //console.log(AchievementList);
     }, [AchievementList])
     return (
         <div id='view-single-achievement-list'>

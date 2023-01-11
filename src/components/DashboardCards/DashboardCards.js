@@ -3,7 +3,6 @@ import './DashboardCards.css'
 import { Link } from 'react-router-dom'
 import AddAchievementButton from '../AddAchievementButton/AddAchievementButton'
 export default function DashboardCards(props) {
-    // console.log(props)
     return (
         <span id="DashboardCard" className="show lg:w-1/5 w-full mx-5 text-center" title={props.available ? props.name : "Feature Coming Soon"} disabled >
             <div className="dashboardCard">
