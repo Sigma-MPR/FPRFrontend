@@ -11,11 +11,28 @@ import AddAchievementButton from '../../components/AddAchievementButton/AddAchie
 
 import { useLocation } from 'react-router';
 export default function ViewAllAchievements(){
-    const props = {
+    const props = [
+        {
         "name": "Books Published", 
         "link": "/achievements/bookspublished",
-        "available": true
-    }
+        "available": true,
+        },
+        {
+            "name": "Conference Proceeding",
+            "link": "/achievements/conferenceproceeding",
+            "available": true
+        },
+        {
+            "name": "Journal",
+            "link": "/achievements/journal",
+            "available": true
+        },
+        {
+            "name": "Award",
+            "link": "/achievements/award",
+            "available": true
+        },
+    ]
     
     return(
         <main>
@@ -27,10 +44,10 @@ export default function ViewAllAchievements(){
             <div id='longAddButton'>
                 <AddAchievementButton achievement = {{prop: props }}/>
             </div>
-            <BooksPublished/>
-            <ConferenceProceedings />
-            <Journals />
-            <Awards />
+            <BooksPublished prop = {props[0]}/>
+            <ConferenceProceedings prop = {props[1]}/>
+            <Journals prop = {props[2]}/>
+            <Awards prop = {props[3]}/> 
         </main>
     );
 }

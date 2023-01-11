@@ -39,5 +39,8 @@
 
 #card{
     justify-content: flex-start;
+}
 
+#view-single-achievement-list{
+    padding: 0% 5%;
 }

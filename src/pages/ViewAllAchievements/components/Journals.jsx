@@ -7,9 +7,9 @@ import { CustomToastContainer } from '../../../components/Toast/Toast';
 import '../ViewAllAchievements.css'; 
 import AchievementNotFound from '../../../components/ViewAllAchivementsAchivement/AchievementFNF/AchievementNotFound';
 
-const Journals = () => {
+const Journals = (prop) => {
     const Location = useLocation()
-
+    const props = prop.prop;
     const [Journals, setAllJournals]= useState({});
     const [isLoading, setLoading]= useState(true);
     useEffect(() => {
@@ -35,7 +35,7 @@ return(
                         Journals.data.map((book) => {
                         return (
                             <div id='Cards'>
-                            <ViewAllAchievementsAchievement achievement={book} category={'Journals'} setAchievementList={setAllJournals}/>
+                            <ViewAllAchievementsAchievement achievement={book} category={'Journals'} setAchievementList={setAllJournals} prop = {props}/>
                         </div>
                         )
                     }):

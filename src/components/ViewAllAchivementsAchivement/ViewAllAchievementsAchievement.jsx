@@ -19,8 +19,15 @@ const ViewAllAchievementsAchievement = (props) => {
     const location = useLocation()
     const achievement = props.achievement;
     const category = props.category;
-    const prop = location.state.prop;
-    // console.log(prop);
+    const prop = props.prop||location.state.props;
+    console.log(props);
+    console.log(location);
+    // const prop = {
+    //     "name": "Books Published",
+    //     "link": "/achievements/bookspublished",
+    //     "available": true
+    // }
+    // console.log(props);
 
     return (
         <>
