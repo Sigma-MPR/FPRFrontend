@@ -1,4 +1,5 @@
-import { ACHIEVEMENT_API, fieldsMapping } from "../../constants";
+import { EndpointList, USER_API } from "../../constants";
+import { USER_API , EditProfile } from "../../constants";
 import './Register.css';
 import { ToastError } from "../../components/Toast/Toast";
 import { error } from "daisyui/src/colors";
@@ -8,12 +9,12 @@ const textField = (fieldName, required, value) => {
 
         <div class="md:flex md:items-left mb-6">
         <div class="md:w-1/3">
-          <label class="block font-medium  md:text-left mb-1 md:mb-0 pt-3 pr-4" for=${fieldsMapping[fieldName]} >
-          ${fieldsMapping[fieldName]}
+          <label class="block font-medium  md:text-left mb-1 md:mb-0 pt-3 pr-4" for=${EditProfile[fieldName]} >
+          ${EditProfile[fieldName]}
           </label>
         </div>
         <div class="md:w-2/3">
-          <input id=${fieldName} class="bg-gray-100 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500" id="inline-full-name" type="text" value='${value||''}' placeholder='Enter ${fieldsMapping[fieldName]}' required =${required} />
+          <input id=${fieldName} class="bg-gray-100 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500" id="inline-full-name" type="text" value='${value||''}' placeholder='Enter ${EditProfile[fieldName]}' required =${required} />
         </div>
       </div>
 
@@ -21,19 +22,15 @@ const textField = (fieldName, required, value) => {
     )
 }
 
+
 const makefields = (fields, setLoading, achievement) => {
     if (fields?.length > 0) {
         // eslint-disable-next-line
         fields.map((field) => {
-            if (field.type === "String") {
+             (field.type === "String") {
                 document.querySelector("#fields").innerHTML += textField(field.name, field.required, achievement ? achievement[field.name] : null);
             }
-            else if (field.type === "Number") {
-                document.querySelector("#fields").innerHTML += numberField(field.name, field.required, achievement ? achievement[field.name] : null);
-            }
-            else if (field.type === "Date") {
-                document.querySelector("#fields").innerHTML += dateField(field.name, field.required, achievement ? achievement[field.name] : null)
-            }
+            
         })
         setLoading(false);
     }
@@ -46,7 +43,7 @@ const makefields = (fields, setLoading, achievement) => {
 }
 
 const getFieldsByAPI = async (achievement, setAchievementSchemaData) => {
-    const endpoint = ACHIEVEMENT_API;
+    const endpoint = USER_API;
     try {
         let apiAchievement = achievement.split(" ").join("");
         apiAchievement =  apiAchievement == "ConferenceProceeding"? "ConferenceProceedings" : apiAchievement;
@@ -68,7 +65,7 @@ const getFieldsByAPI = async (achievement, setAchievementSchemaData) => {
     }
 }
 
-const addAchievementApiFunction = async (e, ach) => {
+const addUserdataApiFunction = async (e, ach) => {
     const str = ach.split(" ").join("").toLowerCase();
     e.preventDefault();
     var ele = document.getElementsByTagName("form")[0];
@@ -92,20 +89,20 @@ const addAchievementApiFunction = async (e, ach) => {
     const endpoint = EndpointList[achievement];
     // //console.log("Endpoint: " + endpoint);
     // bring the logic of the acheivement in here
-    const apiToCall = `${ACHIEVEMENT_API}/achievements/${str}`;
+    const apiToCall = `${USER_API}/achievements/${str}`;
     // //console.log(apiToCall);
-    if (!endpoint) return alert("Please Select Achievement Type");
-    try {
-        const resp = await fetch(`${apiToCall}`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                "authorization": localStorage.getItem("token")
-            },
-            body: JSON.stringify(data)
-        })
-        await resp.json();
-        return true
+    // if (!endpoint) return alert("Please Select Achievement Type");
+    // try {
+    //     const resp = await fetch(`${apiToCall}`, {
+    //         method: "POST",
+    //         headers: {
+    //             "Content-Type": "application/json",
+    //             "authorization": localStorage.getItem("token")
+    //         },
+    //         body: JSON.stringify(data)
+    //     })
+    //     await resp.json();
+    //     return true
         /* 
             go to achievements/str
             problem:
@@ -119,15 +116,15 @@ const addAchievementApiFunction = async (e, ach) => {
         // //console.log(location);
 
 
-    }
-    catch (err) {
-        //console.log(err);
-        // alert("Error Occured");
-        ToastError("Error Occured");
-    }
+    // }
+    // catch (err) {
+    //     //console.log(err);
+    //     // alert("Error Occured");
+    //     ToastError("Error Occured");
+    // }
 };
 
-const updateAchievementApiFunction = async (e, ach, Achid) => {
+const updateUserdataApiFunction = async (e, ach, Achid) => {
 
     const str = ach.split(" ").join("").toLowerCase();
     e.preventDefault();
@@ -147,7 +144,7 @@ const updateAchievementApiFunction = async (e, ach, Achid) => {
     data['id'] = Achid;
     // data["cid"] = "507f1f77bcf86cd799439011";
     data["uid"] = localStorage.getItem("userId");
-    const apiToCall = `${ACHIEVEMENT_API}/achievements/${str}`;
+    const apiToCall = `${USER_API``}/achievements/${str}`;
     try {
         const resp = await fetch(`${apiToCall}`, {
             method: "PATCH",
@@ -167,4 +164,5 @@ const updateAchievementApiFunction = async (e, ach, Achid) => {
         ToastError("Error Occured Updating");
     }
 };
-export { textField, makefields, addAchievementApiFunction, getFieldsByAPI, updateAchievementApiFunction };
+export { textField, makefields, addUserdataApiFunction , getFieldsByAPI, updateUserdataApiFunction };
+// EditProfile

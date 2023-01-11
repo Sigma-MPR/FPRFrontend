@@ -2,8 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import "./AddAchievement.css"; 
-import { AchievementDropDown } from "../../constants";
-import {makefields, addAchievementApiFunction, getFieldsByAPI} from './functions';
+import {makefields, addUserdataApiFunction, getFieldsByAPI} from './RegisterFunctions';
 import Loader from "../../components/Loader/Loader";
 import {CustomToastContainer,ToastSuccess, ToastPromise} from "../../components/Toast/Toast";
 const tempMap = {
@@ -46,7 +45,7 @@ const AddAchievement = () => {
     };
     
     const addAndToast = async(e, type) => {
-        await ToastPromise(addAchievementApiFunction(e, tempMap[achievement]), "Adding Achievement","Achievement Added", "Error Adding Achievement")
+        await ToastPromise(addUserdataApiFunction(e, tempMap[achievement]), "Adding User Data","Registered", "Error Adding User Data")
         .then((resp)=>{
           navigate(-1);
         })
