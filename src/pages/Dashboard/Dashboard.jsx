@@ -3,7 +3,7 @@ import DashboardCards from "../../components/DashboardCards/DashboardCards";
 import "./Dashboard.css";
 const AchievementArray = [
     {
-        "name": "Books Published", 
+        "name": "Books Published",
         "link": "/achievements/bookspublished",
         "available": true
     },
@@ -22,11 +22,11 @@ const AchievementArray = [
         "link": "/achievements/awards",
         "available": true
     },
-    {
-        "name": "View All",
-        "link": "/achievements/All",
-        "available": true
-    },
+    // {
+    //     "name": "View All",
+    //     "link": "/achievements/All",
+    //     "available": true
+    // },
     // {
     //     "name": "Attended Events",
     //     "link": "/achievements/attendedevents",
@@ -50,18 +50,19 @@ const AchievementArray = [
 ]
 export default function Dashboard() {
     return (
-        <div id="DashboardContainer" className="" style={{
-            backgroundImage: "linear-gradient(to top, #fff1eb 0%, #ace0f9 100%)",
-            height: "85.5vh",
-            paddingTop: "5vh",
-        }}>
-        {
-            AchievementArray.map((item, index) => {
-                return (
-                        <DashboardCards name={item.name} link={item.link} available={item.available} key={index}/>
-                )
-            })
-        }
+        <div className="Dashboard-Whole">
+            <div id="DashboardContainer" className="">
+                {
+                    AchievementArray.map((item, index) => {
+                        return (
+                            <DashboardCards name={item.name} link={item.link} available={item.available} key={index} />
+                        )
+                    })
+                }
+            </div>
+            <div className="ViewAllBtn">
+                <a href="/achievements/All"> View All </a>
+            </div>
         </div>
     );
 }
