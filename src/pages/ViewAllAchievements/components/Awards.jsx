@@ -13,7 +13,7 @@ const Awards = () => {
     const [awards, setAllawards]= useState({});
     const [isLoading, setLoading]= useState(true);
     useEffect(() => {
-        getAchievementsWithApiCall('awards', setAllawards).then(() => {
+        getAchievementsWithApiCall('award', setAllawards).then(() => {
             setLoading(false);
         });
     },

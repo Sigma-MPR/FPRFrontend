@@ -9,17 +9,17 @@ const AchievementArray = [
     },
     {
         "name": "Conference Proceeding",
-        "link": "/achievements/conferenceproceedings",
+        "link": "/achievements/conferenceproceeding",
         "available": true
     },
     {
-        "name": "Journals",
-        "link": "/achievements/journals",
+        "name": "Journal",
+        "link": "/achievements/journal",
         "available": true
     },
     {
-        "name": "Awards",
-        "link": "/achievements/awards",
+        "name": "Award",
+        "link": "/achievements/award",
         "available": true
     },
     {

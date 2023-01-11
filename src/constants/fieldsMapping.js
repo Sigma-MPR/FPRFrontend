@@ -29,6 +29,7 @@ const fieldsMapping = {
     awardName: "Award Name",
     awardingInstitution: "Awarding Institution",
     awardDate: "Award Date",
+    isPublished: "Published",
 }
 
 export default fieldsMapping;

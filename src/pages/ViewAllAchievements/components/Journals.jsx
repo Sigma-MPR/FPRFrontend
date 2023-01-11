@@ -13,7 +13,7 @@ const Journals = () => {
     const [Journals, setAllJournals]= useState({});
     const [isLoading, setLoading]= useState(true);
     useEffect(() => {
-        getAchievementsWithApiCall('Journals', setAllJournals).then(() => {
+        getAchievementsWithApiCall('Journal', setAllJournals).then(() => {
             setLoading(false);
         });
     },

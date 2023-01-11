@@ -11,7 +11,7 @@ const LandingPage = () => {
                 <p>One-stop destination for showcasing and preserving the accomplishments of faculty members.</p>
             </div>
             <div className="image">
-                <img src="images/header-illustration.png" alt="illustration" />
+                <img src="images/header-illustration.png"  />
             </div>
         </section>
 
@@ -24,7 +24,7 @@ const LandingPage = () => {
                 <Slide direction='up' triggerOnce>
                     <div className="container">
                         <div className="feature-img-container">
-                            <img className="feature1-img" src="images/i1.png" alt="features-img" />
+                            <img className="feature1-img" src="images/i1.png"  />
                         </div>
                         <div className="feature-text">
                             <h2>Add new achievements on the go</h2>
@@ -35,7 +35,7 @@ const LandingPage = () => {
                 <Slide direction='up' triggerOnce>
                     <div className="container">
                         <div className="feature-img-container">
-                            <img className="feature2-img" src="images/i2.png" alt="features-img" />
+                            <img className="feature2-img" src="images/i2.png"  />
                         </div>
                         <div className="feature-text">
                             <h2>Edit your achievements when necessary</h2>
@@ -46,7 +46,7 @@ const LandingPage = () => {
                 <Slide direction='up' triggerOnce>
                     <div className="container">
                         <div className="feature-img-container">
-                            <img className="feature3-img" src="images/i3.png" alt="features-img" />
+                            <img className="feature3-img" src="images/i3.png"  />
                         </div>
                         <div className="feature-text">
                             <h2>View and edit your profile</h2>
@@ -57,7 +57,7 @@ const LandingPage = () => {
                 <Slide direction='up' triggerOnce>
                     <div className="container">
                         <div className="feature-img-container">
-                            <img className="feature4-img" src="images/i4.png" alt="features-img" />
+                            <img className="feature4-img" src="images/i4.png"  />
                         </div>
                         <div className="feature-text">
                             <h2>A seamless experience</h2>
@@ -210,7 +210,7 @@ const LandingPage = () => {
             <div className="cards-container">
                 <div className="card">
                     <div class="card-image">
-                        <img src="https://media.licdn.com/dms/image/C5603AQFL41D5AcCZ1g/profile-displayphoto-shrink_800_800/0/1657896080027?e=1678924800&v=beta&t=uYN4sRqw3PX4CMvzYkJKX_3I1Ekepq45qIosS-EloBE" alt="display image" />
+                        <img src="https://media.licdn.com/dms/image/C5603AQFL41D5AcCZ1g/profile-displayphoto-shrink_800_800/0/1657896080027?e=1678924800&v=beta&t=uYN4sRqw3PX4CMvzYkJKX_3I1Ekepq45qIosS-EloBE"  />
                     </div>
                     <div class="card-info">
                         <h3>Abhishek Gupta</h3>
@@ -231,7 +231,7 @@ const LandingPage = () => {
                 </div>
                 <div className="card">
                     <div class="card-image">
-                        <img src="https://media.licdn.com/dms/image/C4D03AQEat9Oq7ubdMw/profile-displayphoto-shrink_800_800/0/1658173174211?e=1678924800&v=beta&t=F0T9oiSVXHAROnFBKlFz4LnjDFWPe0PELfHyDM_v2C8" alt="display image" />
+                        <img src="https://media.licdn.com/dms/image/C4D03AQEat9Oq7ubdMw/profile-displayphoto-shrink_800_800/0/1658173174211?e=1678924800&v=beta&t=F0T9oiSVXHAROnFBKlFz4LnjDFWPe0PELfHyDM_v2C8"/>
                     </div>
                     <div class="card-info">
                         <h3>Karan Banjade</h3>
@@ -252,7 +252,7 @@ const LandingPage = () => {
                 </div>
                 <div className="card">
                     <div class="card-image">
-                        <img src="https://media.licdn.com/dms/image/C4D03AQEkDUx3SXkYuA/profile-displayphoto-shrink_800_800/0/1659710666075?e=1678924800&v=beta&t=uTyxJtncauSTITYXLvvJBW7ReZzilugKctrgX3x4_F4" alt="display image" />
+                        <img src="https://media.licdn.com/dms/image/C4D03AQEkDUx3SXkYuA/profile-displayphoto-shrink_800_800/0/1659710666075?e=1678924800&v=beta&t=uTyxJtncauSTITYXLvvJBW7ReZzilugKctrgX3x4_F4"  />
                     </div>
                     <div class="card-info">
                         <h3>Karnika Rajput</h3>
@@ -273,7 +273,7 @@ const LandingPage = () => {
                 </div>
                 <div className="card">
                     <div class="card-image">
-                        <img src="https://media.licdn.com/dms/image/D4D03AQFrK9BILbtTCw/profile-displayphoto-shrink_800_800/0/1668946907400?e=1678924800&v=beta&t=zNwCp2xy9xs-f3iwXdtxkKuhF-gQN9VKQM70AJGZh9Q" alt="display image" />
+                        <img src="https://media.licdn.com/dms/image/D4D03AQFrK9BILbtTCw/profile-displayphoto-shrink_800_800/0/1668946907400?e=1678924800&v=beta&t=zNwCp2xy9xs-f3iwXdtxkKuhF-gQN9VKQM70AJGZh9Q"  />
                     </div>
                     <div class="card-info">
                         <h3>Tarni Balgoher</h3>
@@ -299,7 +299,7 @@ const LandingPage = () => {
         <section className="footer">
 
             <div className="footer-container">
-                <img className="brand" src="images/FPRSquare.png" alt="FCAMs" width={"200px"} height={"200px"} />
+                <img className="brand" src="images/FPRSquare.png"  width={"200px"} height={"200px"} />
                 <div className="box">
                     <h3>Contact Info</h3>
                     <a href='mailto:msifmsys@gmail.com' className='reachout-link'>

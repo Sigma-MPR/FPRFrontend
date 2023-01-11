@@ -33,12 +33,12 @@ const ViewAllAchievementsAchievement = (props) => {
                         className='cursor-pointer'
                     >
                         <div>
-                        <h2 className="card-title mx-auto justify-center lg:inline">{props.achievement.title ? "Title: " : "Paper Title: "}</h2>
-                        <h2 className="card-title mx-auto justify-center lg:inline">{props.achievement.title || props.achievement.paperTitle || "props.title"}</h2>
+                        <h2 className="card-title mx-auto justify-center lg:inline">{props.achievement.title ? "Title: " : (props.achievement.paperTitle?"Paper Title: ":"Award Name: ")}</h2>
+                        <h2 className="card-title mx-auto justify-center lg:inline">{props.achievement.title || props.achievement.paperTitle || props.achievement.awardName||"props.title"}</h2>
                         </div>
                         <div>
-                        <p className="text-neutral-content content-center lg:inline">Publishing Date: </p>
-                        <p className="text-neutral-content content-center lg:inline">{new Date(props.achievement.pubDate).toString().slice(0, 15) || "props.createdAt"}</p>
+                        <p className="text-neutral-content content-center lg:inline">{props.achievement.pubDate?"Publishing Date: ":"Award Date: "} </p>
+                        <p className="text-neutral-content content-center lg:inline">{new Date(props.achievement.pubDate||props.achievement.awardDate).toString().slice(0, 15) || "props.createdAt"}</p>
                         </div>
                     </div>
                     <img className='w-16 h-16 lg:ml-20' src='/images/delete.png' onClick={(e) => toastAndDelete(props.achievement.id, props.category, props.setAchievementList, e)} />

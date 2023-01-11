@@ -30,6 +30,7 @@ const LoginPage = () => {
             console.log(loginResult);
             localStorage.setItem("token", loginResult.data.token);
             localStorage.setItem("userId", loginResult.data.userId);
+            localStorage.setItem("collegeId", loginResult.data.cid);
             alert("Login Successful");
             // redirect to dashboard
             navigate("/dashboard");
