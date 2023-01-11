@@ -209,9 +209,9 @@ const LandingPage = () => {
             <h1 className="heading">Meet our Team</h1>
             <div className="cards-container">
                 <div className="card">
-                    <div class="card-image">
+                    {/* <div class="card-image">
                         <img src="https://media.licdn.com/dms/image/C5603AQFL41D5AcCZ1g/profile-displayphoto-shrink_800_800/0/1657896080027?e=1678924800&v=beta&t=uYN4sRqw3PX4CMvzYkJKX_3I1Ekepq45qIosS-EloBE"  />
-                    </div>
+                    </div> */}
                     <div class="card-info">
                         <h3>Abhishek Gupta</h3>
                         <p>Backend Developer</p>
@@ -230,9 +230,9 @@ const LandingPage = () => {
                     </div>
                 </div>
                 <div className="card">
-                    <div class="card-image">
+                    {/* <div class="card-image">
                         <img src="https://media.licdn.com/dms/image/C4D03AQEat9Oq7ubdMw/profile-displayphoto-shrink_800_800/0/1658173174211?e=1678924800&v=beta&t=F0T9oiSVXHAROnFBKlFz4LnjDFWPe0PELfHyDM_v2C8"/>
-                    </div>
+                    </div> */}
                     <div class="card-info">
                         <h3>Karan Banjade</h3>
                         <p>Backend Developer</p>
@@ -251,9 +251,9 @@ const LandingPage = () => {
                     </div>
                 </div>
                 <div className="card">
-                    <div class="card-image">
+                    {/* <div class="card-image">
                         <img src="https://media.licdn.com/dms/image/C4D03AQEkDUx3SXkYuA/profile-displayphoto-shrink_800_800/0/1659710666075?e=1678924800&v=beta&t=uTyxJtncauSTITYXLvvJBW7ReZzilugKctrgX3x4_F4"  />
-                    </div>
+                    </div> */}
                     <div class="card-info">
                         <h3>Karnika Rajput</h3>
                         <p>Frontend Developer</p>
@@ -272,9 +272,9 @@ const LandingPage = () => {
                     </div>
                 </div>
                 <div className="card">
-                    <div class="card-image">
+                    {/* <div class="card-image">
                         <img src="https://media.licdn.com/dms/image/D4D03AQFrK9BILbtTCw/profile-displayphoto-shrink_800_800/0/1668946907400?e=1678924800&v=beta&t=zNwCp2xy9xs-f3iwXdtxkKuhF-gQN9VKQM70AJGZh9Q"  />
-                    </div>
+                    </div> */}
                     <div class="card-info">
                         <h3>Tarni Balgoher</h3>
                         <p>Frontend Developer</p>

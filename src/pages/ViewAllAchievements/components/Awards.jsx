@@ -34,7 +34,7 @@ return(
                     (awards && awards.data && awards.data.length > 0?
                         awards.data.map((book) => {
                         return (
-                            <div id='Cards'>
+                            <div id='cards'>
                             <ViewAllAchievementsAchievement achievement={book} category={'awards'} setAchievementList={setAllawards} prop = {props}/>
                         </div>
                         )

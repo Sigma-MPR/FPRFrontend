@@ -34,7 +34,7 @@ return(
                     (ConferenceProceedings && ConferenceProceedings.data && ConferenceProceedings.data.length > 0?
                         ConferenceProceedings.data.map((book) => {
                         return (
-                            <div id='Cards'>
+                            <div id='cards'>
                             <ViewAllAchievementsAchievement achievement={book} category={'ConferenceProceeding'} setAchievementList={setAllConferenceProceedings} prop = {props}/>
                         </div>
                         )

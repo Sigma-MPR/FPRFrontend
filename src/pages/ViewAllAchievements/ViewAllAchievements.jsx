@@ -35,7 +35,7 @@ export default function ViewAllAchievements(){
     ]
     
     return(
-        <main>
+        <div id='view-single-achievement-list'>
             <div id='TopCollection'>
                 <input type="text" placeholder="Click Here To Search Achievement" className="input input-ghost w-9/12 max-w-full" />
                 <button className="btn glass bg-light disabled px-12 ">Filter</button>
@@ -48,6 +48,6 @@ export default function ViewAllAchievements(){
             <ConferenceProceedings prop = {props[1]}/>
             <Journals prop = {props[2]}/>
             <Awards prop = {props[3]}/> 
-        </main>
+        </div>
     );
 }
