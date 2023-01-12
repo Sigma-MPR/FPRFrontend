@@ -36,7 +36,14 @@ const LoggedInNavbar = () => {
             }
           }>Logout</a></li>
           <li>
-             {/* <img src = {user.picture} alt="Profile" style={{
+          <a href="#" onClick={
+            (e) => {
+              e.preventDefault()
+              navigate('/profile');
+            }
+          }>Profile</a>
+            {/*             
+             <img src = {user.picture} alt="Profile" style={{
               borderRadius: "50%",
               height: "70px"
              }}

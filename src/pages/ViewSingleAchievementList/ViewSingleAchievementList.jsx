@@ -15,7 +15,7 @@ const ViewSingleAchievementList = () => {
 
     const Achievement = Location.state?.prop.name || localStorage.getItem('Achievement');
     const props = Location.state?.prop || localStorage.getItem('props');
-    console.log(JSON.stringify(props));
+    // console.log(JSON.stringify(props));
     const [AchievementList, setAchievementList] = useState([]);
     const [search, setSearch] = useState([]);
     const [isLoading, setLoading] = useState(true);

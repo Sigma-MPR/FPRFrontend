@@ -20,7 +20,7 @@ const LoaderButton = ({ isLoading, display, ...otherButtonProps }) => {
                         className="loader"
                         style={{
                             display: 'inline-block',
-                            'margin-left': '10px',
+                            'marginLeft': '10px',
                         }}
                         src={'/images/loadingCircle.svg'}
                         alt=""

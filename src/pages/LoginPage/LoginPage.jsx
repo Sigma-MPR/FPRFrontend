@@ -101,9 +101,9 @@ const LoginPage = () => {
                 <a href="#" className="flex items-center justify-center mt-3 text-blue-600 hover:underline text-base mb-1" onClick={(e) => { e.preventDefault() }}>
                     <GoogleLogin
                         onSuccess={credentialResponse => {
-                            console.log(credentialResponse);
+                            // console.log(credentialResponse);
                             var userObject = jwt_decode(credentialResponse.credential);
-                            console.log(userObject);
+                            // console.log(userObject);
                             googleSuccessHandler(userObject);
                         }}
                         onError={() => {
