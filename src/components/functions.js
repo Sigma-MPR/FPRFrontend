@@ -24,7 +24,7 @@ const getAchievementsWithApiCall = async (achievement, setAchievementList,setSea
     return data;
 }
 
-const deleteAchievement = async(id, cat, setAchievementList) => {
+const deleteAchievement = async(id, cat, setAchievementList, setSearch) => {
     const ach = cat.split(" ").join("").toLowerCase();
     const apiToCall = `${ACHIEVEMENT_API}/${ach}?id=${id}`;
     const resp = await fetch(apiToCall, {
@@ -35,6 +35,6 @@ const deleteAchievement = async(id, cat, setAchievementList) => {
         }
     })
     await resp.json();
-    await getAchievementsWithApiCall(cat, setAchievementList);    
+    await getAchievementsWithApiCall(cat, setAchievementList, setSearch);    
 }
 export { getAchievementsWithApiCall, deleteAchievement };

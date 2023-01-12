@@ -133,6 +133,7 @@ const addAchievementApiFunction = async (e, ach) => {
         return new error()
     }
     const achievement = e.target.value;
+    console.log(e.target);
     const data = {};
     const fields = document.querySelectorAll("#fields input");
     fields.forEach((item) => {

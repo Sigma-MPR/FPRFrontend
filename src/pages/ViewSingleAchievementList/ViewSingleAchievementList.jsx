@@ -68,7 +68,7 @@ const ViewSingleAchievementList = () => {
                         AchievementList.map((achievement) => {
                             return (
                                 <div id='cards' className='w-full'>
-                                    <ViewAllAchievementsAchievement achievement={achievement} category={Achievement} setAchievementList={setAchievementList} prop={props} />
+                                    <ViewAllAchievementsAchievement achievement={achievement} category={Achievement} setAchievementList={setAchievementList} prop={props} setSearch = {setSearch} />
                                 </div>
                             )
                         }) :
