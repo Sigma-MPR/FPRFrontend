@@ -1,4 +1,5 @@
-const EditProfile = {
+const ProfileField = {
+     username:'User Name',
      fullname: 'Full Name',
      phonenumber : 'Phone Number',
      emailid : 'Email id',
@@ -10,5 +11,5 @@ const EditProfile = {
      doctorate : 'Doctorate',
  }
  
- export default EditProfile;
+ export default ProfileField  ;
  

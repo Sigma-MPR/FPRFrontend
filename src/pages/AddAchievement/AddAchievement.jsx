@@ -87,7 +87,9 @@ const AddAchievement = () => {
                     {Loading&&<Loader />}
                     <div id="fields" className="  mb-3  mt-5 p-5  rounded-xl ml-auto mr-auto bg-lavendar" style={{border:"none",boxShadow:"none"}}>
 
-                        <div id="sub-fields" className="achievement-field mb-3"></div>
+                        <div id="sub-fields" className="achievement-field mb-3">
+                            
+                        </div>
                     </div>
                    
                 </div>

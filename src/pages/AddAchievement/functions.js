@@ -76,6 +76,7 @@ const boolFields = (fieldsName, required, value) => {
             </div>`
     )
 }
+
 const makefields = (fields, setLoading, achievement) => {
     if (fields?.length > 0) {
         // eslint-disable-next-line
