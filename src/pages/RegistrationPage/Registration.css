@@ -67,7 +67,9 @@
      .submit-btn{
           width: 50%;
      }
-     
+     #fields input{
+          width: 20%;
+     }
 }
 @media only screen and (max-width:800px){
      .add-userregister{
@@ -81,15 +83,15 @@
      .submit-btn{
           width: 50%;
      }
+     #fields input{
+          width: 30%;
+     }
 }
 .textField{
      margin: 7px 7px;
      padding: 7px 7px;
 }
 
-.numField,.dateField,.textField {
-     border-radius: 8px;
-}
 
 #fields input{
     width: 300px;

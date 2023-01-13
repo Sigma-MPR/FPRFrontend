@@ -10,7 +10,7 @@ const textField = (fieldName, required, value) => {
         <div class="md:flex md:items-left mb-6">
         <div class="md:w-1/3">
           <label class="block font-medium  md:text-left mb-1 md:mb-0 pt-3 pr-4" for=${fieldsMapping[fieldName]} >
-          ${fieldsMapping[fieldName]}
+          ${fieldsMapping[fieldName]} 
           </label>
         </div>
         <div class="md:w-2/3">
