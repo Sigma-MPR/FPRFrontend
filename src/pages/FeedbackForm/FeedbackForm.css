@@ -1,0 +1,117 @@
+*{
+     box-sizing: border-box;
+     margin: 0;
+     padding: 0;
+}
+:root {
+     --light-beige: #DEF1F7;
+     --lavendar:#BAB7CD;
+     --blue: #1C1258;
+     --red: #EE4166;
+     --pink: #EABFCB;
+ }
+.root{
+     min-height: 100vh;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     
+}
+#fields{
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: left;
+    width: max-content;
+    /* box-shadow: 0 0 10px 0; */
+    flex-shrink: 1;
+}
+
+.submit-btn{
+     margin: 7px 5px 5px 5px;
+   
+}
+.main-div{
+     background-color: var(--light-beige);
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     border-style:groove;  
+ }
+ .btn-div{
+     display: flex;
+     justify-content: center;
+     align-items: center;
+}
+ 
+.feedback-field, .Feedbackform{
+     margin:10px 0 ;
+     box-shadow: none;
+}
+
+#add-userregister{
+     box-shadow: 5px 8px 10px gray;
+     padding: 2vw 3vw;
+     background-color: #BAB7CD;
+}
+
+@media only screen and (max-width:500px){
+     .add-userregister
+     {
+          width: 20%;
+          padding: 3px;
+     }
+     .main-div{
+          width: min-content;
+     }
+     .submit-btn{
+          width:  min-content;
+     }
+     #fields input{
+          width: 70%;
+     }
+}
+@media only screen and (max-width:800px){
+     .add-userregister{
+          width: 25%;
+          padding: 10px 10px;
+     }
+     .main-div{
+          /* width: 70vw; */
+          width: fit-content;
+     }
+     .submit-btn{
+          width: 50%;
+     }
+     #fields input{
+          width: 70%;
+     }
+}
+.textField{
+     margin: 7px 7px;
+     padding: 7px 7px;
+}
+
+#fields input{
+    /* width: 300px; */
+    height: 35px;
+    margin: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 5px;
+}
+#fields label{
+    font-size: 1.2rem;
+    text-align: start;
+}
+
+
+
+
+
+
+
+
+
+
+
