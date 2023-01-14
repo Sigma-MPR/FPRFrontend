@@ -12,6 +12,9 @@
 .LoginButton{
     background-color: #2853A5;
 }
+.LoginButton:disabled{
+    background-color: #2854a5a2;
+}
 hr{
     border-top: 2px solid black;
 }

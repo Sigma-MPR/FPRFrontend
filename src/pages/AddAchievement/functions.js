@@ -133,6 +133,7 @@ const addAchievementApiFunction = async (e, ach) => {
         return new error()
     }
     const achievement = e.target.value;
+    console.log(e.target);
     const data = {};
     const fields = document.querySelectorAll("#fields input");
     fields.forEach((item) => {
@@ -177,15 +178,20 @@ const updateAchievementApiFunction = async (e, ach, Achid) => {
     if (!ele.reportValidity()) {
         return new error()
     }
-    console.log(Achid);
     const data = {};
     const fields = document.querySelectorAll("#fields input");
     fields.forEach((item) => {
-        data[item.id] = item.value;
+        if(item.type == "checkbox"){
+            data[item.id] = item.checked;
+        }
+        else{
+            data[item.id] = item.value;
+        }
     })
     data['id'] = Achid;
     data["uid"] = localStorage.getItem("userId");
     data["cid"] = localStorage.getItem("collegeId");
+
     const apiToCall = `${ACHIEVEMENT_API}/${str}`;
     try {
         const resp = await fetch(`${apiToCall}`, {

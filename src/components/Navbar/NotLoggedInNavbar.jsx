@@ -9,7 +9,7 @@ const NotLoggedInNavbar = () => {
         <a href="#" onClick={
           (e) => {
             e.preventDefault()
-            navigate('/home');
+            navigate('/');
           }
         }>
           <img src="/images/FPRSquare.png" width={'20%'} alt="FPR" className="logo"/>

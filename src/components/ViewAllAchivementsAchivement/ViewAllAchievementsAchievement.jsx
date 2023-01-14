@@ -7,9 +7,9 @@ import { toast } from 'react-toastify'
 
 const string = "lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod."
 
-const toastAndDelete = async (id, category, setAchievementList, e) => {
+const toastAndDelete = async (id, category, setAchievementList, e, setSearch) => {
     e.stopPropagation();
-    await ToastPromise(deleteAchievement(id, category, setAchievementList), "Deleting Achievement", "Deleted Successfully", "Error Deleting Achievement")
+    await ToastPromise(deleteAchievement(id, category, setAchievementList, setSearch), "Deleting Achievement", "Deleted Successfully", "Error Deleting Achievement")
 }
 const ViewAllAchievementsAchievement = (props) => {
     const navigate = useNavigate()
@@ -37,7 +37,7 @@ const ViewAllAchievementsAchievement = (props) => {
                         <p className="text-neutral-content content-center lg:inline">{new Date(props.achievement.pubDate||props.achievement.awardDate).toString().slice(0, 15) || "props.createdAt"}</p>
                         </div>
                     </div>
-                    <img className='w-16 h-16 lg:ml-20' src='/images/delete.png' onClick={(e) => toastAndDelete(props.achievement.id, props.category, props.setAchievementList, e)} />
+                    <img className='w-16 h-16 lg:ml-20' src='/images/delete.png' onClick={(e) => toastAndDelete(props.achievement.id, props.category, props.setAchievementList, e, props.setSearch)} />
                 </div>
             </div>
         </>

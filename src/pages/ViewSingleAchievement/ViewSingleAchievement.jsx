@@ -24,14 +24,18 @@ const ViewSingleAchievement = () => {
         setLoading(true);
         makefields(AchievementSchemaData, setLoading, Achievement)
         setAchievementId(Achievement.id);
-    }, [AchievementSchemaData]);
+        document.querySelectorAll("input").forEach((item) => {
+            // disable if isDisabled is true
+            item.disabled = isDisabled;
+        });
+    }, [AchievementSchemaData, isDisabled]);
     const updateAndToast = async (e, type, id) => {
         e.preventDefault();
         if(isDisabled){
             setIsDisabled(false);
             return;
         }
-        const res = await ToastPromise(updateAchievementApiFunction(e, Category, id), "Updating Achievement", "Achievement Updated Successfully", "Error Updating Achievement");
+        const res = await updateAchievementApiFunction(e, Category, id);
         if(res){
             navigate(-1);
         }
@@ -39,7 +43,7 @@ const ViewSingleAchievement = () => {
     }
     return (
         <main>
-            <div className=" rootS bg-blue">
+            <div className=" rootS">
                 <div className="grid grid-cols-2 my-6 pt-4"><h1 className="text-center leading-3 text-white py-3 text-2xl">View Single Achievement</h1>
                     <div className="btn-div">
                         <button className="update-btn text-black bg-light-beige hover:bg-800 focus:ring-4 focus:outline-none hover:bg-lavendar font-medium rounded-lg text-md  mt-0 w-full sm:w-auto mb-2 px-8 py-2.5 text-center dark:focus:ring-blue-200" onClick={() => navigate(-1)}>Go Back</button>
@@ -53,7 +57,7 @@ const ViewSingleAchievement = () => {
                                 <div id="sub-fields" className="achievement-field mb-3"></div>
                             </div>
                             <div className="btn-div mt-0 ">
-                                <button type="submit" className="update-btn mb-5 bg-gray text-white hover:bg-800 focus:ring-4 focus:outline-none  font-medium rounded-lg text-md hover:bg-lavender mt-0 w-full sm:w-auto px-8 py-2.5 text-center dark:focus:ring-blue-200" value={Category}
+                                <button type="submit" className="update-btn mb-5 bg-light text-white focus:ring-4 focus:outline-none  font-medium rounded-lg text-md hover:bg-primary-400 mt-0 w-full sm:w-auto px-8 py-2.5 text-center dark:focus:ring-blue-200" value={Category}
                                     onClick={(e) => updateAndToast(e, Category, AchievementId)}
                                     >
                                         {

@@ -13,7 +13,6 @@ const CustomToastContainer = () => {
             pauseOnFocusLoss
             draggable
             pauseOnHover
-            theme="dark"
         />
     );
 }
@@ -27,7 +26,6 @@ const ToastSuccess = (text) => {
         pauseOnHover: true,
         draggable: true,
         progress: undefined,
-        theme: "dark",
     });
 }
 
@@ -40,7 +38,6 @@ const ToastError = (text) => {
         pauseOnHover: true,
         draggable: true,
         progress: undefined,
-        theme: "dark",
     });
 }
 const ToastPromise = async (code, promise, success, error) => {
@@ -59,7 +56,6 @@ const ToastPromise = async (code, promise, success, error) => {
             pauseOnHover: true,
             draggable: true,
             progress: undefined,
-            theme: "dark",
         }
     );
 }

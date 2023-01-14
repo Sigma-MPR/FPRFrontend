@@ -13,7 +13,7 @@ const LoggedInNavbar = () => {
         <a href="#" onClick={
           (e) => {
             e.preventDefault()
-            navigate('/home');
+            navigate('/');
           }
         }>
           <img src="/images/FPRSquare.png" width={'20%'} alt="FPR"  className="logo"/>
@@ -36,6 +36,13 @@ const LoggedInNavbar = () => {
             }
           }>Logout</a></li>
           <li>
+          <a href="#" onClick={
+            (e) => {
+              e.preventDefault()
+              navigate('/profile');
+            }
+          }>Profile</a>
+            {/*             
              <img src = {user.picture} alt="Profile" style={{
               borderRadius: "50%",
               height: "70px"
@@ -44,7 +51,7 @@ const LoggedInNavbar = () => {
               e.preventDefault()
               navigate('/profile');
             }}
-             />
+             /> */}
             </li>
         </ul>
       </div>

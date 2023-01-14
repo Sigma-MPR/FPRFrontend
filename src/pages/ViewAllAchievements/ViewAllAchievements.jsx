@@ -9,7 +9,6 @@ import Awards from './components/Awards';
 import './ViewAllAchievements.css';
 import AddAchievementButton from '../../components/AddAchievementButton/AddAchievementButton';
 
-import { useLocation } from 'react-router';
 export default function ViewAllAchievements(){
     const props = [
         {

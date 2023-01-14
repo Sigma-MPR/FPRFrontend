@@ -5,6 +5,8 @@ import "./AddAchievement.css";
 import { AchievementDropDown } from "../../constants";
 import {makefields, addAchievementApiFunction, getFieldsByAPI} from './functions';
 import Loader from "../../components/Loader/Loader";
+import LoaderBtn from "../../components/loaderButton/LoaderButton";
+
 import {CustomToastContainer,ToastSuccess, ToastPromise} from "../../components/Toast/Toast";
 const tempMap = {
     "BP": "BooksPublished",
@@ -14,7 +16,8 @@ const tempMap = {
 }
 const AddAchievement = () => {
     const location = useLocation();
-    const prop = location.state.name == "View All" ? "Books Published" :location.state.name || localStorage.getItem('Achievement')||"Books Published";
+    console.log(location.state);
+    const prop = location.state.name == "View All" ? "Books Published" :location.state.name;
     const [achievement, setAchievement] = useState(AchievementDropDown[prop]||"BP");
     const [AchievementSchemaData, setAchievementSchemaData] = useState({});
     const [Loading, setLoading] = useState(true);
@@ -92,9 +95,10 @@ const AddAchievement = () => {
                    
                 </div>
                 <div className="btn-div mt-0">
-                <button type="submit" className="submit-btn text-white bg-blue-700 hover:bg-800 focus:ring-4 focus:outline-none focus:ring-blue-300  font-medium rounded-lg text-md  mt-0 w-full sm:w-auto px-8 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" value = {achievement} 
-                onClick={(e)=>addAndToast(e, tempMap[achievement])}>SUBMIT</button>
-
+                <button type="submit" className="submit-btn text-white focus:ring-4 focus:outline-none focus:ring-blue-300  font-medium rounded-lg text-md mt-0 w-full sm:w-auto px-8 py-2.5 text-cente hover:bg-primary-400" value = {achievement} 
+                onClick={(e)=>addAndToast(e, tempMap[achievement])}
+                style={{backgroundColor: "#006dea"}}>SUBMIT</button>
+                {/* <LoaderBtn type="submit" className="submit-btn text-white focus:ring-4 focus:outline-none focus:ring-blue-300  font-medium rounded-lg text-md mt-0 w-full sm:w-auto px-8 py-2.5 text-cente hover:bg-primary-400" value = {achievement} onClick={(e)=>addAndToast(e, tempMap[achievement])} style={{backgroundColor: "#006dea"}} display="SUBMIT" /> */}
                 </div>
             </form>
            

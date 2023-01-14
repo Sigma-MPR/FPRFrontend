@@ -23,8 +23,8 @@
     margin-left: 30px;
 }
 .profile-container{
-    width: 100vw;
-    height: 100vh;
+    /* width: 100vw; */
+    /* height: 100vh; */
     display: flex;
     flex-direction: column;
     align-items: center;

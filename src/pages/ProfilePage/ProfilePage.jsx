@@ -24,9 +24,6 @@ const editUser = async (token, user, navigate, isDisabled, setUser) => {
     }
     if (!user.password) {
         alert('Enter Password To Save Changes');
-        toast.error('Enter Password To Save Changes', {
-            position: toast.POSITION.BOTTOM_RIGHT,
-        });
         return;
     }
    
@@ -45,7 +42,7 @@ const editUser = async (token, user, navigate, isDisabled, setUser) => {
     if (data.error) {
         console.log(data.error);
     }
-    alert(data.message);
+    // alert(data.message);
 }
 const ProfilePage = () => {
     const token = localStorage.getItem('token');
@@ -62,12 +59,8 @@ const ProfilePage = () => {
     useEffect(() => {
     }, [user, isDisabled]);
     if (!token) {
-        toast.error('No Session Found', {
-            position: toast.POSITION.BOTTOM_RIGHT,
-        });
         navigate('/login');
     }
-
     return (
         <main>
             <div className="main-profile">
