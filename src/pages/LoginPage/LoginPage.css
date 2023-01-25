@@ -1,0 +1,20 @@
+.FadedWhiteBackground {
+    background: #F3F3F3B2;
+    background-blend-mode: multiply;
+}
+.CollegeBackground {
+    /* background: #F3F3F3B2; */
+    /* background-image: url("https://msi-ggsip.org/wp-content/uploads/2014/06/Main-Gate.jpg"); */
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.LoginButton{
+    background-color: #2853A5;
+}
+.LoginButton:disabled{
+    background-color: #2854a5a2;
+}
+hr{
+    border-top: 2px solid black;
+}

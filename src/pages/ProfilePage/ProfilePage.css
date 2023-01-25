@@ -1,0 +1,85 @@
+#profile-container{
+    width: 750px;
+    /* height: 75vh; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    /* background-image: url('thinking.svg'); */
+    background-image: url('./profileRed.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-x: left;
+    border-radius: 10px;
+    padding: 1rem 0rem;
+}
+
+#profile-container .userInput{
+    width: 80%;
+}
+
+#profile-container form{
+    width: 350px;
+    margin-left: 30px;
+}
+.profile-container{
+    /* width: 100vw; */
+    /* height: 100vh; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width:910px){
+    #profile-container{
+        width: 500px;
+        background-position-x:-10rem;
+    }
+
+}
+@media (max-width:500px){
+    #profile-container{
+        width: 300px;
+        background-position-x: center;
+        background-position-y: center;
+        background-size: 528px;
+        background-color: white;
+        padding: 1rem 0.5rem;
+    }
+    #profile-container form{
+        width: 290px;
+        margin-left: 10px;
+    }
+
+}
+.userInput{
+    border-color: #6b7280 ;
+}
+
+/* @media (max-width:805px ) {
+    #h1{
+        color: red;
+    }
+    .profile-container{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+    }
+    .profile-container #profile-container{
+        width: 100%;
+        background-position-x: -5rem;
+        background-position-y: 2rem;
+        background-size: 150%;
+        margin-bottom: 5rem;
+
+    }
+    #profile-container form{
+        width: 90vw;
+        margin-left: 20%;
+    }
+}  */

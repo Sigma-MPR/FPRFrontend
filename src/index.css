@@ -12,6 +12,33 @@ code {
     monospace;
 } */
 
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root{
+  --color-blue:#1C1258;
+  --color-red:#EE4166;
+  --color-pink:#EABFCB;
+  --color-light: #D9F9FF;
+  --color-dark: #293747;
+  --color-Mustard: #FF9B00;
+  --color-yellow: #FFD28C;
+}
+
+*{
+  color: black;
+}
+
+main{
+  background-image: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%); ;
+}
+/* #root{
+  background-image: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%); ;
+  min-height: 100vh;
+} */
+html{
+  background-image: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%); ;
+  min-height: 100vh;
+}

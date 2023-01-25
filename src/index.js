@@ -4,12 +4,12 @@ import './index.css';
 import App from './App';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
-
+import { GoogleOAuthProvider } from '@react-oauth/google';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
+    <GoogleOAuthProvider clientId="679244474248-4rs8k6h2ffjgs92f0q0vrg9m4s01gm5t.apps.googleusercontent.com">
     <App />
-  </React.StrictMode>
+    </GoogleOAuthProvider>
 );
 
 // If you want your app to work offline and load faster, you can change
@@ -19,6 +19,6 @@ serviceWorkerRegistration.register();
 // serviceWorkerRegistration.unregister();
 
 // If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
+// to log results (for example: reportWebVitals(//console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();

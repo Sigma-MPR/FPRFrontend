@@ -1,0 +1,358 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600&family=Dosis:wght@400;500;700&family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Poppins:wght@400;500&display=swap');
+
+:root {
+
+    --gray:#BEBEBE ;
+    --red:#D50032;
+    --pink:#FD5077;
+    --blue:#0389FF;
+    --white:#F7F7F7;
+}
+main{
+    width: 100vw;
+    font-family: 'poppins','sans-serif';
+    background-image: linear-gradient(to bottom,var(--white),var(--pink),var(--red));
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0%;
+    padding: 0%;
+}
+
+.home {
+    width: 100vw;
+    display: flex;
+    /* justify-content: space-around; */
+    /* align-items: center; */
+    /* padding-top: 20px; */
+    /* background-color: peru; */
+    /* height: 72vh; */
+}
+.home .image{
+    width:45%;
+    height: 10px;
+}
+
+
+.home .content h1 {
+    font-size: 3rem;
+    color: black;
+}
+.home .content{
+    padding: 0 2vw 0 7vw;
+    width: 50%;
+    height: 100%;
+}
+.home .content p {
+    display: block;
+    padding: 0 7vw 0 0;
+    color: #666;
+}
+
+header {
+    padding-top: 2vw;
+    /* height: 65px; */
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    align-items: center;
+    /* box-shadow: 0 0 10px 0 black; */
+}
+
+header * {
+    display: inline-block;
+}
+
+header li {
+    margin: 20px;
+}
+
+header li a {
+    transition: all 0.5s;
+    color: black;
+    font-size: 1.2rem;
+}
+header li a:hover{
+    color: var(--red);
+    font-size: 1.3rem;
+}
+
+.navbar {
+    padding: 0.2rem;
+}
+
+.brand {
+    /* padding: 1rem; */
+    margin: 0 0rem 0 6vw;
+}
+
+
+
+
+
+/* .image {
+    width: 400px;
+    height: 400px;
+    object-fit: cover;
+    display: flex;
+    margin: auto;
+} */
+
+.heading {
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 500;
+    margin-bottom: 30px;
+    margin-top: 80px;
+}
+
+
+.box-container {
+    /* max-width: 1400px; */
+    width: 100%;
+    margin-top: -5%;
+    
+}
+
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 0 auto;
+    margin-top: -8%;
+    padding: 20px;
+    width: 80%;
+}
+.container div{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    flex-direction: column;
+}
+
+.container .feature-img-container img {
+    
+    width: 300px;
+    height: 300px;
+    object-fit: contain;
+    object-position: center;
+}
+
+.feature-text h2 {
+  color: black;
+    font-size: 2.3rem;
+    font-weight: 500;
+    /* font-family: 'Montserrat', sans-serif; */
+    line-height: 1.33333333;
+    margin-bottom: 1vw;
+}
+
+.feature-text p {
+    font-size: 1.2rem;
+    text-align: left;
+    color: #4b3a3a;
+    font-weight: 400;
+    /* font-family: 'Montserrat', sans-serif; */
+    line-height: 1.33333333;
+    margin-bottom: 0.625rem;
+}
+
+.container:nth-child(2n) .feature-img-container {
+    order: 2;
+}
+
+.container .feature-img-container {
+    width: 60%;
+    padding-left: 4vw;
+}
+
+.team-container {
+    flex-wrap: wrap;
+    margin: 30px 0;
+}
+
+.team-container,
+.team-container .landcard {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: static;
+}
+
+.team-container .landcard {
+    width: 300px;
+    height: 400px;
+    /* background: var(--l); */
+    margin: 20px;
+    box-shadow: 0 15px 35px rgb(0 0 0 / 20%);
+    border-radius: 15px;
+    transition: all .3s ease-in-out;
+}
+.landcard{
+    transition: all 0.5s;
+}
+.landcard:hover{
+    transform: scale(1.1);
+    background-color: var(--pink);
+
+}
+
+.team-container .landcard .card-content {
+    position: static;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    opacity: 1;
+    transition: .5s;
+}
+
+.team-container .landcard .card-content .card-imgbox img {
+    position: static;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+}
+
+.team-container .landcard .card-content .card-imgbox {
+    position: static;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 10px solid rgba(0, 0, 0, .25);
+}
+
+.team-container .landcard .card-content .card-contentbox span {
+    font-size: 14px;
+    text-transform: none;
+    display: block;
+    text-align: center;
+    color: var(--light-beige);
+    transition: all .2s ease-in-out;
+}
+
+a:link {
+    text-decoration: none;
+    
+    font-weight: 400;
+}
+
+.team-container .landcard .card-content .card-contentbox h3 {
+    color: var(--white);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 500;
+    font-size: 18px;
+    text-align: center;
+    margin: 20px 0 25px;
+    line-height: 1.1em;
+}
+
+.team-container .landcard .sci {
+    position: absolute;
+    bottom: 30px;
+    display: flex;
+}
+
+.credit a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.credit {
+    text-align: center;
+}
+
+.footer {
+    width: 100vw;
+    padding: 4vw 0;
+}
+
+.footer .footer-container {
+    /* display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    gap: 1rem; */
+	display: flex;
+	justify-content: space-around;
+	width: 100vw;
+}
+
+.footer .footer-container .box h3 {
+    font-size: 1.8rem;
+    color: var(--white);
+    padding: 0.8rem 0;
+
+}
+
+
+
+.footer .footer-container .box .links {
+    display: block;
+    font-size: 1.3rem;
+    color: var(--pink);
+    padding: 0.5rem 0;
+    transition: all 0.5s;
+}
+
+
+
+.footer .footer-container .box .links:hover  {
+    font-size: 1.4rem;
+    color: var(--white);
+}
+
+
+.footer .footer-container .box p {
+    line-height: 1.8;
+    font-size: 1.5rem;
+    color: var(--light-color);
+    padding: 1rem 0;
+}
+
+.footer .footer-container .box .share a {
+    height: 4rem;
+    width: 4rem;
+    line-height: 4rem;
+    border-radius: .5rem;
+    font-size: 2rem;
+    color: var(--black);
+    margin-right: .2rem;
+    background: #eee;
+    text-align: center;
+}
+
+.footer .footer-container .box .share a:hover {
+    background: var(--orange);
+    color: #fff;
+}
+
+.footer .footer-container .box .email {
+    width: 100%;
+    margin: .7rem 0;
+    padding: 1rem;
+    border-radius: .5rem;
+    background: #eee;
+    font-size: 1.6rem;
+    color: var(--black);
+    text-transform: none;
+}
+
+.footer .credit {
+    text-align: center;
+    margin-top: 2rem;
+    padding: 1rem;
+    padding-top: 2.5rem;
+    font-size: 2rem;
+    color: var(--black);
+    border-top: var(--border);
+}
+
+.footer .credit span {
+    color: var(--orange);
+}
