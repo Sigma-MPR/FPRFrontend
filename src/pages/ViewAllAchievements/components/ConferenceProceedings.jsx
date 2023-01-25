@@ -8,17 +8,18 @@ import '../ViewAllAchievements.css';
 import AchievementNotFound from '../../../components/ViewAllAchivementsAchivement/AchievementFNF/AchievementNotFound';
 
 const ConferenceProceedings = (prop) => {
-    const Location = useLocation()
     const props = prop.prop;
+    const {AllAchievements, setAllAchievements} = prop;
     const [ConferenceProceedings, setAllConferenceProceedings]= useState({});
     const [isLoading, setLoading]= useState(true);
     useEffect(() => {
-        getAchievementsWithApiCall('conferenceProceeding', setAllConferenceProceedings).then(() => {
-            setLoading(false);
-        });
+        getAchievementsWithApiCall('conferenceProceeding', setAllConferenceProceedings)
     },
         [])
-useEffect(()=>{},[ConferenceProceedings])
+useEffect(()=>{
+    setLoading(false);
+    setAllAchievements({...AllAchievements, ConferenceProceedings})
+},[ConferenceProceedings])
 return(
     <div>
         <div>
@@ -31,8 +32,8 @@ return(
                     ?
                     <Loader />
                     :
-                    (ConferenceProceedings && ConferenceProceedings.data && ConferenceProceedings.data.length > 0?
-                        ConferenceProceedings.data.map((book) => {
+                    (ConferenceProceedings && ConferenceProceedings.length > 0?
+                        ConferenceProceedings.map((book) => {
                         return (
                             <div id='cards'>
                             <ViewAllAchievementsAchievement achievement={book} category={'ConferenceProceeding'} setAchievementList={setAllConferenceProceedings} prop = {props}/>
