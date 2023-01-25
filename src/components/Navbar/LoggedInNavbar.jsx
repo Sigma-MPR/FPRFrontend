@@ -27,7 +27,14 @@ const LoggedInNavbar = () => {
           }}>
             Dashboard
           </a></li>
-
+          <li>
+          <a href="#" onClick={
+            (e) => {
+              e.preventDefault()
+              navigate('/feedback');
+            }
+          }>Feedback</a>
+            </li>
           <li><a href="#" onClick={
             (e) => {
               e.preventDefault()
@@ -35,23 +42,13 @@ const LoggedInNavbar = () => {
               navigate('/login')
             }
           }>Logout</a></li>
-          <li>
-          <a href="#" onClick={
+            <li>
+            <a href="#" onClick={
             (e) => {
               e.preventDefault()
               navigate('/profile');
             }
-          }>Profile</a>
-            {/*             
-             <img src = {user.picture} alt="Profile" style={{
-              borderRadius: "50%",
-              height: "70px"
-             }}
-             onClick={(e) => {
-              e.preventDefault()
-              navigate('/profile');
-            }}
-             /> */}
+          }>{user.name}</a>
             </li>
         </ul>
       </div>
@@ -59,4 +56,4 @@ const LoggedInNavbar = () => {
     )
 }
 
-export default LoggedInNavbar
+export default LoggedInNavbar   

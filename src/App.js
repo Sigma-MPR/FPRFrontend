@@ -2,7 +2,7 @@ import React from 'react';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import './App.css';
 import ViewAllAchievements from './pages/ViewAllAchievements/ViewAllAchievements';
-import { LoginPage, AddAchievement, Dashboard, ViewSingleAchievementList, ForgotPasswordPage, ChangePasswordPage, ProfilePage, ViewSingleAchievement, LandingPage, RegisterPage, NotFoundPage } from './pages';
+import { LoginPage, AddAchievement, Dashboard, ViewSingleAchievementList, ForgotPasswordPage, ChangePasswordPage, ProfilePage, ViewSingleAchievement, LandingPage, RegisterPage, NotFoundPage, FeedbackPage } from './pages';
 import Protected from './components/Protected.jsx';
 import LoginProtected from './components/LoginProtected.jsx';
 // import Loader from './components/Loader/Loader';
@@ -51,6 +51,7 @@ function App() {
           </Route>
 
           <Route path="changePassword" element={<Protected component= {ChangePasswordPage} />} />
+          <Route path="feedback" element = {<Protected component = {FeedbackPage} />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </BrowserRouter >
