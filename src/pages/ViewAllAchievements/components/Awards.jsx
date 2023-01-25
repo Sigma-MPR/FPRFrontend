@@ -8,17 +8,18 @@ import '../ViewAllAchievements.css';
 import AchievementNotFound from '../../../components/ViewAllAchivementsAchivement/AchievementFNF/AchievementNotFound';
 
 const Awards = (prop) => {
-    const Location = useLocation()
     const props = prop.prop;
+    const {setAllAchievements, AllAchievements} = prop;
     const [awards, setAllawards]= useState({});
     const [isLoading, setLoading]= useState(true);
     useEffect(() => {
-        getAchievementsWithApiCall('award', setAllawards).then(() => {
-            setLoading(false);
-        });
+        getAchievementsWithApiCall('award', setAllawards)
     },
         [])
-useEffect(()=>{},[awards])
+useEffect(()=>{
+    setLoading(false);
+    setAllAchievements({...AllAchievements, awards})
+},[awards])
 return(
     <div>
         <div>
@@ -31,8 +32,8 @@ return(
                     ?
                     <Loader />
                     :
-                    (awards && awards.data && awards.data.length > 0?
-                        awards.data.map((book) => {
+                    (awards && awards.length > 0?
+                        awards.map((book) => {
                         return (
                             <div id='cards'>
                             <ViewAllAchievementsAchievement achievement={book} category={'awards'} setAchievementList={setAllawards} prop = {props}/>

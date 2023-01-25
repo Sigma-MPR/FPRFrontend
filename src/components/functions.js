@@ -18,8 +18,11 @@ const getAchievementsWithApiCall = async (achievement, setAchievementList,setSea
           })
     });
     const data = await response.json();
-    setSearch(data.data)
-    localStorage.setItem('search', JSON.stringify(data.data));
+    // console.log(data.data);
+    if(setSearch){
+        setSearch(data.data)
+        localStorage.setItem('search', JSON.stringify(data.data));
+    }
     setAchievementList(data.data);
     return data;
 }
