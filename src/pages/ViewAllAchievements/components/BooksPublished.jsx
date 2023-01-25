@@ -9,15 +9,17 @@ import AchievementNotFound from '../../../components/ViewAllAchivementsAchivemen
 
 const BooksPublished = (prop) => {
     const props = prop.prop;
+    const {setAllAchievements, AllAchievements} = prop;
     const [BooksPublished, setAllBooksPublished]= useState({});
     const [isLoading, setLoading]= useState(true);
     useEffect(() => {
-        getAchievementsWithApiCall('bookspublished', setAllBooksPublished).then(() => {
-            setLoading(false);
-        });
+        getAchievementsWithApiCall('bookspublished', setAllBooksPublished)
     },
         [])
-useEffect(()=>{},[BooksPublished])
+useEffect(()=>{
+    setAllAchievements({...AllAchievements, BooksPublished});
+    setLoading(false);
+},[BooksPublished])
 return(
     <div>
         <div>
@@ -30,8 +32,8 @@ return(
                     ?
                     <Loader />
                     :
-                    (BooksPublished && BooksPublished.data && BooksPublished.data.length > 0?
-                        BooksPublished.data.map((book) => {
+                    (BooksPublished && BooksPublished.length > 0?
+                        BooksPublished.map((book) => {
                         return (
                             <div id='cards'>
                             <ViewAllAchievementsAchievement achievement={book} category={'bookspublished'} setAchievementList={setAllBooksPublished} prop={props}/>
