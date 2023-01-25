@@ -43,7 +43,6 @@ const LoginPage = () => {
             navigate("/dashboard");
         }
     }
-
     const googleSuccessHandler = async (userObject) => {
         console.log(userObject)
         const email = userObject.email;
