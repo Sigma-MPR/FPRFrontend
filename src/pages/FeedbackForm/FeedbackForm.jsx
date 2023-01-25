@@ -34,6 +34,9 @@ const FeedbackForm=()=>{
                  }).slice(0,2)
                   }
                </div> 
+               <div className="feedbackField px">
+                    <textarea name="" id="" cols="30" rows="20" placeholder="Enter your feedback here" className="px-2 py-2 mb-4 mt-4 rounded-md border-slate-700 border-solid border-4 "></textarea>
+               </div> 
                <div className="btn-div mt-0">
                 <button type="submit" className="submit-btn text-white bg-blue hover:bg-800 focus:ring-4 focus:outline-none focus:ring-blue-300  font-medium rounded-lg text-md  mt-0 w-full sm:w-auto px-8 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" >SUBMIT</button>
                </div>

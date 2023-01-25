@@ -70,6 +70,9 @@
      #fields input{
           width: 70%;
      }
+     .feedbackField{
+          width:30%;
+     }
 }
 @media only screen and (max-width:800px){
      .add-userregister{
@@ -85,6 +88,9 @@
      }
      #fields input{
           width: 70%;
+     }
+     .feedbackField{
+          width:50%;
      }
 }
 .textField{
