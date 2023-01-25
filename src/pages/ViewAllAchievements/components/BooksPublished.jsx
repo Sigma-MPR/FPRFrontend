@@ -7,9 +7,8 @@ import { CustomToastContainer } from '../../../components/Toast/Toast';
 import '../ViewAllAchievements.css'; 
 import AchievementNotFound from '../../../components/ViewAllAchivementsAchivement/AchievementFNF/AchievementNotFound';
 
-const BooksPublished = () => {
-    const Location = useLocation()
-
+const BooksPublished = (prop) => {
+    const props = prop.prop;
     const [BooksPublished, setAllBooksPublished]= useState({});
     const [isLoading, setLoading]= useState(true);
     useEffect(() => {
@@ -26,7 +25,7 @@ return(
                     color: '#0389FF'
                 }}>Books Published</h1>
             </div>
-            <div id='booksPublishedCardsContainer'>
+            <div id='CardsContainer'>
                 {isLoading
                     ?
                     <Loader />
@@ -34,8 +33,8 @@ return(
                     (BooksPublished && BooksPublished.data && BooksPublished.data.length > 0?
                         BooksPublished.data.map((book) => {
                         return (
-                            <div id='booksPublishedCards'>
-                            <ViewAllAchievementsAchievement achievement={book} category={'bookspublished'} setAchievementList={setAllBooksPublished}/>
+                            <div id='cards'>
+                            <ViewAllAchievementsAchievement achievement={book} category={'bookspublished'} setAchievementList={setAllBooksPublished} prop={props}/>
                         </div>
                         )
                     }):

@@ -7,8 +7,9 @@ import { CustomToastContainer } from '../../../components/Toast/Toast';
 import '../ViewAllAchievements.css'; 
 import AchievementNotFound from '../../../components/ViewAllAchivementsAchivement/AchievementFNF/AchievementNotFound';
 
-const ConferenceProceedings = () => {
+const ConferenceProceedings = (prop) => {
     const Location = useLocation()
+    const props = prop.prop;
     const [ConferenceProceedings, setAllConferenceProceedings]= useState({});
     const [isLoading, setLoading]= useState(true);
     useEffect(() => {
@@ -22,10 +23,10 @@ return(
     <div>
         <div>
                 <h1 className="text-4xl font-bold text-center underline" style={{
-                    color: '#1C1258'
+                    color: '#0389FF'
                 }}>Conference Proceedings</h1>
             </div>
-            <div id='ConferenceProceedingsCardsContainer'>
+            <div id='CardsContainer'>
                 {isLoading
                     ?
                     <Loader />
@@ -33,8 +34,8 @@ return(
                     (ConferenceProceedings && ConferenceProceedings.data && ConferenceProceedings.data.length > 0?
                         ConferenceProceedings.data.map((book) => {
                         return (
-                            <div id='ConferenceProceedingsCards'>
-                            <ViewAllAchievementsAchievement achievement={book} category={'ConferenceProceeding'} setAchievementList={setAllConferenceProceedings}/>
+                            <div id='cards'>
+                            <ViewAllAchievementsAchievement achievement={book} category={'ConferenceProceeding'} setAchievementList={setAllConferenceProceedings} prop = {props}/>
                         </div>
                         )
                     }):

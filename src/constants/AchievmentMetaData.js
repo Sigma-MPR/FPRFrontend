@@ -224,12 +224,16 @@ const AchievementArray = [
 
 const EndpointList = {
     "BP": "/bookspublished",
-    "CP": "/conferenceproceeding"
+    "CP": "/conferenceproceeding",
+    "JR": "/journals",
+    "AW": "/awards",
 }
 
 const AchievementDropDown = {
     "Books Published": "BP",
-    "Conference Proceeding": "CP"
+    "Conference Proceeding": "CP",
+    "Journal": "JR",
+    "Award": "AW"
 };
 
 export { AchievementSchemaData, AchievementArray, EndpointList, AchievementDropDown };

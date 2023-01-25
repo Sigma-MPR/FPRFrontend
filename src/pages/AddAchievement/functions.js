@@ -1,7 +1,6 @@
 import { EndpointList } from "../../constants";
 import { ACHIEVEMENT_API, fieldsMapping } from "../../constants";
 import './AddAchievement.css';
-// toast
 import { ToastError } from "../../components/Toast/Toast";
 import { error } from "daisyui/src/colors";
 const textField = (fieldName, required, value) => {
@@ -15,7 +14,7 @@ const textField = (fieldName, required, value) => {
           </label>
         </div>
         <div class="md:w-2/3">
-          <input id=${fieldName} class="bg-gray-100 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500" id="inline-full-name" type="text" value='${value||''}' placeholder='Enter ${fieldsMapping[fieldName]}' required =${required} />
+          <input id=${fieldName} class="bg-gray-100 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500" id="inline-full-name" type="text" value='${value || ''}' placeholder='Enter ${fieldsMapping[fieldName]}' required =${required} />
         </div>
       </div>
 
@@ -32,7 +31,7 @@ const numberField = (fieldName, required, value) => {
           </label>
         </div>
         <div class="md:w-2/3">
-          <input type="number" id=${fieldName} class="bg-gray-100 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500" id="inline-full-name"  value='${value||''}' placeholder='Enter ${fieldsMapping[fieldName]}' required = ${required} />
+          <input type="number" id=${fieldName} class="bg-gray-100 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500" id="inline-full-name"  value='${value || ''}' placeholder='Enter ${fieldsMapping[fieldName]}' required = ${required} />
         </div>
       </div>
 
@@ -50,7 +49,28 @@ const dateField = (fieldName, required, value) => {
           </label>
         </div>
         <div class="md:w-2/3">
-          <input type="date" id=${fieldName} class="bg-gray-100 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500" id="inline-full-name"  value = '${value?new Date(value).toISOString().split("T")[0]:''}' placeholder='Enter ${fieldsMapping[fieldName]}' required = ${required} />
+          <input type="date" id=${fieldName} class="bg-gray-100 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500" id="inline-full-name"  value = '${value ? new Date(value).toISOString().split("T")[0] : ''}' placeholder='Enter ${fieldsMapping[fieldName]}' required = ${required} />
+        </div>
+      </div>
+            </div>`
+    )
+}
+const boolFields = (fieldsName, required, value) => {
+    return (
+        `<div>
+        <div class="md:flex md:items-left mb-6">
+        <div class="md:w-1/3">
+          <label class="block font-medium  md:text-left mb-1 md:mb-0 pt-3 pr-4" for=${fieldsMapping[fieldsName]} >
+          ${fieldsMapping[fieldsName]}
+          </label>
+        </div>
+        <div class="md:w-2/3 text-center">
+        <label class="relative inline-flex items-center cursor-pointer">
+        
+          <input type="checkbox" ${value?"checked":''} class="sr-only peer"  id=${fieldsName}>
+            <div class="w-11 h-6 bg-gray-200 peer-focus:ring-4 peer-focus:ring-blue-300 bg-blue dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all  peer-checked:bg-light"></div>
+            <span id = ${fieldsName} class="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300 text-input">N/A   </span>
+        </label>
         </div>
       </div>
             </div>`
@@ -69,13 +89,15 @@ const makefields = (fields, setLoading, achievement) => {
             else if (field.type === "Date") {
                 document.querySelector("#fields").innerHTML += dateField(field.name, field.required, achievement ? achievement[field.name] : null)
             }
+            else if (field.type === "Boolean") {
+                document.querySelector("#fields").innerHTML += boolFields(field.name, field.required, achievement ? achievement[field.name] : null)
+            }
         })
         setLoading(false);
     }
     else {
         document.querySelector("#fields").innerHTML = `<h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100">No Fields Found</h1>`
         setLoading(true);
-        // ToastError("No Fields Found");
     }
 
 }
@@ -84,21 +106,20 @@ const getFieldsByAPI = async (achievement, setAchievementSchemaData) => {
     const endpoint = ACHIEVEMENT_API;
     try {
         let apiAchievement = achievement.split(" ").join("");
-        apiAchievement =  apiAchievement == "ConferenceProceeding"? "ConferenceProceedings" : apiAchievement;
+        apiAchievement = apiAchievement == "ConferenceProceeding" ? "ConferenceProceedings" : apiAchievement;
         console.log(apiAchievement);
-        const resp = await fetch(`${endpoint}/achievements/fields?model=${apiAchievement}`, {
+        const resp = await fetch(`${endpoint}/achievement/fields?model=${apiAchievement}`, {
             method: "GET",
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                "authorization": localStorage.getItem("token")
             }
         })
         const data = await resp.json();
         setAchievementSchemaData(data.modelFields);
     }
     catch (err) {
-        // //console.log("Error Occured");
         ToastError("Error Occured Getting Fields");
-        //console.log(err);
         return;
     }
 }
@@ -108,27 +129,26 @@ const addAchievementApiFunction = async (e, ach) => {
     e.preventDefault();
     var ele = document.getElementsByTagName("form")[0];
     ele.checkValidity();
-    if(!ele.reportValidity())
-    {
-        // ToastError("Please Fill All Required Fields");
+    if (!ele.reportValidity()) {
         return new error()
     }
     const achievement = e.target.value;
+    console.log(e.target);
     const data = {};
     const fields = document.querySelectorAll("#fields input");
     fields.forEach((item) => {
-        data[item.id] = item.value;
+        if(item.type == "checkbox"){
+            data[item.id] = item.checked;
+        }
+        else
+            data[item.id] = item.value;
     })
-    // console.log(data);
-    //console.log(data);
-    // data["cid"] = "507f1f77bcf86cd799439011";
+
+    console.log(data);
     data["uid"] = localStorage.getItem("userId");
-    // data["uid"] = "";
+    data["cid"] = localStorage.getItem("collegeId");
     const endpoint = EndpointList[achievement];
-    // //console.log("Endpoint: " + endpoint);
-    // bring the logic of the acheivement in here
-    const apiToCall = `${ACHIEVEMENT_API}/achievements/${str}`;
-    // //console.log(apiToCall);
+    const apiToCall = `${ACHIEVEMENT_API}/${str}`;
     if (!endpoint) return alert("Please Select Achievement Type");
     try {
         const resp = await fetch(`${apiToCall}`, {
@@ -141,23 +161,9 @@ const addAchievementApiFunction = async (e, ach) => {
         })
         await resp.json();
         return true
-        /* 
-            go to achievements/str
-            problem:
-                unable to maintaint he state of the achievements
-                so the achievements are not getting updated
-        */
-        // window.location.href = `/achievements/${str}`;
-        // navigate(`/achievements/${str}`);
-        // eslint-disable-next-line
-        // const location = useLocation();
-        // //console.log(location);
-
-
     }
     catch (err) {
-        //console.log(err);
-        // alert("Error Occured");
+        console.log(err);
         ToastError("Error Occured");
     }
 };
@@ -168,21 +174,25 @@ const updateAchievementApiFunction = async (e, ach, Achid) => {
     e.preventDefault();
     var ele = document.getElementsByTagName("form")[0];
     ele.checkValidity();
-    
-    if(!ele.reportValidity()){
+
+    if (!ele.reportValidity()) {
         return new error()
     }
-    // const achievement = e.target.value;
-    console.log(Achid);
     const data = {};
     const fields = document.querySelectorAll("#fields input");
     fields.forEach((item) => {
-        data[item.id] = item.value;
+        if(item.type == "checkbox"){
+            data[item.id] = item.checked;
+        }
+        else{
+            data[item.id] = item.value;
+        }
     })
     data['id'] = Achid;
-    // data["cid"] = "507f1f77bcf86cd799439011";
     data["uid"] = localStorage.getItem("userId");
-    const apiToCall = `${ACHIEVEMENT_API}/achievements/${str}`;
+    data["cid"] = localStorage.getItem("collegeId");
+
+    const apiToCall = `${ACHIEVEMENT_API}/${str}`;
     try {
         const resp = await fetch(`${apiToCall}`, {
             method: "PATCH",
@@ -194,21 +204,9 @@ const updateAchievementApiFunction = async (e, ach, Achid) => {
         })
         await resp.json();
         return true
-        /* 
-            go to achievements/str
-            problem:
-                unable to maintaint he state of the achievements
-                so the achievements are not getting updated
-        */
-        // window.location.href = `/achievements/${str}`;
-        // navigate(`/achievements/${str}`);
-        // eslint-disable-next-line
-        // const location = useLocation();
-        // //console
+    
     }
     catch (err) {
-        //console.log(err);
-        // alert("Error Occured");
         ToastError("Error Occured Updating");
     }
 };

@@ -1,11 +1,9 @@
-// import { ENDPOINTS } from "../../constants"
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
 import { toast } from 'react-toastify';
 import { USER_API } from "../../constants";
 import './ProfilePage.css';
 const getUser = async (token, setUser, navigate) => {
-    // console.log("token",token);
     const response = await fetch(USER_API, {
         method: 'GET',
         headers: {
@@ -16,7 +14,6 @@ const getUser = async (token, setUser, navigate) => {
     const data = await response.json();
     if (data.error) {
         alert(data.error);
-        // navigate('/login');
     }
     console.log(data);
     setUser(data);
@@ -27,15 +24,9 @@ const editUser = async (token, user, navigate, isDisabled, setUser) => {
     }
     if (!user.password) {
         alert('Enter Password To Save Changes');
-        toast.error('Enter Password To Save Changes', {
-            position: toast.POSITION.BOTTOM_RIGHT,
-        });
         return;
     }
-    // const bod = {
-
-    //     updateBody: {...user}
-    // }
+   
     console.log(user);
     const response = await fetch(USER_API, {
         method: 'PATCH',
@@ -49,13 +40,9 @@ const editUser = async (token, user, navigate, isDisabled, setUser) => {
     const data = await response.json();
     console.log(data);
     if (data.error) {
-        // toast.error('Something went wrong', {
-        //     position: toast.POSITION.BOTTOM_RIGHT,
-        // });
         console.log(data.error);
-        // navigate('/login');
     }
-    alert(data.message);
+    // alert(data.message);
 }
 const ProfilePage = () => {
     const token = localStorage.getItem('token');
@@ -70,28 +57,16 @@ const ProfilePage = () => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
         , []);
     useEffect(() => {
-        // console.log(user);
     }, [user, isDisabled]);
     if (!token) {
-        toast.error('No Session Found', {
-            position: toast.POSITION.BOTTOM_RIGHT,
-        });
         navigate('/login');
     }
-
     return (
-        <>
-            <div className="main-profile" style={
-                {
-                    // backgroundColor: "#D9F9FF",
-                    backgroundColor: "#F7F7F7"
-                }
-            }>
+        <main>
+            <div className="main-profile">
                 <div className="profile-container">
                     <h1 className="text-5xl font-bold text-black mb-3" id="h1"> Profile </h1>
-                    <div id="profile-container" style={{
-                    backgroundColor: "#D50032"
-                }}>
+                    <div id="profile-container">
                         <form class="">
                             <div class="">
                                 <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-1" for="name">
@@ -225,7 +200,7 @@ const ProfilePage = () => {
                     </div>
                 </div>
             </div>
-        </>
+        </main>
     )
 }
 export default ProfilePage;

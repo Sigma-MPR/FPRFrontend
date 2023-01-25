@@ -1,71 +1,50 @@
-import React, { useState } from 'react';
-// import { useEffect } from 'react';
-// import use
-import './RegisterPage.css';
-
-import {Register}  from '../../apis';
+import { useNavigate } from "react-router-dom";
+import "./RegisterPage.css";
 const RegisterPage = () => {
-    const [user, setUser] = useState("Admin");
-    
-    const changeUser = (e) => {
-        e.preventDefault();
-        setUser(user === "Faculty"?"Admin":"Faculty");
-    }
-    // set Useffect for user
-    // useEffect(() => {
-    // }, [user]);
-    
-    const register = async(e) => {
-        e.preventDefault();
-        const email = document.getElementById("email").value;
-        const password = document.getElementById("password").value;
-        //console.log(email, password);
-        let data = {
-            email,
-            password,
-        }
-        const registerResult = await Register(data);
-        if(!registerResult){
-            alert("Invalid Credentials");}
-        else{
-            // setlocal storage
-            console.log(registerResult);
-            localStorage.setItem("token",registerResult.data.token);
-            alert("Register Successful");
-            // window.location.href = "/dashboard";
-        }
-    }
-    return (
-        <div class="flex items-center justify-center min-h-screen bg-gray-100 CollegeBackground">
-            <div class="px-9 py-10 mt-4 text-left bg-white shadow-lg rounded-lg FadedWhiteBackground">
-                <h3 class=" text-2xl font-bold text-center" >{user==='Admin'?'Faculty':'Admin'} Register</h3>
-                <form action="">
-                    <div class="mt-4">
-                        <div>
-                            <input type="text" placeholder="Email"
-                                class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600" id='email'/>
-                        </div>
-                        <div class="mt-4">
-                            <input type="password" placeholder="Password"
-                                class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600" id='password'/>
-                        </div>
-                        <div class="mt-4">
-                            <input type="password" placeholder="Confirm Password"
-                                class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600" id='confirmPassword'/>
-                        </div>
-                        <div class="mt-4">
-                            <input type="text" placeholder="Name"
-                                class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600" id='name'/>
-                        </div>
+    const navigate = useNavigate();
+    const apiToCall = "http://localhost:5000/user/login";
+    const signupHandle = async () => {
+        var a = localStorage.getItem('User') || "[]";
+        const u = JSON.parse(a);
+        console.log(u);
+        const data = {
+            "email": u.email,
 
-                            <button class="px-10 py-2 my-3 mx-auto place-self-center  rounded-3xl hover:bg-blue-900 block RegisterButton" id="Registerbtn" onClick={register}>Register</button>
-                            <div class="Line"></div>
-                            <hr class="black"/>
-                    </div>
-                </form>
+        };
+        console.log("login ",data);
+        const resp = await fetch(`${apiToCall}`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data)
+        })
+        const res = await resp.json();
+        console.log("res ",res);
+        if (res.message === 'User does not exist') {
+            navigate('/complete-your-profile');
+        }
+        else {
+            navigate('/Landing-page');
+        }
+    }
+
+    return (
+            <center>
+        <div class="loginCard">
+            <div class="logincard-content">
+                <h2>Welcome to the community!</h2>
+                <p>Threre is only one way to register that is with google</p>
+                <div class="logincard-action">
+                {
+                        
+                    }
+                    {/* <button onClick={signInWithGoogle}>Sign in</button> */}
+                </div>
             </div>
-        </div>
+        </div> 
+        </center>
     )
 }
-export default RegisterPage;
 
+export default RegisterPage;

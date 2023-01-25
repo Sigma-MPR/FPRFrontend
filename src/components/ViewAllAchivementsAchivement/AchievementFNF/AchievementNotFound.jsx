@@ -6,7 +6,7 @@ export default function AchievementNotFound() {
     return (
         <div id="cards">
             <div className="flex justify-center ">
-                <img src={NotFound} className='w-64 rounded-xl' />
+                <img src={NotFound} className='w-64 rounded-xl' alt="No Achievements Found"/>
                 </div>
                 <div>
                 <h2 className="text-2xl font-semibold text-center" style={{
