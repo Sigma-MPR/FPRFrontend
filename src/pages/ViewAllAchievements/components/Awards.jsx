@@ -36,7 +36,7 @@ return(
                         awards.map((book) => {
                         return (
                             <div id='cards'>
-                            <ViewAllAchievementsAchievement achievement={book} category={'awards'} setAchievementList={setAllawards} prop = {props}/>
+                            <ViewAllAchievementsAchievement achievement={book} category={'Awards'} setAchievementList={setAllawards} prop = {props}/>
                         </div>
                         )
                     }):

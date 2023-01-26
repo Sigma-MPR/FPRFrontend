@@ -36,7 +36,7 @@ const Journals = (prop) => {
                         Journals.map((book) => {
                             return (
                                 <div id='cards' className='w-full'>
-                                    <ViewAllAchievementsAchievement achievement={book} category={'Journals'} setAchievementList={setAllJournals} prop={props} />
+                                    <ViewAllAchievementsAchievement achievement={book} category={'Journal'} setAchievementList={setAllJournals} prop={props} />
                                 </div>
                             )
                         }) :
