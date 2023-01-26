@@ -12,7 +12,7 @@ const fieldsMapping = {
     pubDate : 'Publishing Date',
     publisher : 'Name of the publisher',
     finType : 'Finance Type (Self / College Sponsored)',
-    regionType : 'Region Type(National / International)',
+    regionType : 'Region Type (National / International)',
     authors : 'Authors’ Name (Separated by comma)',
     remarks: 'Remarks (if any)',
     title : 'Title',
@@ -22,14 +22,14 @@ const fieldsMapping = {
     issueno: "Issue Number",
     issn : "ISSN",
     webUrl: "Website’s URL (If online)",
-    indexedBy: "Indexed By (Scopus/Web of Science/SCI/Extended SCI)",
+    indexedBy: "Indexed By (Scopus/WOS/SCI/ESCI)",
     isUgcApproved: "Whether UGC Approved (Yes/No)",
     isHardCopy: "Is Hard Copy Submitted in the Library? (Yes/No)",
     activityName: "Activity Name",
     awardName: "Award Name",
     awardingInstitution: "Awarding Institution",
     awardDate: "Award Date",
-    isPublished: "Whether Published? (Yes/No)",
+    isPublished: "Whether Published? (Yes / No)",
 }
 
 export default fieldsMapping;

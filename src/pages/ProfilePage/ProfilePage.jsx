@@ -65,7 +65,9 @@ const ProfilePage = () => {
         <main>
             <div className="main-profile">
                 <div className="profile-container">
-                    <h1 className="text-5xl font-bold text-black mb-3" id="h1"> Profile </h1>
+                    <h1 className="text-5xl font-bold text-black mb-3" id="h1" style={{
+                        fontFamily: 'monospace',
+                    }}> Profile </h1>
                     <div id="profile-container">
                         <form class="">
                             <div class="">
@@ -86,6 +88,14 @@ const ProfilePage = () => {
                                     setUser({ ...user, email: e.target.value });
                                 }} />
                             </div>
+                            <div class="">
+                                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-1 mt-4" for="email">
+                                    Designation
+                                </label>
+                                <input class="userInput appearance-none block  bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 mb-3" id="email" type="email" disabled={isDisabled} value={user.designation} onChange={(e) => {
+                                    setUser({ ...user, designation: e.target.value });
+                                }} />
+                            </div>
                             {/* flex div */}
                             <div className="flex w-3/4 justify-around">
                                 <div>
@@ -97,7 +107,7 @@ const ProfilePage = () => {
                                                     setUser({ ...user, isActive: e.target.checked });
                                                 }
                                             }
-                                            disabled={isDisabled}
+                                            disabled={true}
                                             />
                                             :
                                             <input type="checkbox" className="toggle toggle-success disabled:bg-error" id="isActive" onChange={
@@ -105,7 +115,7 @@ const ProfilePage = () => {
                                                     setUser({ ...user, isActive: e.target.checked });
                                                 }
                                             } 
-                                            disabled={isDisabled}
+                                            disabled={true}
                                             />
                                     }
                                 </div>
@@ -118,7 +128,7 @@ const ProfilePage = () => {
                                                     setUser({ ...user, isHod: e.target.checked });
                                                 }
                                             }
-                                            disabled={isDisabled}
+                                            disabled={true}
                                             />
                                             :
                                             <input type="checkbox" className="toggle toggle-success disabled:bg-error" id="isHOD" onChange={
@@ -126,28 +136,7 @@ const ProfilePage = () => {
                                                     setUser({ ...user, isHod: e.target.checked });
                                                 }
                                             }
-                                            disabled={isDisabled}
-                                            />
-                                    }
-                                </div>
-                                <div>
-                                    <lable class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-1 mt-4" for="isAdmin">Admin</lable>
-                                    {
-                                        user.isAdmin ?
-                                            <input type="checkbox" className="toggle toggle-success disabled:bg-success" id="isAdmin" checked onChange={
-                                                (e) => {
-                                                    setUser({ ...user, isAdmin: e.target.checked });
-                                                }
-                                            }
-                                            disabled={isDisabled}
-                                            />
-                                            :
-                                            <input type="checkbox" className="toggle toggle-success disabled:bg-error" id="isAdmin" onChange={
-                                                (e) => {
-                                                    setUser({ ...user, isAdmin: e.target.checked });
-                                                }
-                                            }
-                                            disabled={isDisabled}
+                                            disabled={true}
                                             />
                                     }
                                 </div>
@@ -161,7 +150,7 @@ const ProfilePage = () => {
                                         setUser({ ...user, password: e.target.value });
                                     }
                                 } />
-                                <p className="text-xs text-white -mt-3 mb-3" >!Enter Password To Make Changes in the profile sections</p>
+                                <p className="text-xs text-red -mt-3 mb-3" >!Enter Password To Make Changes in the profile sections</p>
                                 <p className="text-xs text-primary-400 -mt-3 mb-3" >!Password can only be changed using forgot password link in login section</p>
                             </div>
 
@@ -184,7 +173,7 @@ const ProfilePage = () => {
                             </div>
                         </div>
                     </div> */}
-                            <button className="hover:bg-blue-700 font-bold py-3 px-6 rounded mt-5"
+                            <button className="hover:bg-blue-700 font-bold py-3 px-6 rounded"
                                 onClick={
                                     async (e) => {
                                         e.preventDefault();

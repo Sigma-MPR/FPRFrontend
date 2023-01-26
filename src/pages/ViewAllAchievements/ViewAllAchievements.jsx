@@ -63,7 +63,7 @@ export default function ViewAllAchievements(){
                 {/* <button className="btn glass bg-gray px-12 hover:text-light"></button> */}
             </div>
             <div id='longAddButton'>
-                <AddAchievementButton achievement = {{prop: props }}/>
+                <AddAchievementButton achievement = {{prop: props[0] }}/>
             </div>
             <BooksPublished prop = {props[0]} setAllAchievements={setAllAchievements} AllAchievements = {AllAchievements}/>
             <ConferenceProceedings prop = {props[1]} setAllAchievements={setAllAchievements} AllAchievements = {AllAchievements}/>
