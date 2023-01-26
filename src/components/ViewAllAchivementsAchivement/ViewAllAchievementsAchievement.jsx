@@ -22,7 +22,7 @@ const ViewAllAchievementsAchievement = (props) => {
         <>
             <div id="card" className="card bg-neutral text-neutral-content">
                 <div className="card-body flex flex-row">
-                    <img className='w-16 h-16 lg:mr-20' src='/images/edit.png' onClick={(e) => toastAndDelete(props.achievement.id, props.category, props.setAchievementList, e)} />
+                    {/* <img className='w-16 h-16 lg:mr-20' src='/images/edit.png' onClick={(e) => toastAndDelete(props.achievement.id, props.category, props.setAchievementList, e)} /> */}
                     <div onClick={() => {
                         navigate('/achievements/view', { state: { prop: achievement, category, propData: prop, edit: 'true' } })
                     }}
@@ -37,7 +37,7 @@ const ViewAllAchievementsAchievement = (props) => {
                         <p className="text-neutral-content content-center lg:inline">{new Date(props.achievement.pubDate||props.achievement.awardDate).toString().slice(0, 15) || "props.createdAt"}</p>
                         </div>
                     </div>
-                    <img className='w-16 h-16 lg:ml-20' src='/images/delete.png' onClick={(e) => toastAndDelete(props.achievement.id, props.category, props.setAchievementList, e, props.setSearch)} />
+                    <img className='w-12 h-12' src='/images/delete.png' onClick={(e) => toastAndDelete(props.achievement.id, props.category, props.setAchievementList, e, props.setSearch)} />
                 </div>
             </div>
         </>
