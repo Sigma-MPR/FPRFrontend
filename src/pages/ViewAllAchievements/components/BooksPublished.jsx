@@ -13,7 +13,7 @@ const BooksPublished = (prop) => {
     const [BooksPublished, setAllBooksPublished]= useState({});
     const [isLoading, setLoading]= useState(true);
     useEffect(() => {
-        getAchievementsWithApiCall('bookspublished', setAllBooksPublished)
+        getAchievementsWithApiCall('BooksPublished', setAllBooksPublished)
     },
         [])
 useEffect(()=>{
@@ -36,7 +36,7 @@ return(
                         BooksPublished.map((book) => {
                         return (
                             <div id='cards'>
-                            <ViewAllAchievementsAchievement achievement={book} category={'bookspublished'} setAchievementList={setAllBooksPublished} prop={props}/>
+                            <ViewAllAchievementsAchievement achievement={book} category={'Books Published'} setAchievementList={setAllBooksPublished} prop={props}/>
                         </div>
                         )
                     }):
