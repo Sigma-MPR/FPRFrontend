@@ -11,9 +11,19 @@
 
 .Dashboard-Whole {
     background-image: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
-    height: 85vh;
-}
+    min-height: 85vh;
+    display: flex;
+    flex-direction: column;
 
+}
+/* at mobile view */
+@media screen and (max-width: 768px) {
+    .Dashboard-Whole {
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+    
+}
 .ViewAllBtn {
     display: flex;
     justify-content: center;
